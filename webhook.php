@@ -48,7 +48,6 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 			getProfile($userId)
 			getMessageContent($messageId)
-			<?php
 
 			$channelSecret = '5c1c1cb6d2769f4783b63c8ddddd8f82';
 			$idPush = 'U434d98c2ea737a9af2b3401a2c0abcbb'
