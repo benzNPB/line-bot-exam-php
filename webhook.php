@@ -39,11 +39,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			echo $result . "\r\n";
-			$idPush = 'U434d98c2ea737a9af2b3401a2c0abcbb'
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-			$response = $bot->pushMessage($idPush, $textMessageBuilder);
+			
 		}
 	}
 }
