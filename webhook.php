@@ -39,14 +39,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			echo $result . "\r\n";
-			
-			$channelSecret = '5c1c1cb6d2769f4783b63c8ddddd8f82';
-			$idPush = 'U434d98c2ea737a9af2b3401a2c0abcbb'
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-			$response = $bot->pushMessage($idPush, $textMessageBuilder);
-		}
+		
 	}
 }
 echo "OK";
