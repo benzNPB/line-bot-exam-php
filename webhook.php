@@ -1,11 +1,8 @@
 <?php // callback.php
-
 require "vendor/autoload.php";
 require "LINEBot.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-
 $access_token = 'yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -20,13 +17,11 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
 				'text' => $text
 			];
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
@@ -35,7 +30,6 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -44,13 +38,14 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
 			echo $result . "\r\n";
-			getProfile($userId)
-			getMessageContent($messageId)
-
-
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+			
+			$channelSecret = '5c1c1cb6d2769f4783b63c8ddddd8f82';
+			$idPush = 'U434d98c2ea737a9af2b3401a2c0abcbb'
+			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+			$response = $bot->pushMessage($idPush, $textMessageBuilder);
 		}
 	}
 }
