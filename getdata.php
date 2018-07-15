@@ -8,7 +8,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br>" "id : " . $row["iddb"]. " - status: " . $row["status"]. "  stat : " . $row["stat"]. ;
+        echo "id : " . $row["iddb"]. " - status: " . $row["status"]. "  stat : " . $row["stat"]. "<br>";
     }
 } else {
     echo "results";
