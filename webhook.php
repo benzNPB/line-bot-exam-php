@@ -70,18 +70,6 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-    else if($message == "..."){
-        $result->num_rows > 0);
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id : " . $row["iddb"]. " - data1: " . $row["data1"]. "  data2 : " . $row["data2"]. "<br>";
-    
-    }
-
-
-
-
-
 
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
