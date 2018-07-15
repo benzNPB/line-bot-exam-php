@@ -1,25 +1,11 @@
 <?php
-    require "dbconnection.php";
+    require "getdata.php";
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-
-    $sql = "SELECT iddb, data1, data2 FROM db";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id : " . $row["iddb"]. " - data1: " . $row["data1"]. "  data2 : " . $row["data2"]. "<br>";
-    }
-} else 
-    {
-    echo "results";
-}
-$conn->close();
     
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
@@ -84,12 +70,10 @@ $conn->close();
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
      else {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
-        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][0]['text'] = "เย้";
         replyMsg($arrayHeader,$arrayPostData);
     }
     function replyMsg($arrayHeader,$arrayPostData){
