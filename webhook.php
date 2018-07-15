@@ -71,10 +71,11 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else if($message == "..."){
-          $arrayPostData['to'] = $result;
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $result;
-          pushMsg($arrayHeader,$arrayPostData);
+         if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id : " . $row["iddb"]. " - data1: " . $row["data1"]. "  data2 : " . $row["data2"]. "<br>";
+    }
     }
 
 
