@@ -70,6 +70,18 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
+    else if($message == "..."){
+          $arrayPostData['to'] = $result;
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = $result;
+          pushMsg($arrayHeader,$arrayPostData);
+    }
+
+
+
+
+
+
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
