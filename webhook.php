@@ -63,6 +63,7 @@
      else if($message == "พิกัด"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = "location";
         $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
         $arrayPostData['messages'][0]['latitude'] = "13.7465354";
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
