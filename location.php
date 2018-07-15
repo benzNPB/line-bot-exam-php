@@ -20,6 +20,9 @@
         $arrayPostData['messages'][0]['longitude'] = "100.532752";
         replyMsg($arrayHeader,$arrayPostData);
     }
+else{
+      echo "idk";
+    }
 
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
