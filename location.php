@@ -36,7 +36,7 @@ $message = $arrayJson['events'][0]['message']['text'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "idk";
+        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
