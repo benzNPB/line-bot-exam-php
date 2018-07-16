@@ -8,7 +8,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
-  //  $message = $arrayJson['events'][0]['message']['text'];
+$message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
       if($message == "พิกัด"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
