@@ -4,7 +4,7 @@ mysql_select_db("db");
 
 mysql_query("SET NAMES UTF8");
 
-$q=mysql_query("SELECT * FROM tb_sys WHERE No=(
+$q=mysql_query("SELECT * FROM iddb WHERE No=(
     SELECT max(No) FROM iddb
     )");
 while($e=mysql_fetch_assoc($q))
