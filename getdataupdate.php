@@ -1,14 +1,3 @@
-<?php
-
-
-mysql_query("SET NAMES UTF8");
-
-$q=mysql_query("SELECT * FROM iddb WHERE No=(
-    SELECT max(No) FROM iddb
-    )");
-while($e=mysql_fetch_assoc($q))
-       $output[]=$e;
-
 
 <?php
 require "dbconnection.php";
