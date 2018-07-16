@@ -1,5 +1,5 @@
 <?php
-    require "getdata.php";
+    require "getdataupdate.php";
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
@@ -9,14 +9,17 @@
     
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
+$lat =  . $row["lati"].;
+$long =  . $row["longt"].;
 #ตัวอย่าง Message Type "Text"
-      if($message == "พิกัด"){
+      if($message == "พิกัด")
+    {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "location";
         $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-        $arrayPostData['messages'][0]['latitude'] = "13.7465354";
-        $arrayPostData['messages'][0]['longitude'] = "100.532752";
+        $arrayPostData['messages'][0]['latitude'] = $lat;
+        $arrayPostData['messages'][0]['longitude'] = $long;
         replyMsg($arrayHeader,$arrayPostData);
     }
     else
@@ -26,7 +29,6 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['messages'][0]['text'] = "idk";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
