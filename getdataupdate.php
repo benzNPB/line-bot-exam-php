@@ -1,6 +1,6 @@
 <?php
 require "dbconnection.php";
-$sql = "SELECT * FROM db";
+$sql = "SELECT iddb FROM db";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
