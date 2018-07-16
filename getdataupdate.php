@@ -7,7 +7,7 @@ if ($result->num_rows > 0) {
 
     while($row = $result->fetch_assoc())
      {
-        echo "lat : " . $row["lati"]. "  long : " . $row["longt"]. "<br>";
+          echo "id : " . $row["iddb"]. " - lat: " . $row["lati"]. "  long : " . $row["longt"]. "<br>";
     }
 } else
 {
