@@ -1,6 +1,5 @@
 <?php
-require "dbconnection.php";
-mysql_select_db("db");
+
 
 mysql_query("SET NAMES UTF8");
 
@@ -9,7 +8,20 @@ $q=mysql_query("SELECT * FROM iddb WHERE No=(
     )");
 while($e=mysql_fetch_assoc($q))
        $output[]=$e;
-$result = mysql_query($query);
-print(json_encode($output));
-mysql_close();
+
+
+<?php
+require "dbconnection.php";
+$sql = "SELECT * FROM iddb WHERE No=(SELECT max(No) FROM iddb)";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc())
+     {
+        echo "id : " . $row["iddb"] "<br>";
+    }
+} else {
+    echo "results";
+}
+$conn->close();
 ?>
