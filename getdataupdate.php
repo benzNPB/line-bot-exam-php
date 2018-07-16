@@ -1,6 +1,6 @@
 <?php
 require "dbconnection.php";
-$sql = "SELECT max(iddb), lati, longt FROM db";
+$sql = "SELECT iddb, lati, longt FROM db";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
