@@ -20,7 +20,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
     else{
-          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "idk";
         replyMsg($arrayHeader,$arrayPostData);
