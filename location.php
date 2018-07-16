@@ -1,4 +1,5 @@
 <?php
+    require "dbconnection.php";
     require "getdataupdate.php";
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
@@ -9,17 +10,26 @@
     
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
-$lat =  . $row["lati"].;
-$long =  . $row["longt"].;
 #ตัวอย่าง Message Type "Text"
       if($message == "พิกัด")
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "location";
-        $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-        $arrayPostData['messages'][0]['latitude'] = "$lat";
-        $arrayPostData['messages'][0]['longitude'] = "$long";
+        
+
+
+        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+           $arrayPostData['messages'][0]['type'] = "location";
+           $arrayPostData['messages'][0]['title'] = "location";
+           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
+           $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+        }else{
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = "error";
+        }
         replyMsg($arrayHeader,$arrayPostData);
     }
     else
