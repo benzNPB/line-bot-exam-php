@@ -18,8 +18,8 @@ $long =  . $row["longt"].;
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "location";
         $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-        $arrayPostData['messages'][0]['latitude'] = $lat;
-        $arrayPostData['messages'][0]['longitude'] = $long;
+        $arrayPostData['messages'][0]['latitude'] = "$lat";
+        $arrayPostData['messages'][0]['longitude'] = "$long";
         replyMsg($arrayHeader,$arrayPostData);
     }
     else
