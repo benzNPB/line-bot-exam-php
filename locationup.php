@@ -46,6 +46,7 @@ $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s+1);
            $arrayPostData['messages'][0]['address'] = $row["la"].",".$row["lo"];
            $arrayPostData['messages'][0]['latitude'] = $row["la"];
            $arrayPostData['messages'][0]['longitude'] =$row["lo"];
+           replyMsg($arrayHeader,$arrayPostData);
         }
     else
     {
