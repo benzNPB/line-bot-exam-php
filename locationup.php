@@ -31,12 +31,6 @@ $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s+1);
            $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-            
-           $arrayPostData['messages'][1]['type'] = "location";
-           $arrayPostData['messages'][1]['title'] = "equake";
-           $arrayPostData['messages'][1]['address'] = $row["la"].",".$row["lo"];
-           $arrayPostData['messages'][1]['latitude'] = $row["la"];
-           $arrayPostData['messages'][1]['longitude'] =$row["lo"];
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
