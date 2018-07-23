@@ -15,14 +15,20 @@ $message = $arrayJson['events'][0]['message']['text'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
+        $sql = "SELECT No, lat, long FROM updatedb order by No desc limit 0,1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location";
+           $arrayPostData['messages'][0]['title'] = "safe zone in Ko Phi Phi";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+           $arrayPostData['messages'][1]['type'] = "location";
+           $arrayPostData['messages'][1]['title'] = "safe zone in Phangnga";
+           $arrayPostData['messages'][1]['address'] =   $row["lat"].",".$row["long"];
+           $arrayPostData['messages'][1]['latitude'] = $row["lat"];
+           $arrayPostData['messages'][1]['longitude'] =$row["long"];
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
