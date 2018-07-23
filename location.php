@@ -14,7 +14,7 @@ $message = $arrayJson['events'][0]['message']['text'];
       if($message == "พิกัด")
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
+        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,2";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
@@ -23,9 +23,7 @@ $message = $arrayJson['events'][0]['message']['text'];
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-        $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];    
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 1,1";
-        $result = $conn->query($sql);
+    
            $arrayPostData['messages'][1]['type'] = "location";
            $arrayPostData['messages']1]['title'] = "safe zone in Phangnga";
            $arrayPostData['messages'][1]['address'] = $row["lati"].",".$row["longt"];
