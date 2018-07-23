@@ -5,6 +5,6 @@ echo $xml->channel->title;
 echo $xml->item[1]->title;
 //echo $xml->item->[1]->title;
 //echo "<br><br><br>";
-print_r($xml);
+//print_r($xml);
 
 ?>
