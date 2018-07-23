@@ -5,7 +5,7 @@ $xml = simplexml_load_file($url);
 
 //echo $xml->channel->title;
 
-echo $xml->item[0]->title;
+echo $xml->item(0)->title;
 //print_r($xml);
 
 ?>
