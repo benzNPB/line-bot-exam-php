@@ -23,7 +23,7 @@ $message = $arrayJson['events'][0]['message']['text'];
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-            
+        $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];    
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 1,1";
         $result = $conn->query($sql);
            $arrayPostData['messages'][1]['type'] = "location";
