@@ -52,7 +52,7 @@ $message = $arrayJson['events'][0]['message']['text'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please input "location" and bot will show safe zone location or "earthquake" bot will show earthquake location";
+        $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show safe zone location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
