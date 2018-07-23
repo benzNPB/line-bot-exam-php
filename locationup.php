@@ -15,10 +15,12 @@ $message = $arrayJson['events'][0]['message']['text'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
-        $sqls = "SELECT No, lat, long FROM updatedb order by No desc limit 0,1";
-        $result = $conn->query($sql);
+         $result = $conn->query($sql);
+
+        $sqls = "SELECT No, lat, long FROM updatedb order by No desc limit 0,1";       
         $results = $conn->query($sqls);
-        if ($result->num_rows > 0) {
+        
+        if ($result->num_rows > 0 && $results->num_rows > 0) {
           $row = $result->fetch_assoc();
           $rows = $results->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
