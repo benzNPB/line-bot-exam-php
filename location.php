@@ -14,10 +14,7 @@ $message = $arrayJson['events'][0]['message']['text'];
       if($message == "พิกัด")
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        
-
-
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,2";
+        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
