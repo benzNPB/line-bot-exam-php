@@ -41,6 +41,7 @@ $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s+1);
     }
  else if($message == "พิกัดแผ่นดินไหว") 
         {
+           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "earthquake";
            $arrayPostData['messages'][0]['address'] = $row["la"].",".$row["lo"];
