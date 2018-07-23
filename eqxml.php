@@ -5,5 +5,5 @@ $xml = simplexml_load_file($url);
 //echo $xml->channel->item[1]->title;
 $o = strpos($xml->channel->item[1]->title,"(" );
 $c = strpos($xml->channel->item[1]->title,")" );
-echo substr($xml->channel->item[1]->title,$o+1,$c-$o+1);
+echo substr($xml->channel->item[1]->title,$o+1 ,$c-$o-1);
 ?>
