@@ -31,7 +31,15 @@ $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s+1);
            $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-        }else{
+        }
+          else if($message == "พิกัดแผ่นดินไหว") {
+             $arrayPostData['messages'][0]['type'] = "location";
+           $arrayPostData['messages'][0]['title'] = "earthquake";
+           $arrayPostData['messages'][0]['address'] = $row["la"].",".$row["lo"];
+           $arrayPostData['messages'][0]['latitude'] = $row["la"];
+           $arrayPostData['messages'][0]['longitude'] =$row["lo"];
+        }
+          else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
         }
