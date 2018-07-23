@@ -23,12 +23,7 @@ $message = $arrayJson['events'][0]['message']['text'];
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-    
-           $arrayPostData['messages'][1]['type'] = "location";
-           $arrayPostData['messages']1]['title'] = "safe zone in Phangnga";
-           $arrayPostData['messages'][1]['address'] = $row["lati"].",".$row["longt"];
-           $arrayPostData['messages'][1]['latitude'] = $row["lati"];
-           $arrayPostData['messages'][1]['longitude'] =$row["longt"];
+
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
