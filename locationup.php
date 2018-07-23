@@ -7,7 +7,7 @@
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
@@ -32,6 +32,8 @@ $message = $arrayJson['events'][0]['message']['text'];
     }
 
         else if ($message == "พิกัดแผ่นดินไหว") {
+          $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
+          $xml = simplexml_load_file($url);
           $o = strpos($xml->channel->item[0]->title,"(" );
           $s = strpos($xml->channel->item[0]->title,"," );
           $c = strpos($xml->channel->item[0]->title,")" );
@@ -40,12 +42,11 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "earthquake";
-        $arrayPostData['messages'][0]['address'] =   $la.",".$lo;
+        $arrayPostData['messages'][0]['address'] =  $la.",".$lo;
         $arrayPostData['messages'][0]['latitude'] = $la;
         $arrayPostData['messages'][0]['longitude'] = $lo;
         replyMsg($arrayHeader,$arrayPostData);
     }
-
 
     else
     {
