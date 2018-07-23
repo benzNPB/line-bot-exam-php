@@ -40,9 +40,9 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "earthquake";
-        $arrayPostData['messages'][0]['address'] =   "$la,$lo";
-        $arrayPostData['messages'][0]['latitude'] = "$la";
-        $arrayPostData['messages'][0]['longitude'] = "$lo";
+        $arrayPostData['messages'][0]['address'] =   $la.",".$lo;
+        $arrayPostData['messages'][0]['latitude'] = $la;
+        $arrayPostData['messages'][0]['longitude'] = $lo;
         replyMsg($arrayHeader,$arrayPostData);
     }
 
