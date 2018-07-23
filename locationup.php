@@ -20,7 +20,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "safe zone in Ko Phi Phi";
+           $arrayPostData['messages'][0]['title'] = "location from database";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
@@ -52,7 +52,7 @@ $message = $arrayJson['events'][0]['message']['text'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show safe zone location or 'earthquake' bot will show earthquake location";
+        $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
