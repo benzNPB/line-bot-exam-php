@@ -10,45 +10,49 @@
     
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
-$url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
-$xml = simplexml_load_file($url);
-$o = strpos($xml->channel->item[0]->title,"(" );
-$s = strpos($xml->channel->item[0]->title,"," );
-$c = strpos($xml->channel->item[0]->title,")" );
-$la = substr($xml->channel->item[0]->title,$o+1 ,$s-$o-1);
-$lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s+1);
 #ตัวอย่าง Message Type "Text"
       if($message == "พิกัด")
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
-         $result = $conn->query($sql);
-        
+        $result = $conn->query($sql);
+
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
+          $rows = $results->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "safe zone in Ko Phi Phi";
-           $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
+           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
-        }
-          else
-        {
+           $arrayPostData['messages'][1]['type'] = "location";
+           $arrayPostData['messages'][1]['title'] = "safe zone in Phangnga";
+           $arrayPostData['messages'][1]['address'] =   $rows["lat"].",".$rows["long"];
+           $arrayPostData['messages'][1]['latitude'] = $rows["lat"];
+           $arrayPostData['messages'][1]['longitude'] =$rows["long"];
+        }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
- else if($message == "พิกัดแผ่นดินไหว") 
-        {
-           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-           $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "earthquake";
-           $arrayPostData['messages'][0]['address'] = $la.",".$lo;
-           $arrayPostData['messages'][0]['latitude'] = $la;
-           $arrayPostData['messages'][0]['longitude'] = $lo;
-           replyMsg($arrayHeader,$arrayPostData);
-        }
+
+        else if ($message == "พิกัดแผ่นดินไหว") {
+          $o = strpos($xml->channel->item[0]->title,"(" );
+          $s = strpos($xml->channel->item[0]->title,"," );
+          $c = strpos($xml->channel->item[0]->title,")" );
+          $la = substr($xml->channel->item[0]->title,$o+1 ,$s-$o-1);
+          $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s-1);
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = "earthquake";
+        $arrayPostData['messages'][0]['address'] =   "$la,$lo";
+        $arrayPostData['messages'][0]['latitude'] = "$la";
+        $arrayPostData['messages'][0]['longitude'] = "$lo";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
+
     else
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
