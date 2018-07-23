@@ -17,7 +17,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         
 
 
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
+        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,2";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
