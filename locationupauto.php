@@ -14,7 +14,7 @@ $message = $arrayJson['events'][0]['message']['text'];
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $sql = "SELECT iddb, lati, longt, mag FROM db";
     $result = $conn->query($sql);
-  if( $row["mag"] > 30)
+  if( $row["mag"] == 30)
     {
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
