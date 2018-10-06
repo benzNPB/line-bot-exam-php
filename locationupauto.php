@@ -12,9 +12,8 @@
 $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $sql = "SELECT iddb, lati, longt, mag FROM db order by iddb desc limit 0,1";
+    $sql = "SELECT iddb, lati, longt, mag FROM db";
     $result = $conn->query($sql);
-    $row["mag"];
   if( $row["mag"] > 30)
     {
         if ($result->num_rows > 0) {
@@ -54,6 +53,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
+        echo "$row["mag"]";
     }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
