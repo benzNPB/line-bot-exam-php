@@ -8,7 +8,7 @@ echo "Hello LINE BOT";
 $lat = $lat1 - $lat2;
 $long = $long1 - $long2;
 $a = sin($lat /2)+ cos($lat1) * cos($lat2) * sin($long/2);
-$c = 2*$a*tan2(sqrt($a), sqrt(1 − $a));
+$c = 2 * $a * tan2(sqrt($a), sqrt(1 − $a));
 $d = $R*$c
 echo $lat1;
 ?>
