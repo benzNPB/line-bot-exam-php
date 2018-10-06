@@ -14,22 +14,22 @@ $message = $arrayJson['events'][0]['message']['text'];
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $sql = "SELECT iddb, lati, longt, mag FROM db order by iddb desc limit 0,1";
     $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-          if($row["mag"]> "30"){
+  if($result->num_rows > 0)
+    { 
+      $row = $result->fetch_assoc();
+        if ($row["mag"]> "30") {
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location from database";
            $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] = $row["longt"];
-           }
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
         }
         replyMsg($arrayHeader,$arrayPostData);
-    
+    }
+
         else if ($message == "earthquake") {
           $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
           $xml = simplexml_load_file($url);
