@@ -12,6 +12,6 @@
     $a = sin($deltaLat/2) * sin($deltaLat/2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($deltaLong/2) * sin($deltaLong/2);
     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
 
-    $distance = $R * $c;
+    $distance = $R * $c * 1000;
     echo $distance;    // in km
 ?>
