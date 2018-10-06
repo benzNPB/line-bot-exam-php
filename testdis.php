@@ -13,5 +13,5 @@
     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
 
     $distance = $R * $c * 1000;
-   echo "$distance = "  $distance "m";    // in km
+   echo $distance;    // in km
 ?>
