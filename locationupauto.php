@@ -11,15 +11,16 @@
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
-    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $sql = "SELECT iddb, lati, longt, mag FROM db";
-    $result = $conn->query($sql);
-  if( $row["mag"] == 30)
+        if($message == "location")
     {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $sql = "SELECT iddb, lati, longt, mag FROM db order by iddb desc limit 0,1";
+        $result = $conn->query($sql);
+
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = $row["mag"];
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
