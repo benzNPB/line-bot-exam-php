@@ -53,7 +53,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
-        echo "$row["mag"]";
+ 
     }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
