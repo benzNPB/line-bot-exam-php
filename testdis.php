@@ -1,9 +1,11 @@
 <?php
-
+ 
 	$lat1 = 35.372871;
 	$long1 = 139.270905;
 	$lat2 = 35.360845;
 	$long2 = 139.272493;
+	$lat3 = 35.368761;
+	$long3 = 139.268089;
 	$R = 6371;
     
     $deltaLat = deg2rad($lat2 - $lat1);
@@ -13,5 +15,6 @@
     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
 
     $distance = $R * $c;
+   echo "distance1"
    echo $distance;    // in km
 ?>
