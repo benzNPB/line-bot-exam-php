@@ -23,7 +23,7 @@
   //  $distance2 = $R * $c2;
 
    //echo "distance 1 is "
-   echo $distance ;    // in km
+   echo $distance, '<br>' ;    // in km
 	   
 //   echo "distance 2 is "
 //   echo $distance2;    // in km
