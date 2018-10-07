@@ -30,7 +30,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-        else if ($message == "earthquake") {
+        else if ($row["mag"]> "30" && $message == "earthquake") {
           $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
           $xml = simplexml_load_file($url);
           $o = strpos($xml->channel->item[0]->title,"(" );
