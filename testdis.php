@@ -22,7 +22,7 @@
   //  $c2 = 2 * atan2(sqrt($a2), sqrt(1-$a2));
   //  $distance2 = $R * $c2;
 
-   echo "distance 1 is "
+   //echo "distance 1 is "
    echo $distance<BR>;    // in km
 	   
 //   echo "distance 2 is "
