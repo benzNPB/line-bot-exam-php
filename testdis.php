@@ -11,8 +11,8 @@
     $deltaLat = deg2rad($lat2 - $lat1);
     $deltaLong = deg2rad($long2 - $long1);
 
- //   $deltaLat2 = deg2rad($lat2 - $lat3);
- //   $deltaLong2 = deg2rad($long2 - $long3);
+   $deltaLat2 = deg2rad($lat2 - $lat3);
+   $deltaLong2 = deg2rad($long2 - $long3);
 
     $a = sin($deltaLat/2) * sin($deltaLat/2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($deltaLong/2) * sin($deltaLong/2);
     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
