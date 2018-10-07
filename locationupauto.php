@@ -14,8 +14,9 @@ $message = $arrayJson['events'][0]['message']['text'];
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $sql = "SELECT iddb, lati, longt, mag FROM db order by iddb desc limit 0,1";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-  if($result->num_rows > 0){ 
+  if($result->num_rows > 0)
+    { 
+      $row = $result->fetch_assoc();
         if ($row["mag"]> "30") {
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location from database";
@@ -24,10 +25,10 @@ $message = $arrayJson['events'][0]['message']['text'];
            $arrayPostData['messages'][0]['longitude'] = $row["longt"];
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = "error";
+          $arrayPostData['messages'][0]['text'] = "mag is lower than 30";
         }
         replyMsg($arrayHeader,$arrayPostData);
-  }
+    }
 
         else if ($message == "earthquake") {
           $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
@@ -53,7 +54,6 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
     }
-  
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
