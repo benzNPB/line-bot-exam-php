@@ -28,7 +28,7 @@ $message = $arrayJson['events'][0]['message']['text'];
           $arrayPostData['messages'][0]['text'] = "error";
         }
         replyMsg($arrayHeader,$arrayPostData);
-  }
+  
 
         else if ($message == "earthquake") {
           $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
@@ -54,6 +54,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         $arrayPostData['messages'][0]['text'] = "please input 'location' and bot will show location or 'earthquake' bot will show earthquake location";
         replyMsg($arrayHeader,$arrayPostData);
     }
+  }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
