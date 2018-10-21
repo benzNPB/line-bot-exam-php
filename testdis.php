@@ -1,9 +1,9 @@
 <?php
  
-$latu = 35.363611;//users location (アベイル南矢名店)
-$longu = 139.258926;
-//$latu = 35.361010;//users location (金目親水公園)
-//$longu = 139.280074;
+//$latu = 35.368347;//users location (秦野市立大根中学校)
+//$longu = 139.268366;
+$latu = 35.361010;//users location (金目親水公園)
+$longu = 139.280074;
 $lat1 = 35.364219; //1st 7-11
 $long1 = 139.267804;
 $lat2 = 35.366817; //2nd lawson
@@ -44,31 +44,12 @@ $R = 6371;
   $c5 = 2 * atan2(sqrt($a5), sqrt(1-$a5));
   $dis5 = $R * $c5;
 
-$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
-if ($dis == $dis1) {
-        echo "1st 7-11". "<br>";
-      //  echo "distance is " . $dis1. "m"."<br>";
-        echo $lat1 .",". $long1;
-}
-else if ($dis == $dis2) {
-        echo "2nd lawson". "<br>";
-   //     echo "distance is " . $dis2."m". "<br>";
-        echo $lat2 .",". $long2;     
-}
-else if ($dis == $dis3) {
-        echo"3rd Family". "<br>";
-   //     echo "distance is " . $dis3. "m"."<br>";
-        echo $lat3 .",". $long3;   
-}
-else if ($dis == $dis4) {
-        echo "4th lawson". "<br>";
-   //     echo "distance is " . $dis4."m". "<br>";
-        echo $lat4 .",". $long4;   
-}
-else if ($dis == $dis5) {
-        echo "5th Daily". "<br>" ;
-     //   echo "distance is " . $dis5."m". "<br>";
-        echo $lat5 .",". $long5;   
-}
+$dis = array ($dis1,$dis2,$dis3,$dis4,$dis5);
+sort($dis);
+$dis[0];
+$dis[1];
+        echo $dis[0] . "<br>";
+        echo $dis[1] ;
+
 
 ?>
