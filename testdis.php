@@ -43,20 +43,5 @@ $R = 6371;
   $dis5 = $R * $c5;
 
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5)
-switch ($dis) {
-    case $dis == $dis1:
-        echo $lat1 ;
-        break;
-    case $dis == $dis2:
-        echo $lat2 ;
-        break;
-    case $dis == $dis3:
-        echo $lat3 ;
-        break;
-    case $dis == $dis4:
-        echo $lat4 ;
-        break;
-    case $dis == $dis5:
-        echo $lat5 ;
-
+echo $dis
 ?>
