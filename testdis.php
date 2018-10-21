@@ -1,9 +1,9 @@
 <?php
  
-//$latu = 35.368347;//users location (秦野市立大根中学校)
-//$longu = 139.268366;
-$latu = 35.370069;//users location (弘済学園)
-$longu = 139.287027;
+$latu = 35.368347;//users location (秦野市立大根中学校)
+$longu = 139.268366;
+//$latu = 35.370069;//users location (弘済学園)
+//$longu = 139.287027;
 $lat1 = 35.364219; //1st 7-11
 $long1 = 139.267804;
 $lat2 = 35.366817; //2nd lawson
