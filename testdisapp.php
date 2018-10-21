@@ -62,35 +62,35 @@ $message = $arrayJson['events'][0]['message']['text'];
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
 if ($dis == $dis1) {
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = "Nearest convenience";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $lat2;
            $arrayPostData['messages'][0]['longitude'] = $long1;
 }
 else if ($dis == $dis2) {
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = "Nearest convenience";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $lat1;
            $arrayPostData['messages'][0]['longitude'] = $long2;  
 }
 else if ($dis == $dis3) {
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = "Nearest convenience";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $lat3;
            $arrayPostData['messages'][0]['longitude'] = $long3;
 }
 else if ($dis == $dis4) {
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = "Nearest convenience";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $lat4;
            $arrayPostData['messages'][0]['longitude'] = $long4;
 }
 else if ($dis == $dis5) {
            $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['title'] = "Nearest convenience";
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $lat5;
            $arrayPostData['messages'][0]['longitude'] = $long5;
