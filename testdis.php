@@ -43,5 +43,5 @@ $R = 6371;
   $dis5 = $R * $c5;
 
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5)
-echo $dis
+echo $dis;
 ?>
