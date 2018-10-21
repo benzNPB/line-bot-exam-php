@@ -42,6 +42,6 @@ $R = 6371;
   $c5 = 2 * atan2(sqrt($a5), sqrt(1-$a5));
   $dis5 = $R * $c5;
 
-$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5)
-echo $dis;
+echo min ($dis1,$dis2,$dis3,$dis4,$dis5)
+
 ?>
