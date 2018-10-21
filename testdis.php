@@ -34,15 +34,13 @@ $R = 6371;
   $dis2 = $R * $c2;
   $a = sin($deltaLat3/2) * sin($deltaLat3/2) + cos(deg2rad($lat3)) * cos(deg2rad($latu)) * sin($deltaLong3/2) * sin($deltaLong3/2);
   $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-  $dis1 = $R * $c;
+  $dis3 = $R * $c;
   $a2 = sin($deltaLat4/2) * sin($deltaLat4/2) + cos(deg2rad($lat4)) * cos(deg2rad($latu)) * sin($deltaLong4/2) * sin($deltaLong4/2);
   $c2 = 2 * atan2(sqrt($a2), sqrt(1-$a2));
-  $dis2 = $R * $c2;
+  $dis4 = $R * $c2;
   $a5 = sin($deltaLat5/2) * sin($deltaLat5/2) + cos(deg2rad($lat5)) * cos(deg2rad($latu)) * sin($deltaLong5/2) * sin($deltaLong5/2);
   $c5 = 2 * atan2(sqrt($a), sqrt(1-$a));
   $dis5 = $R * $c;
-
-
 
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5)
 switch ($dis) {
