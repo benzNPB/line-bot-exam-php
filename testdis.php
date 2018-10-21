@@ -16,15 +16,11 @@
 
     $a = sin($deltaLat/2) * sin($deltaLat/2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($deltaLong/2) * sin($deltaLong/2);
     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-    $distance = $R * $c;
+    $dis1 = $R * $c;
 
    $a2 = sin($deltaLat2/2) * sin($deltaLat2/2) + cos(deg2rad($lat3)) * cos(deg2rad($lat2)) * sin($deltaLong2/2) * sin($deltaLong2/2);
   $c2 = 2 * atan2(sqrt($a2), sqrt(1-$a2));
-    $distance2 = $R * $c2;
+    $dis2 = $R * $c2;
+echo min ($dis1,$dis2)
 
-   echo $distance, '<br>' ;    // in km
-	   
-//   echo "distance 2 is "
-  echo $distance2;    // in km
-//   echo "km"
 ?>
