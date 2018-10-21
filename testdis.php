@@ -16,16 +16,16 @@ $lat5 = 35.372509; //5th Daily
 $long5 = 139.271988;
 $R = 6371;
     
-   $deltaLat1 = deg2rad($latu - $lat1);
-   $deltaLong1 = deg2rad($longu - $long1);
-   $deltaLat2 = deg2rad($latu - $lat2);
-   $deltaLong2 = deg2rad($longu - $long2);
-   $deltaLat3 = deg2rad($latu - $lat3);
-   $deltaLong3 = deg2rad($longu - $long3);
-   $deltaLat4 = deg2rad($latu - $lat4);
-   $deltaLong4 = deg2rad($longu - $long4);
-   $deltaLat5 = deg2rad($latu - $lat5);
-   $deltaLong5 = deg2rad($longu - $long5);
+   $deltaLat1 = deg2rad($lat1 - $latu);
+   $deltaLong1 = deg2rad($long1 - $longu);
+   $deltaLat2 = deg2rad($lat2 - $latu);
+   $deltaLong2 = deg2rad($long2 - $longu);
+   $deltaLat3 = deg2rad($lat3 - $latu);
+   $deltaLong3 = deg2rad($long3 - $longu);
+   $deltaLat4 = deg2rad($lat4 - $latu);
+   $deltaLong4 = deg2rad($long4 - $longu);
+   $deltaLat5 = deg2rad($lat5 - $latu);
+   $deltaLong5 = deg2rad($long5 - $longu);
 
 
   $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lat1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
