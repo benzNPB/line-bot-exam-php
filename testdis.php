@@ -45,9 +45,14 @@ $R = 6371;
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
 if ($dis == $dis1) {
         echo "1st 7-11";
+        echo "distance is " . $dis1. "<br>";
+        echo $lat1 .",". $long1;
 }
 else if ($dis == $dis2) {
-        echo "2nd lawson";
+        echo "2nd lawson". "<br>";
+        echo "distance is " . $dis2. "<br>";
+        echo $lat2 .",". $long2;
+        
 }
 else if ($dis == $dis3) {
         echo"3rd Family";
