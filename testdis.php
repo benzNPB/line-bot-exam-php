@@ -1,7 +1,9 @@
 <?php
  
-$latu = 35.368347;//users location
-$longu = 139.268366;
+//$latu = 35.368347;//users location (秦野市立大根中学校)
+//$longu = 139.268366;
+$latu = 35.371558;//users location (弘済学園)
+$longu = 139.259752;
 $lat1 = 35.364219; //1st 7-11
 $long1 = 139.267804;
 $lat2 = 35.366817; //2nd lawson
@@ -51,17 +53,22 @@ if ($dis == $dis1) {
 else if ($dis == $dis2) {
         echo "2nd lawson". "<br>";
         echo "distance is " . $dis2. "<br>";
-        echo $lat2 .",". $long2;
-        
+        echo $lat2 .",". $long2;     
 }
 else if ($dis == $dis3) {
         echo"3rd Family";
+        echo "distance is " . $dis3. "<br>";
+        echo $lat3 .",". $long3;   
 }
 else if ($dis == $dis4) {
         echo "4th lawson";
+        echo "distance is " . $dis4. "<br>";
+        echo $lat4 .",". $long4;   
 }
 else if ($dis == $dis5) {
         echo "5th Daily" ;
+        echo "distance is " . $dis5. "<br>";
+        echo $lat5 .",". $long5;   
 }
 
 ?>
