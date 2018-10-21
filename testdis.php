@@ -10,10 +10,10 @@ $lat2 = 35.366817; //2nd lawson
 $long2 = 139.272703;
 $lat3 = 35.372509; //3rd Family
 $long3 = 139.271988;
-$lat4 = 35.366817; //4th lawson
-$long4 = 139.272703;
-$lat5 = 35.372509; //5th Daily
-$long5 = 139.271988;
+$lat4 = 35.360643; //4th lawson
+$long4 = 139.275320;
+$lat5 = 35.361172; //5th Daily
+$long5 = 139.269099;
 $R = 6371;
     
    $deltaLat1 = deg2rad($lat1 - $latu);
