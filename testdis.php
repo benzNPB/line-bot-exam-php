@@ -44,19 +44,19 @@ $R = 6371;
 
 $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
 if ($dis == $dis1) {
-        echo $lat1 ;
+        echo "1st 7-11";
 }
 else if ($dis == $dis2) {
-        echo $lat2 ;
+        echo "2nd lawson";
 }
 else if ($dis == $dis3) {
-        echo $lat3 ;
+        echo"3rd Family";
 }
 else if ($dis == $dis4) {
-        echo $lat4 ;
+        echo "4th lawson";
 }
 else if ($dis == $dis5) {
-        echo $lat5 ;
+        echo "5th Daily" ;
 }
 
 ?>
