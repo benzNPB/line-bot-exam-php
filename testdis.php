@@ -1,9 +1,9 @@
 <?php
  
-//$latu = 35.368347;//users location (秦野市立大根中学校)
-//$longu = 139.268366;
-$latu = 35.361010;//users location (金目親水公園)
-$longu = 139.280074;
+$latu = 35.363611;//users location (アベイル南矢名店)
+$longu = 139.258926;
+//$latu = 35.361010;//users location (金目親水公園)
+//$longu = 139.280074;
 $lat1 = 35.364219; //1st 7-11
 $long1 = 139.267804;
 $lat2 = 35.366817; //2nd lawson
