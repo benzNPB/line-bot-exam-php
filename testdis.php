@@ -2,8 +2,8 @@
  
 //$latu = 35.368347;//users location (秦野市立大根中学校)
 //$longu = 139.268366;
-$latu = 35.371491;//users location (弘済学園)
-$longu = 139.259814;
+$latu = 35.361010;//users location (金目親水公園)
+$longu = 139.280074;
 $lat1 = 35.364219; //1st 7-11
 $long1 = 139.267804;
 $lat2 = 35.366817; //2nd lawson
