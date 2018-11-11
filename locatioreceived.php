@@ -12,7 +12,10 @@
     $event = $arrayJson['events'][0]['message']['LocationMessage'];
     if ($event instanceof LocationMessage) 
 {
-   $bot->replyText($event->getReplyToken(), "Latitude: {$event->getLatitude()}, Longtitude: {$event->getLongitude()}");
+          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = "received";
+          replyMsg($arrayHeader,$arrayPostData);
  }
 
 
