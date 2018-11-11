@@ -9,6 +9,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
     //รับข้อความจากผู้ใช้
+     //     $message = $arrayJson['events'][0]['source']['text'];
           $message = $arrayJson['events'][0]['source']['location'];
           if($message['type'] == 'location')
 {
@@ -19,10 +20,10 @@
 }
 else
 {
+          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
           replyMsg($arrayHeader,$arrayPostData);
-}
 }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
