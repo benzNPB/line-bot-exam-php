@@ -18,6 +18,13 @@
           $arrayPostData['messages'][0]['text'] = "received";
           replyMsg($arrayHeader,$arrayPostData);
 }
+else
+{
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = "error";
+          replyMsg($arrayHeader,$arrayPostData);
+}
+}
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
