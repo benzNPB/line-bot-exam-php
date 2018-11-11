@@ -9,7 +9,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
     //รับข้อความจากผู้ใช้
-    $event = $arrayJson['events'][0]['message']['location'];
+    $event = $arrayJson['events'][0]['source']['location'];
     if ($event instanceof LocationMessage) 
 {
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -24,9 +24,6 @@
           $arrayPostData['messages'][0]['text'] = "error";
           replyMsg($arrayHeader,$arrayPostData);        
  }
-
-
-
 
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
