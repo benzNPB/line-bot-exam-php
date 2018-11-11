@@ -10,11 +10,13 @@
 
     //รับข้อความจากผู้ใช้
           $event = $arrayJson['events'][0]['source']['location'];
+if($event == $arrayJson['events'][0]['source']['location'])
+{
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "received";
           replyMsg($arrayHeader,$arrayPostData);
-
+}
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
