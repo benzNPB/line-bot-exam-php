@@ -9,6 +9,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
     //รับข้อความจากผู้ใช้
+    $event = $arrayJson['events'][0]['message']['LocationMessage'];
     if ($event instanceof LocationMessage) 
 {
    $bot->replyText($event->getReplyToken(), "Latitude: {$event->getLatitude()}, Longtitude: {$event->getLongitude()}");
