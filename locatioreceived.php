@@ -10,7 +10,7 @@
 
     //รับข้อความจากผู้ใช้
      //     $message = $arrayJson['events'][0]['source']['text'];
-          $message = $arrayJson['events'][0]['source']['location'];
+          $message = $arrayJson['events'][0]['source']['text'];
           if($message['events'][0]['type'] = "location")
 {
           $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
