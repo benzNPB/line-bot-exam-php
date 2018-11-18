@@ -20,6 +20,6 @@ for ($i = 1; $i <= 5; $i++) {
   $deltaLong.$i. = deg2rad($long.$i. - $longu);
   $a.$i. = sin($deltaLat.$i./2) * sin($deltaLat.$i./2) + cos(deg2rad($lat.$i.)) * cos(deg2rad($latu)) * sin($deltaLong.$i./2) * sin($deltaLong.$i./2);
   $c.$i. = 2 * atan2(sqrt($a.$i.), sqrt(1-$a.$i.));
-  $dis.$i. = $R * $c.$i.;
+  $dis.$i. = $R * $c.$i.;}
   echo $dis.$i.;
 ?>
