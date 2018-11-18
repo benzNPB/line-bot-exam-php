@@ -15,7 +15,7 @@
           $R = 6371;
 
 
-for ($i = 1; $x <= 5; $i++) {
+for ($i = 1; $i <= 5; $i++) {
   $deltaLat.$i. = deg2rad($lat.$i. - $latu);
   $deltaLong.$i. = deg2rad($long.$i. - $longu);
   $a.$i. = sin($deltaLat.$i./2) * sin($deltaLat.$i./2) + cos(deg2rad($lat.$i.)) * cos(deg2rad($latu)) * sin($deltaLong.$i./2) * sin($deltaLong.$i./2);
