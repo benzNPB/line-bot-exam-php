@@ -12,11 +12,7 @@ $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
       if($message == "location")
     {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
+
           $latu = 35.361010;//users location 
           $longu = 139.280074;
           $lat1 = 35.364219; //1st 7-11
@@ -41,35 +37,7 @@ for ($i = 1; $x <= 5; $i++) {
   echo $dis$i;
 } 
 
-   
-      function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-    }
-    
-     function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-   }
- 
+
         
    exit;
 ?>
