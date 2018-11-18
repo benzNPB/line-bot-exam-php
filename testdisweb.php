@@ -17,8 +17,8 @@ $message = $arrayJson['events'][0]['message']['text'];
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
-          $latu = $row["lati"];//users location 
-          $longu = $row["longt"];
+          $latu = 35.361010;//users location 
+          $longu = 139.280074;
           $lat1 = 35.364219; //1st 7-11
           $long1 = 139.267804;
           $lat2 = 35.366817; //2nd lawson
@@ -41,10 +41,7 @@ for ($i = 1; $x <= 5; $i++) {
   echo $dis$i;
 } 
 
-    else
-    {
-echo "error";
-    }
+   
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
