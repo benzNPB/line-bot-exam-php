@@ -2,6 +2,6 @@
 $url = "http://www.gdacs.org/xml/rss.xml";
 $xml = simplexml_load_file($url);
 
-echo $xml->channel->item[1]->title;
+echo $xml->channel->item[1]->title->geo:Point;
 
 ?>
