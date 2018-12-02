@@ -6,7 +6,7 @@ echo $xml->channel->item[0]->description;
 $o = strpos($xml->channel->item[0]->description,"2" );
 $s = strpos($xml->channel->item[0]->description," " );
 $c = strpos($xml->channel->item[0]->description,")" );
-echo substr($xml->channel->item[0]->description,$o+19 ,$s-$o-1);
+echo substr($xml->channel->item[0]->description,$o+1 ,$s-$o-1);
 
 
 ?>
