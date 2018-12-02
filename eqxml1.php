@@ -1,6 +1,6 @@
 <?php
-$url = "http://www.gdacs.org/xml/rss.xml";
+$url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
 $xml = simplexml_load_string($url);
-echo $xml->channel->item[1]->geo:Point;
+echo $xml->channel->item[0];
 
 ?>
