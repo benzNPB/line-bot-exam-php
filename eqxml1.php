@@ -1,5 +1,5 @@
 <?php
-$url = "http://www.gdacs.org/xml/rss.xml";
+$url = "http://webcritech.jrc.ec.europa.eu/ModellingTsunami/TsunamiSurge/JETS_System/2018/12/30373/locations.xml";
 $xml = simplexml_load_file($url);
 
 echo $xml;
