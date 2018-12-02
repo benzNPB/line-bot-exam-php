@@ -6,7 +6,7 @@ $xml = simplexml_load_file($url);
 $o = strpos($xml->channel->item[0]->description,"20" );
 $s = strpos($xml->channel->item[0]->description," " );
 $c = strpos($xml->channel->item[0]->description,"k" );
-echo substr($xml->channel->item[0]->description,$o+6 ,$s-$o);
+echo substr($xml->channel->item[0]->description,$o+9 ,$s-$o-1);
 echo substr($xml->channel->item[0]->description,$s ,$c-$s-3);
 
 
