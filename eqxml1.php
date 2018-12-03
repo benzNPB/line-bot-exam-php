@@ -7,7 +7,7 @@ $o = strpos($xml->channel->item[0]->description,"2018" );
 $s = strpos($xml->channel->item[0]->description," " );
 $c = strpos($xml->channel->item[0]->description,"k" );
 //echo substr($xml->channel->item[0]->description,$o);
-echo substr($xml->channel->item[0]->description,$s ,$c-$s-3);
+echo substr($xml->channel->item[0]->description,$c+$s+3 ,$c-$s-3);
 
 
 ?>
