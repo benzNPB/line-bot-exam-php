@@ -1,7 +1,7 @@
 <?php
 $url = "http://www.gdacs.org/xml/rss.xml";
 $xml = simplexml_load_file($url);
-echo $xml->channel->item[0]->geo:Point;
+echo $xml->channel->item[0]->geo:Point->geo:lat->geo:long;
 
 //$o = strpos($xml->channel->item[0]->description,"2018" );
 //$s = strpos($xml->channel->item[0]->description," " );
