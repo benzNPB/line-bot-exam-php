@@ -3,7 +3,7 @@ $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
 $xml = simplexml_load_file($url);
 echo $xml->channel->item[0]->description;
 
-print_r (explode(" ",$xml));
+print_r (explode(" ",$xml$xml->channel->item[0]->description));
 
 
 //$o = strpos($xml->channel->item[0]->description,"2018" );
