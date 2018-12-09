@@ -1,7 +1,10 @@
 <?php
-$url = "http://www.gdacs.org/xml/rss.xml";
+$url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
 $xml = simplexml_load_file($url);
-echo $xml->channel->item[0]->geo:Point->geo:lat,long;
+echo $xml->channel->item[0]->description;
+
+print_r (explode(" ",$xml));
+
 
 //$o = strpos($xml->channel->item[0]->description,"2018" );
 //$s = strpos($xml->channel->item[0]->description," " );
