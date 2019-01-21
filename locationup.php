@@ -32,19 +32,19 @@ $message = $arrayJson['events'][0]['message']['text'];
     }
 
         else if ($message == "earthquake") {
-          $url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
-          $xml = simplexml_load_file($url);
-          $o = strpos($xml->channel->item[0]->title,"(" );
-          $s = strpos($xml->channel->item[0]->title,"," );
-          $c = strpos($xml->channel->item[0]->title,")" );
-          $la = substr($xml->channel->item[0]->title,$o+1 ,$s-$o-1);
-          $lo = substr($xml->channel->item[0]->title,$s+1 ,$c-$s-1);
+
+
+        $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
+        $xml1 = simplexml_load_file($url);
+        $xml2 = $xml1->channel->item[0]->description;
+        $xmlt = $xml1->channel->item[0]->title;
+        $xml = (explode(" ",$xml2));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "earthquake";
-        $arrayPostData['messages'][0]['address'] =  $la.",".$lo;
-        $arrayPostData['messages'][0]['latitude'] = $la;
-        $arrayPostData['messages'][0]['longitude'] = $lo;
+        $arrayPostData['messages'][0]['title'] = $xmlt;
+        $arrayPostData['messages'][0]['address'] =  $xml[3].",".$xml[6];
+        $arrayPostData['messages'][0]['latitude'] = $xml[3];
+        $arrayPostData['messages'][0]['longitude'] = $xml[6];
         replyMsg($arrayHeader,$arrayPostData);
     }
 
