@@ -77,13 +77,7 @@ $message = $arrayJson['events'][0]['message']['text'];
         $xmlt = $xml1->channel->item[0]->title;
         $xml = (explode(" ",$xml2));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "$xmlt";
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = "Earthquake is happened";
-        $arrayPostData['messages'][1]['address'] =  $xml[3].",".$xml[6];
-        $arrayPostData['messages'][1]['latitude'] = $xml[3];
-        $arrayPostData['messages'][1]['longitude'] = $xml[6];
+        
 
 //check time
 //$t1="2006-03-27 21:20:00";
@@ -94,8 +88,18 @@ $message = $arrayJson['events'][0]['message']['text'];
 
         if($time["D"]==0&&$time["H"]==0&&$time["M"]>0&&$time["M"]<5){
           //check location
+            
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "$xmlt";
+            $arrayPostData['messages'][1]['type'] = "location";
+            $arrayPostData['messages'][1]['title'] = "Earthquake is happened";
+            $arrayPostData['messages'][1]['address'] =  $xml[3].",".$xml[6];
+            $arrayPostData['messages'][1]['latitude'] = $xml[3];
+            $arrayPostData['messages'][1]['longitude'] = $xml[6];
           replyMsg($arrayHeader,$arrayPostData);
         }else{
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "Dont have earthquake around here";
            replyMsg($arrayHeader,$arrayPostData);
         }
 
