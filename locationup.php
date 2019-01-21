@@ -8,9 +8,7 @@
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
-    //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
-#ตัวอย่าง Message Type "Text"
       if($message == "location")
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -32,13 +30,13 @@ $message = $arrayJson['events'][0]['message']['text'];
     }
 
         else if ($message == "earthquake") {
-
-
         $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
         $xml1 = simplexml_load_file($url);
         $xml2 = $xml1->channel->item[0]->description;
         $xmlt = $xml1->channel->item[0]->title;
         $xml = (explode(" ",$xml2));
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $xmlt;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "test";
