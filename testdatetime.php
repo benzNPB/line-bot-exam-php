@@ -43,7 +43,7 @@ return $timeArr;
 
 //------------------------------ ตัวอย่างการใช้งาน
 $t1="2018-12-27 15:20:00";
-$t2=date("Y-m-d H:i:s");
+$t2=date("Y-m-d H+9:i:s");
 print "<br> $t1 <br> $t2  <br>  ";
 $time=dateDiv($t1,$t2);
 print_r($time);
