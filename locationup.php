@@ -35,14 +35,14 @@ $message = $arrayJson['events'][0]['message']['text'];
         $xml2 = $xml1->channel->item[0]->description;
         $xmlt = $xml1->channel->item[0]->title;
         $xml = (explode(" ",$xml2));
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $xmlt;
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "test";
-        $arrayPostData['messages'][0]['address'] =  $xml[3].",".$xml[6];
-        $arrayPostData['messages'][0]['latitude'] = $xml[3];
-        $arrayPostData['messages'][0]['longitude'] = $xml[6];
+        $arrayPostData['messages'][1]['type'] = "location";
+        $arrayPostData['messages'][1]['title'] = "test";
+        $arrayPostData['messages'][1]['address'] =  $xml[3].",".$xml[6];
+        $arrayPostData['messages'][1]['latitude'] = $xml[3];
+        $arrayPostData['messages'][1]['longitude'] = $xml[6];
         replyMsg($arrayHeader,$arrayPostData);
     }
 
