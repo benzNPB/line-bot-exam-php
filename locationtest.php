@@ -38,12 +38,10 @@ return $timeArr;
 $message = $arrayJson['events'][0]['message']['text'];
 
 if($event['type'] == 'message')
-  { if($event['message']['type'] == 'location')
-{ $message = $event['message']['latitude'];
-$textMessageBuilder = new textMessageBuilder($message);
-$this->bot->replyMessage($event['replyToken'],$textMessageBuilder);
-}
-} 
+if ($event instanceof LocationMessage) 
+{
+   $bot->replyText($event->getReplyToken(),"Latitude: {$event->getLatitude()},Longtitude: {$event->getLongitude()}");
+ }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
