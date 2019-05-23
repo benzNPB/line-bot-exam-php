@@ -36,7 +36,8 @@ return $timeArr;
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 $message = $arrayJson['events'][0]['message']['text'];
-      if($message == "location")
+     // if($message == "location")
+  if(event.type === 'message' && event.message.type === 'location') 
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
