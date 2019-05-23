@@ -9,9 +9,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     
     //รับข้อความจากผู้ใช้
-$message = $arrayJson['events'][0]['message']['text'];
-#ตัวอย่าง Message Type "Text"
-      if($message == "พิกัด")
+  if(event.type === 'message' && event.message.type === 'location')
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
