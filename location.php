@@ -9,16 +9,18 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-   // $lat = $arrayJson['events'][0]['message']['latitude'];
-   // $lng = $arrayJson['events'][0]['message']['longitude'];
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location";
-           $arrayPostData['messages'][0]['address'] = "title";
-           $arrayPostData['messages'][0]['latitude'] = "11.111111";
-           $arrayPostData['messages'][0]['longitude'] = "100.000000";
+           $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
+           $arrayPostData['messages'][0]['longitude'] =$row["longt"];
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
@@ -29,43 +31,3 @@
         $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
-
-
-
-
-
-
-
-
-      function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-    }
-    
-     function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-   }
- 
-        
-   exit;
-?>
