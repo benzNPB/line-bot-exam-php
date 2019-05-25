@@ -21,6 +21,7 @@
            $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+        }
      else
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
