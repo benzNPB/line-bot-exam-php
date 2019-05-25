@@ -26,7 +26,7 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
-       getdata($arrayHeader,$datas);
+
     }
 
 
@@ -62,14 +62,6 @@
       curl_close ($ch);
    }
 
-function getFormatTextMessage($arrayHeader,$text)
-	{
-		$datas = [];
-		$datas['type'] = 'text';
-		$datas['text'] = $text;
-
-		return $datas;
-	}
  
         
    exit;
