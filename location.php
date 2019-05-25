@@ -12,15 +12,11 @@
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          $row = $result->fetch_assoc();
-           $arrayPostData['messages'][0]['type'] = "location";
-           $arrayPostData['messages'][0]['title'] = "location";
-           $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
-           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
-           $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = "location";
+        $arrayPostData['messages'][0]['address'] = "test";
+        $arrayPostData['messages'][0]['latitude'] = "10.000000";
+        $arrayPostData['messages'][0]['longitude'] = "111.111111";
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
