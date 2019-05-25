@@ -25,13 +25,6 @@ $message = $arrayJson['events'];
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
-            else 
-    {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "error";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
    else if(event.type === 'message' && event.message.type === 'text')
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -39,7 +32,13 @@ $message = $arrayJson['events'];
         $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
+            else 
+    {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "error";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
 
 
 
