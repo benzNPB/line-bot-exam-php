@@ -9,7 +9,7 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
-    $message = $arrayJson['events'][0]['message'];
+    $message = $arrayJson['events'];
 
       if($message == $location)
     {
