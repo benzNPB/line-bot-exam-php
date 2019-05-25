@@ -9,10 +9,6 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-
-            message.getAddress();
-            message.getLatitude();
-            message.getLongitude();
                 
       if($message == $location)
     {
@@ -64,6 +60,13 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+function getdata($message)
+{
+   $datas = [];
+   $datas['type'] = 'location';
+   $datas['text'] = $text;
+   return $datas;
+}
  
         
    exit;
