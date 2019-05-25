@@ -18,7 +18,7 @@ $message = $arrayJson['events'][0]['message']['location'];
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location";
-           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
+           $arrayPostData['messages'][0]['address'] = $row["lati"].",".$row["longt"];
            $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["longt"];
         }
@@ -31,6 +31,14 @@ $message = $arrayJson['events'][0]['message']['location'];
         $arrayPostData['messages'][0]['text'] = "please";
         replyMsg($arrayHeader,$arrayPostData);
     }
+
+
+
+
+
+
+
+
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
