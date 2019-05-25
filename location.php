@@ -26,7 +26,7 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
-       getdata($message);
+       getdata($datas);
     }
 
 
@@ -61,7 +61,7 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-function getdata($arrayHeader,$arrayPostData)
+function getdata($arrayHeader,$datas)
 {
       $strUrl = "https://api.line.me/v2/bot/message/{messageId}/content";
       $ch = curl_init();
@@ -74,7 +74,11 @@ function getdata($arrayHeader,$arrayPostData)
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       $result = curl_exec($ch);
       curl_close ($ch);
+        $datas = [];
+		$datas['type'] = 'text';
+		$datas['text'] = $text;
 
+		return $datas;
 }
  
         
