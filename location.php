@@ -9,8 +9,8 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-    $lat = $arrayJson['events'][0]['message']['latitude'];
-    $lng = $arrayJson['events'][0]['message']['longitude'];
+   // $lat = $arrayJson['events'][0]['message']['latitude'];
+   // $lng = $arrayJson['events'][0]['message']['longitude'];
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
