@@ -61,7 +61,7 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-function getdata($message)
+function getdata($arrayHeader,$arrayPostData)
 {
       $strUrl = "https://api.line.me/v2/bot/message/{messageId}/content";
       $ch = curl_init();
