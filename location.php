@@ -26,6 +26,7 @@
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
         replyMsg($arrayHeader,$arrayPostData);
+       getdata($message);
     }
 
 
@@ -64,7 +65,7 @@ function getdata($message)
 {
    $datas = [];
    $datas['type'] = 'location';
-   $datas['text'] = $text;
+   $datas['text'] = $message;
    return $datas;
 }
  
