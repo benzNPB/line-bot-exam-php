@@ -17,8 +17,8 @@
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location";
            $arrayPostData['messages'][0]['address'] = "title";
-           $arrayPostData['messages'][0]['latitude'] = $lat;
-           $arrayPostData['messages'][0]['longitude'] = $lng;
+           $arrayPostData['messages'][0]['latitude'] = "11.111111";
+           $arrayPostData['messages'][0]['longitude'] = "100.000000";
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
