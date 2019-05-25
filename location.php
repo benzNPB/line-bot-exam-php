@@ -9,6 +9,11 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
+
+            message.getAddress();
+            message.getLatitude();
+            message.getLongitude();
+                
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
