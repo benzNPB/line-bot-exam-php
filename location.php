@@ -9,15 +9,16 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-
+    $lat = ${event.message.latitude};
+    $lng = ${event.message.longitude};
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location";
-           $arrayPostData['messages'][0]['address'] = title;
-           $arrayPostData['messages'][0]['latitude'] = latitude;
-           $arrayPostData['messages'][0]['longitude'] = longitude;
+           $arrayPostData['messages'][0]['address'] = "title";
+           $arrayPostData['messages'][0]['latitude'] = $lat;
+           $arrayPostData['messages'][0]['longitude'] = $lng;
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
