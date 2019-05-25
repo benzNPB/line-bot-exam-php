@@ -7,11 +7,11 @@
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    $arrayJson['events'][0]['message']['text'];
-    $arrayJson['events'][0]['message']['location'];
+    $text = $arrayJson['events'][0]['message']['text'];
+    $location = $arrayJson['events'][0]['message']['location'];
+    $message = $arrayJson['events'][0]['message'];
 
-$arrayJson['events'][0];
- if(event.type === 'message' && event.message.type === 'location')
+      if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
@@ -26,7 +26,7 @@ $arrayJson['events'][0];
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
-   else if(event.type === 'message' && event.message.type === 'text')
+   else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
