@@ -10,7 +10,6 @@
     
     //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['location'];
-
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $sql = "SELECT iddb, lati, longt FROM db order by iddb desc limit 0,1";
@@ -29,7 +28,7 @@ $message = $arrayJson['events'][0]['message']['location'];
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
+        $arrayPostData['messages'][0]['text'] = "please";
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
