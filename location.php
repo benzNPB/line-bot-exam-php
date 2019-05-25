@@ -25,7 +25,14 @@ $message = $arrayJson['events'];
         }
         replyMsg($arrayHeader,$arrayPostData);
     }
-            else
+            else 
+    {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "error";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+   else if(event.type === 'message' && event.message.type === 'text')
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
