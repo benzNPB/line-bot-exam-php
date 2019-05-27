@@ -23,8 +23,8 @@
    else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text".$location;
-        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you";
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you".$location;
         replyMsg($arrayHeader,$arrayPostData);
 
     }
