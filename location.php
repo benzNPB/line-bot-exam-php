@@ -14,7 +14,7 @@
     {
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you xxxx".$message.":".$location;
+        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you xxxx".$arrayJson['events'][0]['message']['longitude'].":".$arrayJson['events'][0]['longitude'];
         replyMsg($arrayHeader,$arrayPostData);
     }
    else if($message == $text)
