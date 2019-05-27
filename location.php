@@ -15,22 +15,18 @@
       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "your location";
-        $arrayPostData['messages'][0]['address'] =   $arrayJson['events'][0]['message']['latitude'].",".$arrayJson['events'][0]['message']['longitude'];
+        $arrayPostData['messages'][0]['address'] =  $arrayJson['events'][0]['message']['latitude'].",".$arrayJson['events'][0]['message']['longitude'];
         $arrayPostData['messages'][0]['latitude'] = $arrayJson['events'][0]['message']['latitude'];
         $arrayPostData['messages'][0]['longitude'] = $arrayJson['events'][0]['message']['longitude'];
-        replyMsg($arrayHeader,$arrayPostData);
-          
-          
-          
-          
+        replyMsg($arrayHeader,$arrayPostData);          
     }
+
    else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $message.":".$text;
         replyMsg($arrayHeader,$arrayPostData);
-
     }
 
 
