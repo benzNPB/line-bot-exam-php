@@ -12,12 +12,9 @@
                 
       if($message == $location)
     {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "สยามพารากอน";
-        $arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-        $arrayPostData['messages'][0]['latitude'] = "13.7465354";
-        $arrayPostData['messages'][0]['longitude'] = "100.532752";
+       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you xxxx".$message.":".$location;
         replyMsg($arrayHeader,$arrayPostData);
     }
    else if($message == $text)
