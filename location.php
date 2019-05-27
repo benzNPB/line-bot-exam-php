@@ -28,7 +28,7 @@
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please input พิกัด  and bot will show location to you xxxx".$message.":".$text;
+        $arrayPostData['messages'][0]['text'] = $message.":".$text;
         replyMsg($arrayHeader,$arrayPostData);
 
     }
