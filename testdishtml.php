@@ -16,5 +16,5 @@ $lat5 = 35.361172; //5th Daily
 $long5 = 139.269099;
 $R = 6371;
 for (i=1;i<=5;i++)
-echo $lat(i);   
+echo $lat[$i];   
 ?>
