@@ -27,7 +27,7 @@ $R = 6371;
            $arrayPostData['messages'][0]['longitude'] =$row["long"];
            replyMsg($arrayHeader,$arrayPostData);
         }
-   
+      }
    else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -35,7 +35,7 @@ $R = 6371;
         $arrayPostData['messages'][0]['text'] = $message.":".$text;
         replyMsg($arrayHeader,$arrayPostData);
     }
-}
+
 
     
        
