@@ -9,10 +9,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-
-
 $R = 6371;
-    
 $benz1 = array();
   
       if($message == $location)
@@ -26,14 +23,12 @@ $benz1 = array();
           while($row = $result->fetch_assoc()){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-
                     $benz1[$COUNTN][0] = $row["name"];
                     $benz1[$COUNTN][1] = $row["lati"];
                     $benz1[$COUNTN][2] = $row["lng"];
@@ -44,10 +39,8 @@ $COUNTN++;
         $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
         replyMsg($arrayHeader,$arrayPostData);     
 //$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
-
-     
+     }
     }
-
    else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -55,12 +48,6 @@ $COUNTN++;
         $arrayPostData['messages'][0]['text'] = $message.":".$text;
         replyMsg($arrayHeader,$arrayPostData);
     }
-
-
-
-
-
-
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
@@ -88,7 +75,6 @@ $COUNTN++;
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-
  
         
    exit;
