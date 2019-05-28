@@ -21,34 +21,26 @@ $long4 = 139.275320;
 $lat5 = 35.361172; //5th Daily
 $long5 = 139.269099;
 $R = 6371;
-    
+
       if($message == $location)
     {
-   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-   $longu = $arrayJson['events'][0]['message']['longitude'];
-$sql = "SELECT no, lat, long FROM db order by no desc limit 0,1";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-$row = $result->fetch_assoc();
-$lat = $row["lat"];
-$long = $row["long"];
-$deltaLat1 = deg2rad($lat - $latu);
-$deltaLong1 = deg2rad($long - $longu);
-
-  $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lat)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
-  $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
-  $dis1 = $R * $c1;
-
-
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = $dis1;
-        $arrayPostData['messages'][0]['address'] =  $lat .",". $long;
-        $arrayPostData['messages'][0]['latitude'] = $lat;
-        $arrayPostData['messages'][0]['longitude'] = $long;
-        replyMsg($arrayHeader,$arrayPostData);     
-
+        $sql = "SELECT no, lat, long FROM db order by no desc limit 0,1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+           $arrayPostData['messages'][0]['type'] = "location";
+           $arrayPostData['messages'][0]['title'] = "location";
+           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
+           $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+        }else{
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = "error";
         }
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+    
 
 
     }
