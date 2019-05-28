@@ -17,6 +17,7 @@ $long5 = 139.269099;
 $R = 6371;
 $i = 1;
 while($i<6){
+echo $lat3;   
 echo $lat[$i];   
 $i++;
 }
