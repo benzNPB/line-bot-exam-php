@@ -21,8 +21,8 @@ $R = 6371;
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
 
-   $lat1 = $row["lati"];
-   $long1 = $row["longt"];
+   $lat1 = $row["lat"];
+   $long1 = $row["long"];
    $deltaLat1 = deg2rad($lat1 - $latu);
    $deltaLong1 = deg2rad($long1 - $longu);
   $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lat1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
