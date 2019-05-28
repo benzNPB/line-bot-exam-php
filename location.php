@@ -58,7 +58,7 @@ $dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
 if ($dis == $dis1) {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
         $arrayPostData['messages'][0]['address'] =  $lat1 .",". $long1;
         $arrayPostData['messages'][0]['latitude'] =$lat1;
         $arrayPostData['messages'][0]['longitude'] = $long1;
@@ -67,7 +67,7 @@ if ($dis == $dis1) {
 else if ($dis == $dis2) {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
         $arrayPostData['messages'][0]['address'] =  $lat2 .",". $long2;
         $arrayPostData['messages'][0]['latitude'] =$lat2;
         $arrayPostData['messages'][0]['longitude'] = $long2;
@@ -76,7 +76,7 @@ else if ($dis == $dis2) {
 else if ($dis == $dis3) {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
         $arrayPostData['messages'][0]['address'] =  $lat3 .",". $long3;
         $arrayPostData['messages'][0]['latitude'] =$lat3;
         $arrayPostData['messages'][0]['longitude'] = $long3;
@@ -85,7 +85,7 @@ else if ($dis == $dis3) {
 else if ($dis == $dis4) {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
         $arrayPostData['messages'][0]['address'] =  $lat4 .",". $long4;
         $arrayPostData['messages'][0]['latitude'] =$lat4;
         $arrayPostData['messages'][0]['longitude'] = $long4;
@@ -94,7 +94,7 @@ else if ($dis == $dis4) {
 else if ($dis == $dis5) {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
         $arrayPostData['messages'][0]['address'] =  $lat5 .",". $long5;
         $arrayPostData['messages'][0]['latitude'] =$lat5;
         $arrayPostData['messages'][0]['longitude'] = $long5;
