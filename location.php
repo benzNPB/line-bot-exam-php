@@ -14,19 +14,18 @@
 $R = 6371;
     
 $benz1 = array();
- 
-        $COUNTN=0;        
+  
       if($message == $location)
     {
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
-
+        $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()){
                   $lati1 = $row["lati"];
-                            $lng1 = $row["lng"];
+                  $lng1 = $row["lng"];
 
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
@@ -39,11 +38,8 @@ $benz1 = array();
                     $benz1[$COUNTN][1] = $row["lati"];
                     $benz1[$COUNTN][2] = $row["lng"];
                     $benz1[$COUNTN][3] = $dis;
-
-
 $COUNTN++;
           }
-          
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
         replyMsg($arrayHeader,$arrayPostData);     
