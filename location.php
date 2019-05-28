@@ -25,6 +25,7 @@ $R = 6371;
            $arrayPostData['messages'][0]['address'] =   $row["lat"].",".$row["long"];
            $arrayPostData['messages'][0]['latitude'] = $row["lat"];
            $arrayPostData['messages'][0]['longitude'] =$row["long"];
+           replyMsg($arrayHeader,$arrayPostData);
         }
    
    else if($message == $text)
