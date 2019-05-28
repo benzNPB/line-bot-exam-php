@@ -35,6 +35,7 @@ $benz1 = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
         replyMsg($arrayHeader,$arrayPostData);     
