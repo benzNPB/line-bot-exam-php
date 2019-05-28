@@ -10,17 +10,6 @@
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
 
-$lat1 = 35.364219; //1st 7-11
-$long1 = 139.267804;
-$lat2 = 35.366817; //2nd lawson
-$long2 = 139.272703;
-$lat3 = 35.372509; //3rd Family
-$long3 = 139.271988;
-$lat4 = 35.360643; //4th lawson
-$long4 = 139.275320;
-$lat5 = 35.361172; //5th Daily
-$long5 = 139.269099;
-$R = 6371;
 
       if($message == $location)
     {
@@ -31,9 +20,9 @@ $R = 6371;
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location";
-           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["longt"];
-           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
-           $arrayPostData['messages'][0]['longitude'] =$row["longt"];
+           $arrayPostData['messages'][0]['address'] =   $row["lat"].",".$row["long"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lat"];
+           $arrayPostData['messages'][0]['longitude'] =$row["long"];
         }else{
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = "error";
