@@ -14,7 +14,7 @@
       if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $sql = "SELECT no, lat, long FROM db order by no desc limit 0,1";
+        $sql = "SELECT no, lat, long FROM contest order by no desc limit 0,1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
