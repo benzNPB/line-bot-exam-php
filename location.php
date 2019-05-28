@@ -29,13 +29,11 @@ $R = 6371;
   $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
   $dis1 = $R * $c1;
 
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
-        $arrayPostData['messages'][0]['address'] =  $dis1;
-        $arrayPostData['messages'][0]['latitude'] =$lat1;
-        $arrayPostData['messages'][0]['longitude'] = $long1;
-        replyMsg($arrayHeader,$arrayPostData);     
+           $arrayPostData['messages'][0]['type'] = "location";
+           $arrayPostData['messages'][0]['title'] = "location from database";
+           $arrayPostData['messages'][0]['address'] =   $row["lat"].",".$row["long"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lat"];
+           $arrayPostData['messages'][0]['longitude'] =$row["long"];
     }
    }
    else if($message == $text)
