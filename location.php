@@ -22,8 +22,6 @@ $lat5 = 35.361172; //5th Daily
 $long5 = 139.269099;
 $R = 6371;
     
-
-                
       if($message == $location)
     {
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
@@ -32,6 +30,8 @@ $sql = "SELECT no, lat, long FROM db order by no desc limit 0,1";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 $row = $result->fetch_assoc();
+$lat = $row["lat"];
+$long = $row["long"];
 $deltaLat1 = deg2rad($lat - $latu);
 $deltaLong1 = deg2rad($long - $longu);
 
@@ -43,9 +43,9 @@ $deltaLong1 = deg2rad($long - $longu);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = $dis1;
-        $arrayPostData['messages'][0]['address'] =  $lat1 .",". $long1;
-        $arrayPostData['messages'][0]['latitude'] =$lat1;
-        $arrayPostData['messages'][0]['longitude'] = $long1;
+        $arrayPostData['messages'][0]['address'] =  $lat .",". $long;
+        $arrayPostData['messages'][0]['latitude'] = $lat;
+        $arrayPostData['messages'][0]['longitude'] = $long;
         replyMsg($arrayHeader,$arrayPostData);     
 
         }
