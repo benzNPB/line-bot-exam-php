@@ -45,7 +45,7 @@ $COUNTN++;
           }
           
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0].",".$benz1[$COUNTN][1].",".$benz1[$COUNTN][2].",".$benz1[$COUNTN][3];
+        $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
         replyMsg($arrayHeader,$arrayPostData);     
 //$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
 
