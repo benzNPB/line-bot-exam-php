@@ -13,28 +13,19 @@
 $R = 6371;
 
       if($message == $location)
+
     {
-   $sql = "SELECT no, lat, long FROM contest order by no desc limit 0,1";
-   $result = $conn->query($sql);
-   if ($result->num_rows > 0) {
-   $row = $result->fetch_assoc();
-   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-   $longu = $arrayJson['events'][0]['message']['longitude'];
-
-   $lat1 = $row["lat"];
-   $long1 = $row["long"];
-   $deltaLat1 = deg2rad($lat1 - $latu);
-   $deltaLong1 = deg2rad($long1 - $longu);
-  $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lat1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
-  $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
-  $dis1 = $R * $c1;
-
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $sql = "SELECT no, lat, long FROM db order by no desc limit 0,1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location from database";
            $arrayPostData['messages'][0]['address'] =   $row["lat"].",".$row["long"];
            $arrayPostData['messages'][0]['latitude'] = $row["lat"];
            $arrayPostData['messages'][0]['longitude'] =$row["long"];
-    }
+        }
    }
    else if($message == $text)
     {
