@@ -20,7 +20,7 @@ $R = 6371;
    $row = $result->fetch_assoc();
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
-   if ($result->num_rows > 0) {
+
    $lat1 = $row["lati"];
    $long1 = $row["longt"];
    $deltaLat1 = deg2rad($lat1 - $latu);
