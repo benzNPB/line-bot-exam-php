@@ -16,14 +16,14 @@ $R = 6371;
 
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $sql = "SELECT no, lat, long FROM contest order by no desc limit 0,1";
+        $sql = "SELECT no, lati, long FROM contest order by no desc limit 0,1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
            $arrayPostData['messages'][0]['type'] = "location";
            $arrayPostData['messages'][0]['title'] = "location from database";
-           $arrayPostData['messages'][0]['address'] =   $row["lat"].",".$row["long"];
-           $arrayPostData['messages'][0]['latitude'] = $row["lat"];
+           $arrayPostData['messages'][0]['address'] =   $row["lati"].",".$row["long"];
+           $arrayPostData['messages'][0]['latitude'] = $row["lati"];
            $arrayPostData['messages'][0]['longitude'] =$row["long"];
            replyMsg($arrayHeader,$arrayPostData);
         }
