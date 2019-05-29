@@ -1,6 +1,6 @@
 <?php
     require "dbconnection.php";
-    function order_array_num ($array, $key, $order = "ASC") 
+function order_array_num ($array, $key, $order = "ASC") 
 { 
   $tmp = array(); 
   foreach($array as $akey => $array2) 
@@ -9,15 +9,16 @@
   } 
   
   if($order == "DESC") 
-  {arsort($tmp , SORT_NUMERIC );} 
+  {arsort($tmp);} 
   else 
-  {asort($tmp , SORT_NUMERIC );} 
-
-  $tmp2 = array();        
-  foreach($tmp as $key => $value) 
-  { 
-    $tmp2[$key] = $array[$key]; 
-  }        
+  {asort($tmp);} 
+  
+  $tmp2 = array();  
+  $i = 0;
+  foreach($tmp as $key => $value) {
+    $tmp2[$i] = $array[$key];
+    $i++;
+  }
   
   return $tmp2; 
 } 
@@ -31,16 +32,7 @@
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
 
-/*$lat1 = 35.364219; //1st 7-11
-$long1 = 139.267804;
-$lat2 = 35.366817; //2nd lawson
-$long2 = 139.272703;
-$lat3 = 35.372509; //3rd Family
-$long3 = 139.271988;
-$lat4 = 35.360643; //4th lawson
-$long4 = 139.275320;
-$lat5 = 35.361172; //5th Daily
-$long5 = 139.269099;*/
+
 $R = 6371;
     
    $latu = 35.360643;
@@ -73,7 +65,7 @@ $locate = array();
 $COUNTN++;
           }
 
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
+    $mybenz = order_array_num ($benz1, "dis", "ASC");
    
    /////////////////////////// use
 
@@ -119,4 +111,3 @@ $COUNTN++;
         
    exit;
 ?>
-
