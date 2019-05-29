@@ -19,8 +19,8 @@ $benz1 = array();
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
-
-          while($row = $result->fetch_assoc()){
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()&& $COUNTN < 6 ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
@@ -35,12 +35,11 @@ $benz1 = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
         replyMsg($arrayHeader,$arrayPostData);     
 //$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
-
+     }
     }
    else if($message == $text)
     {
