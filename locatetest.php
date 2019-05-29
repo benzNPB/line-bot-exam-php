@@ -13,9 +13,9 @@ function order_array_num ($array, $key, $order = "ASC")
 	} 
 	
 	if($order == "DESC") 
-	{arsort($tmp , SORT_NUMERIC );} 
+	{arsort($tmp);} 
 	else 
-	{asort($tmp , SORT_NUMERIC );} 
+	{asort($tmp);} 
 	echo '<br><br><pre>';
 	print_r($tmp);
 	echo '</pre>';
