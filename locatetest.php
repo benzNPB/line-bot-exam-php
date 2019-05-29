@@ -68,9 +68,9 @@ $COUNTN++;
 
     //print_r($benz1);
     //echo "<br><br>";
-   print_r($benz1);
-	$mybenz = order_array_num ($benz1, "dis", "ASC");
-	 
+   
+	$mybenz = array_multisort ($benz1, "dis", "ASC");
+	 print_r($mybenz);
 	 /////////////////////////// use
 	 
 
