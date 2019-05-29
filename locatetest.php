@@ -74,7 +74,7 @@ $COUNTN++;
 	 /////////////////////////// use
 	 
 
-	 
+	 echo phpversion();
 
 		 print_r($mybenz);
     echo "<br><br>";
