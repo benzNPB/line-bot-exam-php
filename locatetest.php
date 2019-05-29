@@ -35,8 +35,15 @@ $locate = array();
                    // $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
-    
-    print_r($benz1);
+    foreach ($benz1 as $key => $row) {
+       $dis[$key]  = $row['dis']; 
+    }
+$locate = array_multisort( $dis, SORT_ASC, $benz1);
+
+
+
+
+    print_r($locate);
 
 }
    
