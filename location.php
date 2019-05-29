@@ -36,7 +36,7 @@ $locate = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
-$locate = array_multisort( $benz1[$COUNTN][3], SORT_ASC, $benz1);
+$locate = array_multisort( $dis, SORT_ASC, $benz1);
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
