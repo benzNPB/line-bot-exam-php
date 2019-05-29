@@ -71,8 +71,15 @@ $COUNTN++;
 	$mybenz = order_array_num ($benz1, "dis", "ASC");
 	 
 	 /////////////////////////// use
+	 
+
+	 
 	 for($i=0;$i<=3;$i++){
-		 echo $mybenz[$i]["name"];
+		 echo $mybenz[$i]["dis"];
+		 echo "<br><br>";
+		  
+		 
+	;
 	 }
 
 }
