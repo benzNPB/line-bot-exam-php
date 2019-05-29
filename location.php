@@ -35,10 +35,11 @@ $benz1 = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
-$COUNTN = min ($benz1[$COUNTN][3]);
+$locate = array_multisort( $benz1[$COUNTN][3], SORT_ASC, SORT_NUMERIC);
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
+        $arrayPostData['messages'][0]['text'] = $locate;
         replyMsg($arrayHeader,$arrayPostData);  
 
      }
