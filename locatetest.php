@@ -28,7 +28,7 @@ $locate = array();
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
 
-                    $benz1[$COUNTN] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                    $benz1[$row["name"]] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
                    // $benz1[$COUNTN][0] = $row["name"];
                     //$benz1[$COUNTN][1] = $row["lati"];
                    // $benz1[$COUNTN][2] = $row["lng"];
