@@ -42,7 +42,10 @@ $locate = array();
 
         $COUNTN=0;       
 if ($COUNTN <= 4)
-{
+{    else if($message == $text)
+    {
+    
+    
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
           if($message == $location)
@@ -64,6 +67,7 @@ if ($COUNTN <= 4)
  
 $COUNTN++;
           }
+    }
  }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
    
