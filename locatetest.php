@@ -69,7 +69,7 @@ $COUNTN++;
 		print_r(array_multisort($mybenz));
 	 
     echo "<br><br>";
-		
+		print_r($mybenz);
 		  
 		 
 }
