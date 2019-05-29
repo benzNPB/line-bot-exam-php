@@ -75,6 +75,8 @@ $COUNTN++;
 
 	 
 	 for($i=0;$i<=3;$i++){
+		 print_r($mybenz);
+    echo "<br><br>";
 		 echo $mybenz[$i]["name"];
 		 
 		  
