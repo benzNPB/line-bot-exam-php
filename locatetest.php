@@ -65,9 +65,15 @@ $COUNTN++;
 //$locate = array_multisort()
 
 
-    print_r($benz1);
-    echo "<br><br>";
-    print_r(order_array_num ($benz1, "dis", "ASC"));
+    //print_r($benz1);
+    //echo "<br><br>";
+    //print_r(order_array_num ($benz1, "dis", "ASC"));
+	$mybenz = order_array_num ($benz1, "dis", "ASC");
+	 
+	 /////////////////////////// use
+	 for($i=0;$i<=3;$i++){
+		 echo $mybenz[$i]["name"];
+	 }
 
 }
    
