@@ -11,6 +11,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 $R = 6371;
 $benz1 = array();
+$locate = array();
   
       if($message == $location)
     {
@@ -39,7 +40,7 @@ $locate = array_multisort( $benz1[$COUNTN][3], SORT_ASC, $benz1);
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] =$locate;
+        $arrayPostData['messages'][0]['text'] =$locate[$COUNTN][0] ;
         replyMsg($arrayHeader,$arrayPostData);  
 
      }
