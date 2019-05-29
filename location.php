@@ -40,7 +40,7 @@ $locate = array_multisort( $benz1[$COUNTN][3], SORT_ASC, $benz1);
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] =$locate[$COUNTN][0] ;
+        $arrayPostData['messages'][0]['text'] =$locate[0][0] ;
         replyMsg($arrayHeader,$arrayPostData);  
 
      }
