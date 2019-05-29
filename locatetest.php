@@ -29,7 +29,7 @@ function order_array_num ($array, $key, $order = "ASC")
 	}        
 	echo '<pre>';
 	print_r($tmp2);
-	echo '</pre'>;
+	echo '</pre>';
 	
 	return $tmp2; 
 } 
