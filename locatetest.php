@@ -66,8 +66,8 @@ $COUNTN++;
 
 
     print_r($benz1);
-    
-    print_r(order_array_num ($benz1, 4, "ASC"));
+    echo "<br><br>";
+    print_r(order_array_num ($benz1, "dis", "ASC"));
 
 }
    
