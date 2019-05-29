@@ -35,11 +35,12 @@ $benz1 = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
+        $COUNTN=0;  
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $benz1[$COUNTN][0];
-        replyMsg($arrayHeader,$arrayPostData);     
-//$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
+        replyMsg($arrayHeader,$arrayPostData);  
+$dis = min ($dis1,$dis2,$dis3,$dis4,$dis5);
      }
     }
    else if($message == $text)
