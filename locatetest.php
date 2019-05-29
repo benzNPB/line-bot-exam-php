@@ -13,10 +13,10 @@ function order_array_num ($array, $key, $order = "ASC")
 	
 	echo '<pre>';
 	print_r($tmp);
-	echo '</pre'>;
+	echo '</pre>';
 	
 	if($order == "DESC") 
-	{rsort($tmp, SORT_REGULAR);} 
+	{sort($tmp, SORT_REGULAR);} 
 	else 
 	{sort($tmp, SORT_REGULAR);} 
 	echo '<br><br><pre>';
@@ -26,8 +26,10 @@ function order_array_num ($array, $key, $order = "ASC")
 	foreach($tmp as $key => $value) 
 	{ 
 		$tmp2[$key] = $array[$key]; 
-		print_r($tmp2);
 	}        
+	echo '<pre>';
+	print_r($tmp2);
+	echo '</pre'>;
 	
 	return $tmp2; 
 } 
