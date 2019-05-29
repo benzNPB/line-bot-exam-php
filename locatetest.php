@@ -11,30 +11,17 @@ function order_array_num ($array, $key, $order = "ASC")
 		$tmp[$akey] = $array2[$key]; 
 	} 
 	
-	echo '<pre>';
-	print_r($tmp);
-	echo '</pre>';
-	
 	if($order == "DESC") 
 	{arsort($tmp);} 
 	else 
 	{asort($tmp);} 
-	echo '<br><br><pre>';
-	print_r($tmp);
-	echo '</pre>';
-	$tmp2 = array();        
-// 	foreach($tmp as $key => $value) 
-// 	{ 
-// 		$tmp2[$key] = $array[$key]; 
-// 	}  
+	
+	$tmp2 = array();  
 	$i = 0;
 	foreach($tmp as $key => $value) {
 		$tmp2[$i] = $array[$key];
 		$i++;
 	}
-	echo '<pre>';
-	print_r($tmp2);
-	echo '</pre>';
 	
 	return $tmp2; 
 } 
@@ -81,10 +68,10 @@ $COUNTN++;
 	 /////////////////////////// use
 	 
 	 
-// 		 print_r($mybenz);
-//     echo "<br><br>";
-// 		print_r(array_multisort($mybenz));
-// 		  echo "<br><br>";
+		 print_r($mybenz);
+    echo "<br><br>";
+		print_r(array_multisort($mybenz));
+		  echo "<br><br>";
 		  
 		 
 }
