@@ -78,7 +78,7 @@ $COUNTN++;
 		 print_r($mybenz);
     echo "<br><br>";
 		 echo $mybenz[$i]["name"];
-		 
+		  echo "<br><br>";
 		  
 		 
 	;
