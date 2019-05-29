@@ -1,47 +1,41 @@
+
 <?php
-    require "dbconnection.php";
-   
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+   require "dbconnection.php";
 function order_array_num ($array, $key, $order = "ASC") 
 { 
-  $tmp = array(); 
-  foreach($array as $akey => $array2) 
-  { 
-    $tmp[$akey] = $array2[$key]; 
-  } 
-  
-  if($order == "DESC") 
-  {arsort($tmp , SORT_NUMERIC );} 
-  else 
-  {asort($tmp , SORT_NUMERIC );} 
+	$tmp = array(); 
+	foreach($array as $akey => $array2) 
+	{ 
+		$tmp[$akey] = $array2[$key]; 
+	} 
+	
+	if($order == "DESC") 
+	{arsort($tmp , SORT_NUMERIC );} 
+	else 
+	{asort($tmp , SORT_NUMERIC );} 
 
-  $tmp2 = array();        
-  foreach($tmp as $key => $value) 
-  { 
-    $tmp2[$key] = $array[$key]; 
-  }        
-  
-  return $tmp2; 
+	$tmp2 = array();        
+	foreach($tmp as $key => $value) 
+	{ 
+		$tmp2[$key] = $array[$key]; 
+	}        
+	
+	return $tmp2; 
 } 
 
-    $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
+$accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     $arrayHeader = array();
-    $arrayHeader[] = "Content-Type: application/json";
-    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    $text = $arrayJson['events'][0]['message']['text'];
-    $location = $arrayJson['events'][0]['message']['location'];
-    $message = $arrayJson['events'][0]['message']['text'];
-$R = 6371;
-$benz1 = array();
+    $R = 6371;
+    $benz1 = array();
 $locate = array();
-  
-
-      if($message == $location)
-    {
-   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-   $longu = $arrayJson['events'][0]['message']['longitude'];
-       $COUNTN=0;       
+  $latu = 10.000000;
+   $longu = 111.111111;
+        $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
           
@@ -57,57 +51,36 @@ $locate = array();
                     $dis = $R * $c1;
 
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
-   
+                    // $benz1[$COUNTN][0] = $row["name"];
+                    //$benz1[$COUNTN][1] = $row["lati"];
+                   // $benz1[$COUNTN][2] = $row["lng"];
+                     //$benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
+   // foreach ($benz1 as $key => $row) {
+      // $dis[$key]  = $row['dis']; 
+   // }
+//$locate = array_multisort( $dis, SORT_ASC, $benz1);
 
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
+//$locate = array_multisort()
+
+
+    //print_r($benz1);
+    //echo "<br><br>";
+    //print_r(order_array_num ($benz1, "dis", "ASC"));
+	$mybenz = order_array_num ($benz1, "dis", "ASC");
+	 
+	 /////////////////////////// use
+	 
+
+	 for($i=0;$i<=3;$i++){
+		 echo $mybenz[$i]["name"];
+		  
+		 
+
+	 }
+
+}
    
-   /////////////////////////// use
-   
-   $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-   $arrayPostData['messages'][0]['type'] = "text";
-   $arrayPostData['messages'][0]['text'] = We recommend 3 place for you;
-   replyMsg($arrayHeader,$arrayPostData);
-   }
- }
-
-    else if($message == $text)
-    {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $message.":".$text;
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-
-      function replyMsg($arrayHeader,$arrayPostData){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
-    }
-    
-     function pushMsg($arrayHeader,$arrayPostData){
-      $strUrl = "https://api.line.me/v2/bot/message/push";
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL,$strUrl);
-      curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $result = curl_exec($ch);
-      curl_close ($ch);
-   }
- 
-        
-   exit;
 ?>
+
