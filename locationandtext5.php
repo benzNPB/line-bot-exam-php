@@ -53,15 +53,15 @@ $COUNTN++;
         $arrayPostData['messages'][0]['text'] = We recommend 3 place for you;
         replyMsg($arrayHeader,$arrayPostData);
    
-   for($i=0;$i<=3;$i++){
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "your nearest convenience store";
-        $arrayPostData['messages'][0]['address'] =  $mybenz[$i]["name"];
-        $arrayPostData['messages'][0]['latitude'] = $mybenz[$i]["lati"];
-        $arrayPostData['messages'][0]['longitude'] = $mybenz[$i]["lng"];
+        $arrayPostData['messages'][0]['address'] =  $mybenz[0]["name"];
+        $arrayPostData['messages'][0]['latitude'] = $mybenz[0]["lati"];
+        $arrayPostData['messages'][0]['longitude'] = $mybenz[0]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
-   }
+   
 
 }
 
