@@ -36,6 +36,9 @@ $locate = array();
                     $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
+foreach ($benz1 as $key => $row) {
+    $dis[$key]  = $row['dis'];
+}
 $locate = array_multisort( $dis, SORT_ASC, $benz1);
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
