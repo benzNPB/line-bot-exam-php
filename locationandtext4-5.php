@@ -1,6 +1,6 @@
 <?php
     require "dbconnection.php";
-function order_array_num ($array, $key, $order = "ASC") 
+    function order_array_num ($array, $key, $order = "ASC") 
 { 
   $tmp = array(); 
   foreach($array as $akey => $array2) 
@@ -9,16 +9,15 @@ function order_array_num ($array, $key, $order = "ASC")
   } 
   
   if($order == "DESC") 
-  {arsort($tmp);} 
+  {arsort($tmp , SORT_NUMERIC );} 
   else 
-  {asort($tmp);} 
-  
-  $tmp2 = array();  
-  $i = 0;
-  foreach($tmp as $key => $value) {
-    $tmp2[$i] = $array[$key];
-    $i++;
-  }
+  {asort($tmp , SORT_NUMERIC );} 
+
+  $tmp2 = array();        
+  foreach($tmp as $key => $value) 
+  { 
+    $tmp2[$key] = $array[$key]; 
+  }        
   
   return $tmp2; 
 } 
@@ -32,11 +31,16 @@ function order_array_num ($array, $key, $order = "ASC")
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
 
-
-$R = 6371;
-    
-   $latu = 35.360643;
-   $longu = 139.275320;
+/*$lat1 = 35.364219; //1st 7-11
+$long1 = 139.267804;
+$lat2 = 35.366817; //2nd lawson
+$long2 = 139.272703;
+$lat3 = 35.372509; //3rd Family
+$long3 = 139.271988;
+$lat4 = 35.360643; //4th lawson
+$long4 = 139.275320;
+$lat5 = 35.361172; //5th Daily
+$long5 = 139.269099;*/   
  
                 
 $R = 6371;
@@ -48,7 +52,8 @@ $locate = array();
         $result = $conn->query($sql);
           if($message == $location)
     {
-
+   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+   $longu = $arrayJson['events'][0]['message']['longitude'];
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -65,7 +70,7 @@ $locate = array();
 $COUNTN++;
           }
 
-    $mybenz = order_array_num ($benz1, "dis", "ASC");
+  $mybenz = order_array_num ($benz1, "dis", "ASC");
    
    /////////////////////////// use
 
@@ -111,3 +116,4 @@ $COUNTN++;
         
    exit;
 ?>
+
