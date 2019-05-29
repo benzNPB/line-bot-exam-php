@@ -68,18 +68,18 @@ $COUNTN++;
 
     //print_r($benz1);
     //echo "<br><br>";
-    //print_r(order_array_num ($benz1, "dis", "ASC"));
+   print_r($benz1);
 	$mybenz = order_array_num ($benz1, "dis", "ASC");
 	 
 	 /////////////////////////// use
 	 
 
-	 echo phpversion();
+	// echo phpversion();
 
-		 print_r($mybenz);
-    echo "<br><br>";
-		 echo $benz1[$i]["name"];
-		  echo "<br><br>";
+	//	 print_r($mybenz);
+ //   echo "<br><br>";
+	//	 echo $benz1[$i]["name"];
+	//	  echo "<br><br>";
 		  
 		 
 
