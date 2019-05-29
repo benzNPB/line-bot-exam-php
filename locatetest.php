@@ -33,8 +33,9 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $R = 6371;
     $benz1 = array();
 $locate = array();
-  $latu = 10.000000;
-   $longu = 111.111111;
+$latu = 35.364219; //1st 7-11
+$longu = 139.267804
+
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
