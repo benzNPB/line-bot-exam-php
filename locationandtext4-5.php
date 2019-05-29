@@ -78,8 +78,6 @@ $COUNTN++;
       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $mybenz[0]["name"];
-       replyMsg($arrayHeader,$arrayPostData);
-      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $mybenz[1]["name"];
        replyMsg($arrayHeader,$arrayPostData);
