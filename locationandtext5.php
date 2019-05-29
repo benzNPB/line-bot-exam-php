@@ -38,13 +38,15 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
 
 $R = 6371;
 $benz1 = array();
-$locate = array();
-$latu = 10.000000;
-$longu = 111.111111;
+
+
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
-          
+          if($message == $location)
+    {
+   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+   $longu = $arrayJson['events'][0]['message']['longitude'];
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -70,6 +72,7 @@ $COUNTN++;
 
    }
 
+}
 }
    
 ?>
