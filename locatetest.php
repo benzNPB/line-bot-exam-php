@@ -23,10 +23,15 @@ function order_array_num ($array, $key, $order = "ASC")
 	print_r($tmp);
 	echo '</pre>';
 	$tmp2 = array();        
-	foreach($tmp as $key => $value) 
-	{ 
-		$tmp2[$key] = $array[$key]; 
-	}        
+// 	foreach($tmp as $key => $value) 
+// 	{ 
+// 		$tmp2[$key] = $array[$key]; 
+// 	}  
+	$i = 0;
+	foreach($tmp as $key => $value) {
+		$tmp2[$i] = $array[$key];
+		$i++;
+	}
 	echo '<pre>';
 	print_r($tmp2);
 	echo '</pre>';
