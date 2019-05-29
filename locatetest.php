@@ -9,16 +9,21 @@ function order_array_num ($array, $key, $order = "ASC")
 	foreach($array as $akey => $array2) 
 	{ 
 		$tmp[$akey] = $array2[$key]; 
+		print_r($tmp);
 	} 
 	
 	if($order == "DESC") 
 	{arsort($tmp , SORT_NUMERIC );} 
 	else 
 	{asort($tmp , SORT_NUMERIC );} 
+	echo '<br><br><pre>';
+	print_r($tmp);
+	echo '</pre>';
 	$tmp2 = array();        
 	foreach($tmp as $key => $value) 
 	{ 
 		$tmp2[$key] = $array[$key]; 
+		print_r($tmp2);
 	}        
 	
 	return $tmp2; 
