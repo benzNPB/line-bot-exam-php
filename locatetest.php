@@ -35,6 +35,8 @@ $locate = array();
                    // $benz1[$COUNTN][3] = $dis;
 $COUNTN++;
           }
+    
+    print_r($benz1);
 
 }
    
