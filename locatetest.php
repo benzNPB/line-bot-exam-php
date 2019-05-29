@@ -17,7 +17,7 @@ $locate = array();
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
           
-}
+
    
 ?>
 
