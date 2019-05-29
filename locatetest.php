@@ -68,7 +68,7 @@ $COUNTN++;
 	 
 		 print_r($mybenz);
     echo "<br><br>";
-		 echo $benz1[$i]["name"];
+		print_r(array_multisort($mybenz));
 		  echo "<br><br>";
 		  
 		 
