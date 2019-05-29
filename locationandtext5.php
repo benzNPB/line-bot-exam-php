@@ -38,7 +38,7 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
 
 $R = 6371;
 $benz1 = array();
-
+$locate = array();
 
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
@@ -68,8 +68,11 @@ $COUNTN++;
    /////////////////////////// use
 
    for($i=0;$i<=3;$i++){
-     echo $mybenz[$i]["name"];
-
+    
+      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+       $arrayPostData['messages'][0]['type'] = "text";
+       $arrayPostData['messages'][0]['text'] = $mybenz[$i]["name"];
+       replyMsg($arrayHeader,$arrayPostData);
    }
 
 }
