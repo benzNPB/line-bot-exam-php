@@ -66,10 +66,10 @@ $COUNTN++;
 	 /////////////////////////// use
 	 
 	 
-		print_r(array_multisort($mybenz));
-	 
+		 print_r($mybenz);
     echo "<br><br>";
-		print_r($mybenz);
+		 echo $benz1[$i]["name"];
+		  echo "<br><br>";
 		  
 		 
 }
