@@ -71,10 +71,10 @@ $COUNTN++;
 	 /////////////////////////// use
 	 
 	 
-		 print_r($mybenz);
-    echo "<br><br>";
-		print_r(array_multisort($mybenz));
-		  echo "<br><br>";
+// 		 print_r($mybenz);
+//     echo "<br><br>";
+// 		print_r(array_multisort($mybenz));
+// 		  echo "<br><br>";
 		  
 		 
 }
