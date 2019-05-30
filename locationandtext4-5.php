@@ -14,11 +14,11 @@
   {asort($tmp , SORT_NUMERIC );} 
 
   $tmp2 = array();        
-	$i = 0;
-	foreach($tmp as $key => $value) {
-		$tmp2[$i] = $array[$key];
-		$i++;
-	}
+  $i = 0;
+  foreach($tmp as $key => $value) {
+    $tmp2[$i] = $array[$key];
+    $i++;
+  }
   return $tmp2; 
 } 
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
@@ -75,13 +75,25 @@ $COUNTN++;
    /////////////////////////// use
 
 
-       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $mybenz[0]["name"];
-	$arrayPostData['messages'][1]['type'] = "text";
-       $arrayPostData['messages'][1]['text'] = $mybenz[1]["name"];
-	 $arrayPostData['messages'][2]['type'] = "text";
-       $arrayPostData['messages'][2]['text'] = $mybenz[2]["name"];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][0]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+        $arrayPostData['messages'][0]['latitude'] =  $mybenz[0]["lati"];
+        $arrayPostData['messages'][0]['longitude'] =  $mybenz[0]["lng"];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][1]['type'] = "location";
+        $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
+        $arrayPostData['messages'][1]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+        $arrayPostData['messages'][1]['latitude'] =  $mybenz[1]["lati"];
+        $arrayPostData['messages'][1]['longitude'] =  $mybenz[1]["lng"];
+        $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];
+        $arrayPostData['messages'][2]['type'] = "location";
+        $arrayPostData['messages'][2]['title'] = $mybenz[2]["name"];
+        $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+        $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
+        $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
+
        replyMsg($arrayHeader,$arrayPostData);
 
 }
