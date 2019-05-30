@@ -81,13 +81,13 @@ $COUNTN++;
         $arrayPostData['messages'][0]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][0]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][0]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+     
         $arrayPostData['messages'][1]['type'] = "location";
         $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];
+
         $arrayPostData['messages'][2]['type'] = "location";
         $arrayPostData['messages'][2]['title'] = $mybenz[2]["name"];
         $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
