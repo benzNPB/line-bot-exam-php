@@ -9,7 +9,7 @@ function order_array_num ($array, $key, $order = "ASC")
   foreach($array as $akey => $array2) 
   { 
     $tmp[$akey] = $array2[$key]; 
-    print_r($tmp);
+
   } 
   
   if($order == "DESC") 
