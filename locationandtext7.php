@@ -60,7 +60,7 @@ $COUNTN++;
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
 
-       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ('Test' , 'BenZ' , $latu, $longu)";
+       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ('Testttttttttttttttttttttttttttttttttt1' , 'BenZ' , $latu, $longu)";
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
