@@ -58,8 +58,8 @@ $COUNTN++;
         $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
-
-       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', 'lati' , 'lng')";
+		$id = $arrayJson['events'][0]['source']['userId']
+       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ('$id', 'Benz', 'lati' , 'lng')";
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
