@@ -77,7 +77,7 @@ $COUNTN++;
 
        $sql = "INSERT INTO user ($iduser, $name, $lati, $lng))
 	 	VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', $mybenz[0]["lati"],$mybenz[0]["lng"])";
-}
+	 	mysqli_query($conn, $sql)
 }
    else if($message == $text)
     {
