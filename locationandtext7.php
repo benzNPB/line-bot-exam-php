@@ -61,6 +61,10 @@ $COUNTN++;
        replyMsg($arrayHeader,$arrayPostData);
        $query = "INSERT INTO user VALUES ('test', 'Benz', 'lati','lng')";
        mysqli_query($conn,$query );
+   
+        $arrayPostData['messages'][3]['type'] = "text";
+        $arrayPostData['messages'][3]['text'] = $arrayJson['events'][0]['source']['userId'];
+        replyMsg($arrayHeader,$arrayPostData);
 }
 }
    else if($message == $text)
