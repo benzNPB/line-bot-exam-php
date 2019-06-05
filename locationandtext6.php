@@ -88,11 +88,10 @@ $COUNTN++;
 }
    else if($message == $text)
     {
-        $textu = $event['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = $message;
-        getuserid($arrayHeader,$arrayPostData);
+        $arrayPostData['messages'][0]['text'] = $message.":".$text;
+        replyMsg($arrayHeader,$arrayPostData);
     }
          function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
