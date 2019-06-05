@@ -91,7 +91,7 @@ $COUNTN++;
         $textu = $event['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = $message.":"$arrayJson['events'][0]['source']['userId']
+        $arrPostData['messages'][0]['text'] = $message.":"$arrayJson['events'][0]['source']['userId'];
         getuserid($arrayHeader,$arrayPostData);
     }
          function replyMsg($arrayHeader,$arrayPostData){
