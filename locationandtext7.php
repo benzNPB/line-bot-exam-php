@@ -10,9 +10,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-
-$Name = 'Benz';
-    $link = mysqli_connect("localhost", "root", "", "demo");            
+         
 $R = 6371;
 $benz1 = array();
 $locate = array();
@@ -23,7 +21,7 @@ $locate = array();
     {
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
-   $id = $arrayJson['events'][0]['source']['userId'];
+   $idu = $arrayJson['events'][0]['source']['userId'];
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -62,7 +60,7 @@ $COUNTN++;
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
 
-       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ($id, 'Ben' , $latu, $longu)";
+       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ($idu , 'BenZ' , $latu, $longu)";
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
