@@ -91,7 +91,7 @@ $COUNTN++;
         $textu = $event['source']['userId'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $textu.":".$message;
+        $arrPostData['messages'][0]['text'] = $message.":"$arrJson['events'][0]['source']['userId']
         getuserid($arrayHeader,$arrayPostData);
     }
          function replyMsg($arrayHeader,$arrayPostData){
@@ -135,6 +135,7 @@ $COUNTN++;
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+
 
  
         
