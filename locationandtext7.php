@@ -42,7 +42,7 @@ $COUNTN++;
 
  if($idu = U434d98c2ea737a9af2b3401a2c0abcbb){
  	$uid = 'Benz';
- }
+ 
 
    /////////////////////////// use
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -66,10 +66,11 @@ $COUNTN++;
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
-        $arrayPostData['messages'][3]['text'] = $arrayJson['events'][0]['source']['userId'];
+        $arrayPostData['messages'][3]['text'] = $uid.",".$idu;
         replyMsg($arrayHeader,$arrayPostData);
 }
 }
+              }
    else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
