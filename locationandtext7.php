@@ -10,7 +10,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-	$id = $arrayJson['events'][0]['source']['userId'];
+
 $Name = 'Benz';
     $link = mysqli_connect("localhost", "root", "", "demo");            
 $R = 6371;
@@ -23,6 +23,7 @@ $locate = array();
     {
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
+   $id = $arrayJson['events'][0]['source']['userId'];
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
