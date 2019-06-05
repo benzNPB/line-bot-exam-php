@@ -59,7 +59,7 @@ $COUNTN++;
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
        replyMsg($arrayHeader,$arrayPostData);
-       $query = "INSERT INTO user VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', $mybenz[0]["lati"],$mybenz[0]["lng"])";
+       $query = "INSERT INTO user VALUES ('test', 'Benz', 'lati','lng')";
        mysqli_query($conn,$query );
 }
 }
