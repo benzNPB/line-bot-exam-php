@@ -10,6 +10,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
+	$id = $arrayJson['events'][0]['source']['userId'];
     $link = mysqli_connect("localhost", "root", "", "demo");            
 $R = 6371;
 $benz1 = array();
@@ -58,7 +59,7 @@ $COUNTN++;
         $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
-		$id = $arrayJson['events'][0]['source']['userId']
+
        $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ($id, 'Benz', 'lati' , 'lng')";
        mysqli_query($conn,$query );
    
