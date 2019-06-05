@@ -1,25 +1,6 @@
 <?php
     require "dbconnection.php";
-    function order_array_num ($array, $key, $order = "ASC") 
-{ 
-  $tmp = array(); 
-  foreach($array as $akey => $array2) 
-  { 
-    $tmp[$akey] = $array2[$key]; 
-  } 
-  
-  if($order == "DESC") 
-  {arsort($tmp , SORT_NUMERIC );} 
-  else 
-  {asort($tmp , SORT_NUMERIC );} 
-  $tmp2 = array();        
-  $i = 0;
-  foreach($tmp as $key => $value) {
-    $tmp2[$i] = $array[$key];
-    $i++;
-  }
-  return $tmp2; 
-} 
+
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
@@ -29,7 +10,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-                
+    $link = mysqli_connect("localhost", "root", "", "demo");            
 $R = 6371;
 $benz1 = array();
 $locate = array();
@@ -58,8 +39,7 @@ $COUNTN++;
    
 ///////////////////////////////
 
-mysqli_query($sql,"INSERT INTO user ($iduser, $name, $lati, $lng)
-	VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', $mybenz[0]["lati"],$mybenz[0]["lng"])";
+
 
    /////////////////////////// use
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -79,6 +59,8 @@ mysqli_query($sql,"INSERT INTO user ($iduser, $name, $lati, $lng)
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
        replyMsg($arrayHeader,$arrayPostData);
+       $query = "INSERT INTO user VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', $mybenz[0]["lati"],$mybenz[0]["lng"])";
+       mysqli_query($conn,$query );
 }
 }
    else if($message == $text)
@@ -129,6 +111,25 @@ mysqli_query($sql,"INSERT INTO user ($iduser, $name, $lati, $lng)
       curl_close ($ch);
    }
  
-        
+       function order_array_num ($array, $key, $order = "ASC") 
+{ 
+  $tmp = array(); 
+  foreach($array as $akey => $array2) 
+  { 
+    $tmp[$akey] = $array2[$key]; 
+  } 
+  
+  if($order == "DESC") 
+  {arsort($tmp , SORT_NUMERIC );} 
+  else 
+  {asort($tmp , SORT_NUMERIC );} 
+  $tmp2 = array();        
+  $i = 0;
+  foreach($tmp as $key => $value) {
+    $tmp2[$i] = $array[$key];
+    $i++;
+  }
+  return $tmp2; 
+}      
    exit;
 ?>
