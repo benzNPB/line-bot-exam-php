@@ -22,6 +22,7 @@ $locate = array();
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
    $idu = $arrayJson['events'][0]['source']['userId'];
+   $uid = $idu;
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -60,7 +61,7 @@ $COUNTN++;
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
 
-       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ('Testttttttttttttttttttttttttttttttttt1' , 'BenZ' , $latu, $longu)";
+       $query = "INSERT INTO user(iduser,name,lati,lng) VALUES ($uid , 'BenZ' , $latu, $longu)";
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
