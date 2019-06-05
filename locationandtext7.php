@@ -58,7 +58,7 @@ $COUNTN++;
    
 ///////////////////////////////
 
-mysqli_query($conn,"INSERT INTO user ($iduser, $name, $lati, $lng)
+mysqli_query($sql,"INSERT INTO user ($iduser, $name, $lati, $lng)
 	VALUES ($arrayJson['events'][0]['source']['userId'], 'Benz', $mybenz[0]["lati"],$mybenz[0]["lng"])";
 
    /////////////////////////// use
