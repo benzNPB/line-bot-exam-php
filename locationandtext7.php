@@ -66,7 +66,7 @@ $COUNTN++;
        mysqli_query($conn,$query );
    
         $arrayPostData['messages'][3]['type'] = "text";
-        $arrayPostData['messages'][3]['text'] = $arrayJson['events'][0]['source']['userId'];
+        $arrayPostData['messages'][3]['text'] = $query;
         replyMsg($arrayHeader,$arrayPostData);
 }
 }
