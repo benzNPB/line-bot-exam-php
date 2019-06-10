@@ -62,17 +62,13 @@ for ($dis < 1)
         $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[3]["name"];
-        $arrayPostData['messages'][3]['address'] =   $mybenz[3]["lati"].",".$mybenz[3]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[3]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[3]["lng"];
-        replyMsg($arrayHeader,$arrayPostData);
 
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
    
-
+        $arrayPostData['messages'][3]['type'] = "text";
+        $arrayPostData['messages'][3]['text'] = $query;
+        replyMsg($arrayHeader,$arrayPostData);
 }
 }
 }
