@@ -39,21 +39,39 @@ $COUNTN++;
   $mybenz = order_array_num ($benz1, "dis", "ASC");
    
 ///////////////////////////////
-$x = 0;
- for($mybenz[$x]["dis"] < 1){
+
+
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][$x]['type'] = "location";
-        $arrayPostData['messages'][$x]['title'] = $mybenz[$x]["name"];
-        $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
-        $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
-        $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
-
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][0]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+        $arrayPostData['messages'][0]['latitude'] =  $mybenz[0]["lati"];
+        $arrayPostData['messages'][0]['longitude'] =  $mybenz[0]["lng"];
+        $arrayPostData['messages'][1]['type'] = "location";
+        $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
+        $arrayPostData['messages'][1]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+        $arrayPostData['messages'][1]['latitude'] =  $mybenz[1]["lati"];
+        $arrayPostData['messages'][1]['longitude'] =  $mybenz[1]["lng"];
+        $arrayPostData['messages'][2]['type'] = "location";
+        $arrayPostData['messages'][2]['title'] = $mybenz[2]["name"];
+        $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+        $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
+        $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
+        $arrayPostData['messages'][3]['type'] = "location";
+        $arrayPostData['messages'][3]['title'] = $mybenz[3]["name"];
+        $arrayPostData['messages'][3]['address'] =   $mybenz[3]["lati"].",".$mybenz[3]["lng"];
+        $arrayPostData['messages'][3]['latitude'] =  $mybenz[3]["lati"];
+        $arrayPostData['messages'][3]['longitude'] =  $mybenz[3]["lng"];
+        $arrayPostData['messages'][4]['type'] = "location";
+        $arrayPostData['messages'][4]['title'] = $mybenz[4]["name"];
+        $arrayPostData['messages'][4]['address'] =   $mybenz[4]["lati"].",".$mybenz[4]["lng"];
+        $arrayPostData['messages'][4]['latitude'] =  $mybenz[4]["lati"];
+        $arrayPostData['messages'][4]['longitude'] =  $mybenz[4]["lng"];
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
       replyMsg($arrayHeader,$arrayPostData);
-        $x++;
-}
+
 }
 }
    else if($message == $text)
