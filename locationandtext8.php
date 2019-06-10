@@ -40,7 +40,7 @@ $COUNTN++;
    
 ///////////////////////////////
 $x = 0;
- if($mybenz[$x]["dis"] < 1){
+ for($mybenz[$x]["dis"] < 1){
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][$x]['type'] = "location";
