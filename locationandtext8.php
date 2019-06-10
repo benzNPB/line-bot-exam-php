@@ -41,14 +41,13 @@ $COUNTN++;
    
 ///////////////////////////////
 
- if($idu = U434d98c2ea737a9af2b3401a2c0abcbb){
-  $uid = 'Benz';
- }
+ if($dis < 1 ){
+
 
    /////////////////////////// use
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][0]['title'] = $mybenz[0]["name"].",".$dis;
         $arrayPostData['messages'][0]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][0]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][0]['longitude'] =  $mybenz[0]["lng"];
@@ -69,6 +68,7 @@ $COUNTN++;
         $arrayPostData['messages'][3]['type'] = "text";
         $arrayPostData['messages'][3]['text'] = $query;
         replyMsg($arrayHeader,$arrayPostData);
+      }
 }
 }
    else if($message == $text)
