@@ -55,7 +55,17 @@ $COUNTN++;
           }
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
+        echo '<pre>';
+     print_r($mybenz);
+    echo '</pre>';
+      $x = 0;
+   while($mybenz[$x]["dis"] < 1){
+     echo '<pre>';
+     print_r($mybenz[$x]["dis"]);
+    echo '</pre>';
+      $x++;
+   }
+      
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
