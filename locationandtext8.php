@@ -15,7 +15,7 @@ $R = 6371;
 $benz1 = array();
 $locate = array();
         $COUNTN=0;       
-        $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
           if($message == $location)
     {
@@ -40,34 +40,26 @@ $COUNTN++;
    
 ///////////////////////////////
 
- if($idu = U434d98c2ea737a9af2b3401a2c0abcbb){
- 	$uid = 'Benz';
- }
+for ($dis < 1)
+{
+  $x = 0;
+
 
    /////////////////////////// use
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = $mybenz[0]["name"];
-        $arrayPostData['messages'][0]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
-        $arrayPostData['messages'][0]['latitude'] =  $mybenz[0]["lati"];
-        $arrayPostData['messages'][0]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[2]["name"];
-        $arrayPostData['messages'][2]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[2]["lng"];
+        $arrayPostData['messages'][$x]['type'] = "location";
+        $arrayPostData['messages'][$x]['title'] = $mybenz[$x]["name"];
+        $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
+        $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
+        $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
 
+        replyMsg($arrayHeader,$arrayPostData);
+$x++;
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
    
-        $arrayPostData['messages'][3]['type'] = "text";
-        $arrayPostData['messages'][3]['text'] = $query;
-        replyMsg($arrayHeader,$arrayPostData);
+
+}
 }
 }
    else if($message == $text)
