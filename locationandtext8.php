@@ -40,7 +40,7 @@ $COUNTN++;
   $mybenz = order_array_num ($benz1, "dis", "ASC");
    
 ///////////////////////////////
-$j = 0;
+
 for($dis < 1 ){
 
 
@@ -66,7 +66,7 @@ for($dis < 1 ){
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
 
-          $j++;
+
       }
 }
 }
