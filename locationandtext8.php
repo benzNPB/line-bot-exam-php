@@ -51,14 +51,15 @@ $j = 0;
        $arrayPostData['messages'][$j]['address'] = $mybenz[$j]["lati"].",".$mybenz[$j]["lng"];
        $arrayPostData['messages'][$j]['latitude'] = $mybenz[$j]["lati"];
        $arrayPostData['messages'][$j]['longitude'] = $mybenz[$j]["lng"];
-       replyMsg($arrayHeader,$arrayPostData);
+        $arrayPostData['messages'][$j]['type'] = "text";
+        $arrayPostData['messages'][$j]['text'] = $j;
+    
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
 
           $j++;
 
-        $arrayPostData['messages'][$j]['type'] = "text";
-        $arrayPostData['messages'][$j]['text'] = $j;
+   replyMsg($arrayHeader,$arrayPostData);
       }
     }
 }
