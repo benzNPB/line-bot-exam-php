@@ -40,8 +40,8 @@ $COUNTN++;
   $mybenz = order_array_num ($benz1, "dis", "ASC");
    
 ///////////////////////////////
-
-for ($dis < 1; $j = 0; $j++) {
+$j = 0; 
+for ($dis < 1;) {
    /////////////////////////// use ////////////////////
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][$j]['type'] = "location";
@@ -49,11 +49,11 @@ for ($dis < 1; $j = 0; $j++) {
        $arrayPostData['messages'][$j]['address'] = $mybenz[$j]["lati"].",".$mybenz[$j]["lng"];
        $arrayPostData['messages'][$j]['latitude'] = $mybenz[$j]["lati"];
        $arrayPostData['messages'][$j]['longitude'] = $mybenz[$j]["lng"];
-    
+       replyMsg($arrayHeader,$arrayPostData);
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
-
-   replyMsg($arrayHeader,$arrayPostData);
+$j++;
+  
       }
     }
 }
