@@ -51,10 +51,12 @@ while($mybenz[$x]["dis"] < 1){
 
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
-      replyMsg($arrayHeader,$arrayPostData);
+     
         $x++;
 }
+      replyMsg($arrayHeader,$arrayPostData);
 }
+       
 }
    else if($message == $text)
     {
