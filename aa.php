@@ -65,10 +65,7 @@ $COUNTN++;
     echo '</pre>';
       $x++;
    }
-      
-    echo '<pre>';
-     print_r($mybenz);
-    echo '</pre>';
+     
       
      
 }
