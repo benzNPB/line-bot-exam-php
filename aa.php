@@ -76,6 +76,9 @@ $contend = 3;
                echo '<pre>';
             echo $mybenz[$x]["name"];
                echo '</pre>';
+           
+            $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+           mysqli_query($conn,$query );
         }
     }
  }
