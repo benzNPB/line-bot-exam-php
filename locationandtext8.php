@@ -48,13 +48,13 @@ while($mybenz[$x]["dis"] < 0.004){
         $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
         $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
         $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
-
+        replyMsg($arrayHeader,$arrayPostData);
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
      
         $x++;
 }
-      replyMsg($arrayHeader,$arrayPostData);
+     
 }
        
 }
