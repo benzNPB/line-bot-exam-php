@@ -59,7 +59,7 @@ $COUNTN++;
      print_r($mybenz);
     echo '</pre>';
       $x = 0;
-   while($mybenz[$x]["dis"] < 1){
+   while($mybenz[$x]["dis"] < 1 && $x < 5){
      echo '<pre>';
      print_r($mybenz[$x]["dis"]);
     echo '</pre>';
