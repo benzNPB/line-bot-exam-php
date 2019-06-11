@@ -67,7 +67,7 @@ $COUNTN++;
   // }
      $mybenznum = count($mybenz);
 ///////////////////////////////
-$contend = 3;
+$contend = 4;
  for ($x = 0; $x < $mybenznum; $x++) { 
     if($contend<=0){
     }else{
