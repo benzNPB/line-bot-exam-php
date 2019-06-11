@@ -72,7 +72,9 @@ $contend = 3;
     if($contend<=0){
     }else{
         if(floatval($mybenz[$x]["dis"]) < 1){
+               echo '<pre>';
             echo $mybenz[$x]["name"];
+               echo '</pre>';
         }
     }
  }
