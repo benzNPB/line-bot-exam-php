@@ -54,7 +54,7 @@ $contend = 3;
             replyMsg($arrayHeader,$arrayPostData);
            $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
            mysqli_query($conn,$query );
-            sleep(3);
+            sleep(10);
         }
     }
 }
