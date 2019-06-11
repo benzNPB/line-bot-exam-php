@@ -17,9 +17,9 @@ $locate = array();
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest";
         $result = $conn->query($sql);
-          if($message == "Evacuation Point")
+          while($message == "Evacuation Point")
     {        
-              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
