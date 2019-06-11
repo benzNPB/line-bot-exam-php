@@ -17,8 +17,7 @@ $locate = array();
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest";
         $result = $conn->query($sql);
-          if($message == "Evacuation Point")
-    {        
+  
                  if($message == $location)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -51,7 +50,8 @@ $COUNTN++;
  if($idu = U434d98c2ea737a9af2b3401a2c0abcbb){
  	$uid = 'Benz';
  }
-
+          if($message == "Evacuation Point")
+    {      
    /////////////////////////// use
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
