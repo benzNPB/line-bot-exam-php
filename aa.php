@@ -56,16 +56,26 @@ $COUNTN++;
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
         echo '<pre>';
-     print_r($mybenz);
-    echo '</pre>';
-      $x = 0;
-   while($mybenz[$x]["dis"] < 1 && $x < 5){
-     echo '<pre>';
-     print_r($mybenz[$x]["dis"]);
-    echo '</pre>';
-      $x++;
-   }
-     
+    // print_r($mybenz);
+  //  echo '</pre>';
+     // $x = 0;
+   //while($mybenz[$x]["dis"] < 1 && $x < 5){
+    // echo '<pre>';
+    // print_r($mybenz[$x]["dis"]);
+    //echo '</pre>';
+     // $x++;
+  // }
+     $mybenznum = count($mybenz);
+///////////////////////////////
+$contend = 3;
+ for ($x = 0; $x < $mybenznum; $x++) { 
+    if($contend<=0){
+    }else{
+        if(floatval($mybenz[$x]["dis"]) < 1){
+            echo $mybenz[$x]["name"];
+        }
+    }
+ }
       
      
 }
