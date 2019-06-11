@@ -49,12 +49,12 @@ while($mybenz[$x]["dis"] < 1 && $x < 5) {
         $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
         $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
     $x++;
-        $arrayPostData['messages'][$x]['type'] = "location";
+/*        $arrayPostData['messages'][$x]['type'] = "location";
         $arrayPostData['messages'][$x]['title'] = $mybenz[$x]["name"];
         $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
         $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
         $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
-        replyMsg($arrayHeader,$arrayPostData);
+*/        replyMsg($arrayHeader,$arrayPostData);
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
      
