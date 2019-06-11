@@ -66,12 +66,7 @@ while($mybenz[$x]["dis"] < 1) {
         $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
         $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
         $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
-    $x++;
-        $arrayPostData['messages'][$x]['type'] = "location";
-        $arrayPostData['messages'][$x]['title'] = $mybenz[$x]["name"];
-        $arrayPostData['messages'][$x]['address'] =   $mybenz[$x]["lati"].",".$mybenz[$x]["lng"];
-        $arrayPostData['messages'][$x]['latitude'] =  $mybenz[$x]["lati"];
-        $arrayPostData['messages'][$x]['longitude'] =  $mybenz[$x]["lng"];
+
     $x++;
        $arrayPostData['messages'][$x]['type'] = "text";
         $arrayPostData['messages'][$x]['text'] = $arrayJson['events'][0]['source']['userId'];
