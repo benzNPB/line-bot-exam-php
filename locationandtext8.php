@@ -40,7 +40,7 @@ $COUNTN++;
    
 ///////////////////////////////
 $x = 0;
-while($mybenz[$x]["dis"] < 0.004){
+while($mybenz[$x]["dis"] < 1 && $x < 5) {
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][$x]['type'] = "location";
