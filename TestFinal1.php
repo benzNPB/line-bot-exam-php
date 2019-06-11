@@ -17,15 +17,16 @@ $locate = array();
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest";
         $result = $conn->query($sql);
-          while($message == "Evacuation Point")
+          if($message == "Evacuation Point")
     {        
+                 if($message == $location)
+    {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
 
-          if($message == $location)
-    {
+       
    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
    $longu = $arrayJson['events'][0]['message']['longitude'];
    $userid = $arrayJson['events'][0]['source']['userId'];
