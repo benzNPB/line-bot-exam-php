@@ -13,6 +13,8 @@
     $R = 6371;
     $benz1 = array();     
     $COUNTN=0;       
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
      $result = $conn->query($sql);
    $userid = $arrayJson['events'][0]['source']['userId'];
