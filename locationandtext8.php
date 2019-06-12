@@ -67,7 +67,8 @@ ini_set('display_errors', 1);
 
         $sql = "SELECT no,name,lati,lng FROM contest";
         $result = $conn->query($sql);
-
+        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+        $longu = $arrayJson['events'][0]['message']['longitude'];
 
 
 
