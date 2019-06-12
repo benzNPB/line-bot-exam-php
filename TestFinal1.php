@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
      $result = $conn->query($sql);
-   $userid = $arrayJson['events'][0]['source']['userId'];
+     $userid = $arrayJson['events'][0]['source']['userId'];
        if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
         {
           $username = 'Benz';
@@ -55,8 +55,12 @@ ini_set('display_errors', 1);
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
         
-        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
-        $result_command = mysqli_query($conn,$sql_command );
+       $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+       $result_command = mysqli_query($conn,$sql_command );
+           
+       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+       $longu = $arrayJson['events'][0]['message']['longitude'];
+           
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$username."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
 
@@ -67,8 +71,7 @@ ini_set('display_errors', 1);
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
-       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-       $longu = $arrayJson['events'][0]['message']['longitude'];
+
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -110,7 +113,6 @@ $COUNTN++;
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
-
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
