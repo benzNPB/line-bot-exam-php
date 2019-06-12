@@ -79,15 +79,16 @@
                 replyMsg($arrayHeader,$arrayPostData);
               }
 
-          }else{
-             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+          }
+          else{
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "no command";
               replyMsg($arrayHeader,$arrayPostData);
           }
 
 
-      }
+     }
 
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
