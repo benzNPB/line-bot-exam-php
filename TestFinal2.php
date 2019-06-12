@@ -18,7 +18,7 @@
   $username = 'Benz';
  }
 
-       $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', "Evacuation")";
+       $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation')";
        mysqli_query($conn,$query );
    
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
