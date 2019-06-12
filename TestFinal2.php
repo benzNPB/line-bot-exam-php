@@ -31,7 +31,7 @@
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
 }
-          if($message == "People around me")
+         else if($message == "People around me")
     {        
 
        $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'People')";
@@ -41,7 +41,7 @@
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
 }
-          if($message == "DiasterInformation")
+         else if($message == "DiasterInformation")
     {        
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
