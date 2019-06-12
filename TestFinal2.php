@@ -35,8 +35,8 @@ ini_set('display_errors', 1);
 }
          else if($message == "People around me")
     {        
-
-       $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'People')";
+        $currenttime = date("d-M-Y H:i:s");
+       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'People','".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
