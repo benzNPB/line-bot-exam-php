@@ -40,7 +40,7 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
+        $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
         replyMsg($arrayHeader,$arrayPostData);
 }
          else if($message == "DiasterInformation")
@@ -55,7 +55,7 @@ ini_set('display_errors', 1);
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
         
-        $sql_command = "SELECT iduserlink,Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by time desc limit 0,1";
+        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by time desc limit 0,1";
         $result_command = mysqli_query($conn,$sql_command );
         $rowcount_command=mysqli_num_rows($result_command);
 
