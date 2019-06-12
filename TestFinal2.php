@@ -108,8 +108,9 @@
                      $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
                      mysqli_query($conn,$query );
                       replyMsg($arrayHeader,$arrayPostData);
-              }else if($row_command["command"]=="People"){
-$sql = "SELECT no,name,lati,lng FROM user";
+              } 
+              /*else if($row_command["command"]=="People"){
+                    $sql = "SELECT no,name,lati,lng FROM user";
                       $result = $conn->query($sql);
 
                              $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
@@ -156,7 +157,8 @@ $sql = "SELECT no,name,lati,lng FROM user";
                      $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
                      mysqli_query($conn,$query );
                       replyMsg($arrayHeader,$arrayPostData);
-              }else{
+              }*/
+                else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "not found command";
