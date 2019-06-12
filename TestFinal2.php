@@ -59,7 +59,7 @@ ini_set('display_errors', 1);
         $result_command = mysqli_query($conn,$sql_command );
         $rowcount_command=mysqli_num_rows($result_command);
 
-        if( $rowcount_command)>=1){
+        if( $rowcount_command>=1){
            /*         $row_command = $result_command->fetch_assoc();
          if($row_command["command"]=="Evacuation"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
