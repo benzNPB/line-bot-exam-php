@@ -13,7 +13,6 @@
     $R = 6371;
     $benz1 = array();     
     $COUNTN=0;       
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -62,7 +61,7 @@ ini_set('display_errors', 1);
 
           if( $rowcount_command)>=1){
                   $row_command = $result_command->fetch_assoc();
-              if($row_command["command"]=="Evacuation"){
+/*              if($row_command["command"]=="Evacuation"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "E";
@@ -78,7 +77,7 @@ ini_set('display_errors', 1);
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "not found command";
                 replyMsg($arrayHeader,$arrayPostData);
-              }
+              }*/
 
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
