@@ -53,13 +53,13 @@ ini_set('display_errors', 1);
 }
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
-/*          if($message == $location){
+       if($message == $location){
         
         $sql_command = "SELECT command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by date desc limit 0,1";
         $result_command = $conn->query($sql_command);
         $rowcount_command=mysqli_num_rows($result_command);
 
-          if( $rowcount_command)>=1){
+/*          if( $rowcount_command)>=1){
                   $row_command = $result_command->fetch_assoc();
               if($row_command["command"]=="Evacuation"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -84,10 +84,10 @@ ini_set('display_errors', 1);
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "no command";
               replyMsg($arrayHeader,$arrayPostData);
-          }
+          }*/
 
 
-     }*/
+     }
 
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
