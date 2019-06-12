@@ -66,7 +66,7 @@ ini_set('display_errors', 1);
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "E";
                 replyMsg($arrayHeader,$arrayPostData);
-              //}
+              }
               else if($row_command["command"]=="People"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
