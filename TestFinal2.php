@@ -10,24 +10,106 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-         
+    $R = 6371;
+    $benz1 = array();     
+    $COUNTN=0;       
+    $sql = "SELECT name,lati,lng,iduserlink FROM user ";
+     $result = $conn->query($sql);
+   $userid = $arrayJson['events'][0]['source']['userId'];
+       if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
+        {
+          $username = 'Benz';
+        }
+
           if($message == "Evacuation Point")
     {        
-   $userid = $arrayJson['events'][0]['source']['userId'];
-       if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb"){
-  $username = 'Benz';
- }
 
-              $currenttime = date("d-M-Y H:i:s");
-       $query = "INSERT INTO command(iduserlink,username,command,time) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation', '".$currenttime."')";
+       $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation')";
        mysqli_query($conn,$query );
-   
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
-
 }
+          if($message == "People around me")
+    {        
+
+       $query = "INSERT INTO command(iduserlink,username,command) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'People')";
+       mysqli_query($conn,$query );
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
+        replyMsg($arrayHeader,$arrayPostData);
+}
+          if($message == "DiasterInformation")
+    {        
+
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "DiasterInformation";
+        replyMsg($arrayHeader,$arrayPostData);
+}
+
+//////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
+          if($message == $location)
+    {
+        
+         $sql = "SELECT command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by date desc limit 0,1";
+        $result = $conn->query($sql);
+$rowcount=mysqli_num_rows($result);
+
+
+   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+   $longu = $arrayJson['events'][0]['message']['longitude'];
+
+ if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc() ){
+                  $lati1 = $row["lati"];
+                  $lng1 = $row["lng"];
+                     $deltaLat1 = deg2rad($lati1 - $latu);
+                     $deltaLong1 = deg2rad($lng1 - $longu);
+                   
+                    $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
+                    $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
+                    $dis = $R * $c1;
+                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+ 
+$COUNTN++;
+          }
+  $mybenz = order_array_num ($benz1, "dis", "ASC");
+   
+ }
+
+   /////////////////////////// use
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+        $arrayPostData['messages'][1]['type'] = "location";
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+        $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
+        $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+        $arrayPostData['messages'][2]['type'] = "location";
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
+        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
+        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
+        $arrayPostData['messages'][3]['type'] = "location";
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
+        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
+        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+
+       $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+       mysqli_query($conn,$query );
+   
+
+        replyMsg($arrayHeader,$arrayPostData);
+}
+}
+
+//////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
+
 
          function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
