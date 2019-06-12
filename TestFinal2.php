@@ -57,17 +57,17 @@ ini_set('display_errors', 1);
         
         $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by time desc limit 0,1";
         $result_command = mysqli_query($conn,$sql_command );
-        $rowcount_command=mysqli_num_rows($result_command);
+       
 
-        if( $rowcount_command>=1){
+        if($result_command){
                     $row_command = $result_command->fetch_assoc();
-         if($row_command["command"]=="Evacuation"){
+         if($row_command["Command"]=="Evacuation"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "E";
                 replyMsg($arrayHeader,$arrayPostData);
               }
-              else if($row_command["command"]=="People"){
+              else if($row_command["Command"]=="People"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "P";
@@ -82,7 +82,7 @@ ini_set('display_errors', 1);
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
-              $arrayPostData['messages'][0]['text'] = "no command".$rowcount_command;
+              $arrayPostData['messages'][0]['text'] = "no command".$sql_command;
               replyMsg($arrayHeader,$arrayPostData);
           }
 
