@@ -62,13 +62,13 @@ ini_set('display_errors', 1);
 
         if($result_command){
        $row_command = $result_command->fetch_assoc();
-       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-       $longu = $arrayJson['events'][0]['message']['longitude'];
+
 
          if($row_command["Command"]=="Evacuation"){
-        $sql = "SELECT no,name,lati,lng FROM contest";
+       $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
-
+       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+       $longu = $arrayJson['events'][0]['message']['longitude'];
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
