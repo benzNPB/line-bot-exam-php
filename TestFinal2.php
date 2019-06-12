@@ -14,7 +14,7 @@
           if($message == "Evacuation Point")
     {        
    $userid = $arrayJson['events'][0]['source']['userId'];
-       if($userid = U434d98c2ea737a9af2b3401a2c0abcbb){
+       if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb"){
   $username = 'Benz';
  }
 
