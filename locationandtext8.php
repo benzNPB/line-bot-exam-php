@@ -62,10 +62,29 @@ ini_set('display_errors', 1);
         if($result_command){
                     $row_command = $result_command->fetch_assoc();
          if($row_command["Command"]=="Evacuation"){
+
+
+
+        $sql = "SELECT no,name,lati,lng FROM contest";
+        $result = $conn->query($sql);
+
+
+
+
+
+
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "E";
                 replyMsg($arrayHeader,$arrayPostData);
+
+
+
+
+
+
+
+                
               }
               else if($row_command["Command"]=="People"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
