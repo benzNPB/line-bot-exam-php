@@ -11,7 +11,8 @@
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
     $R = 6371;
-    $benz1 = array();     
+    $benz1 = array();
+    $locate = array(); 
     $COUNTN=0;       
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
