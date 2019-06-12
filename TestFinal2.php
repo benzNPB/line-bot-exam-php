@@ -82,7 +82,7 @@ ini_set('display_errors', 1);
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
-              $arrayPostData['messages'][0]['text'] = "no command".$rowcount_command;
+              $arrayPostData['messages'][0]['text'] = "no command".$row_command["command"];
               replyMsg($arrayHeader,$arrayPostData);
           }
 
