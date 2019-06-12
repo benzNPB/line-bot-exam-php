@@ -54,55 +54,123 @@
           if($message == $location)
     {
         
-         $sql = "SELECT command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by date desc limit 0,1";
-        $result = $conn->query($sql);
-$rowcount=mysqli_num_rows($result);
+        $sql_command = "SELECT command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by date desc limit 0,1";
+        $result_command = $conn->query($sql_command);
+        $rowcount_command=mysqli_num_rows($result_command);
 
+          if( $rowcount_command)>=1){
+                  $row_command = $result_command->fetch_assoc()
+              if($row_command["command"]=="Evacuation"){
+                      $sql = "SELECT no,name,lati,lng FROM contest";
+                      $result = $conn->query($sql);
 
-   $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-   $longu = $arrayJson['events'][0]['message']['longitude'];
+                             $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+                             $longu = $arrayJson['events'][0]['message']['longitude'];
 
- if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc() ){
-                  $lati1 = $row["lati"];
-                  $lng1 = $row["lng"];
-                     $deltaLat1 = deg2rad($lati1 - $latu);
-                     $deltaLong1 = deg2rad($lng1 - $longu);
-                   
-                    $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
-                    $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
-                    $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
- 
-$COUNTN++;
+                           if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc() ){
+                                            $lati1 = $row["lati"];
+                                            $lng1 = $row["lng"];
+                                               $deltaLat1 = deg2rad($lati1 - $latu);
+                                               $deltaLong1 = deg2rad($lng1 - $longu);
+                                             
+                                              $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
+                                              $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
+                                              $dis = $R * $c1;
+                                              $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                           
+                          $COUNTN++;
+                                    }
+                            $mybenz = order_array_num ($benz1, "dis", "ASC");
+                             
+                           }
+
+                 /////////////////////////// use
+                      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+                      $arrayPostData['messages'][0]['type'] = "text";
+                      $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+                      $arrayPostData['messages'][1]['type'] = "location";
+                      $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
+                      $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+                      $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
+                      $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+                      $arrayPostData['messages'][2]['type'] = "location";
+                      $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
+                      $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+                      $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
+                      $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
+                      $arrayPostData['messages'][3]['type'] = "location";
+                      $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
+                      $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+                      $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
+                      $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+
+                     $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+                     mysqli_query($conn,$query );
+                      replyMsg($arrayHeader,$arrayPostData);
+              }else if($row_command["command"]=="People"){
+$sql = "SELECT no,name,lati,lng FROM user";
+                      $result = $conn->query($sql);
+
+                             $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+                             $longu = $arrayJson['events'][0]['message']['longitude'];
+
+                           if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc() ){
+                                            $lati1 = $row["lati"];
+                                            $lng1 = $row["lng"];
+                                               $deltaLat1 = deg2rad($lati1 - $latu);
+                                               $deltaLong1 = deg2rad($lng1 - $longu);
+                                             
+                                              $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
+                                              $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
+                                              $dis = $R * $c1;
+                                              $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                           
+                          $COUNTN++;
+                                    }
+                            $mybenz = order_array_num ($benz1, "dis", "ASC");
+                             
+                           }
+
+                 /////////////////////////// use
+                      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+                      $arrayPostData['messages'][0]['type'] = "text";
+                      $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+                      $arrayPostData['messages'][1]['type'] = "location";
+                      $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
+                      $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+                      $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
+                      $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+                      $arrayPostData['messages'][2]['type'] = "location";
+                      $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
+                      $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+                      $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
+                      $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
+                      $arrayPostData['messages'][3]['type'] = "location";
+                      $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
+                      $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+                      $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
+                      $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+
+                     $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+                     mysqli_query($conn,$query );
+                      replyMsg($arrayHeader,$arrayPostData);
+              }else{
+                $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = "not found command";
+                replyMsg($arrayHeader,$arrayPostData);
+              }
+
+          }else{
+             $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "no command";
+              replyMsg($arrayHeader,$arrayPostData);
           }
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
- }
 
-   /////////////////////////// use
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
 
-       $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
-       mysqli_query($conn,$query );
-        replyMsg($arrayHeader,$arrayPostData);
 }
 
 
