@@ -13,7 +13,7 @@
     $R = 6371;
     $benz1 = array();     
     $COUNTN=0;       
-    $sql = "SELECT name,lati,lng,iduserlink FROM user ";
+
      $result = $conn->query($sql);
    $userid = $arrayJson['events'][0]['source']['userId'];
        if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
