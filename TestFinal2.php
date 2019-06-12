@@ -60,7 +60,7 @@ ini_set('display_errors', 1);
         $rowcount_command=mysqli_num_rows($result_command);
 
         if( $rowcount_command>=1){
-           /*         $row_command = $result_command->fetch_assoc();
+                    $row_command = $result_command->fetch_assoc();
          if($row_command["command"]=="Evacuation"){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
@@ -84,7 +84,7 @@ ini_set('display_errors', 1);
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "no command";
               replyMsg($arrayHeader,$arrayPostData);
-          }*/
+          }
 
 }
      }
