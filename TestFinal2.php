@@ -55,7 +55,8 @@ ini_set('display_errors', 1);
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
-        
+            $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+            $longu = $arrayJson['events'][0]['message']['longitude'];
         $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
         $result_command = mysqli_query($conn,$sql_command );
        
@@ -63,9 +64,10 @@ ini_set('display_errors', 1);
         if($result_command){
                     $row_command = $result_command->fetch_assoc();
          if($row_command["Command"]=="Evacuation"){
-    $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-    $longu = $arrayJson['events'][0]['message']['longitude'];
-    $userid = $arrayJson['events'][0]['source']['userId'];
+             
+        $sql = "SELECT no,name,lati,lng FROM contest";
+        $result = $conn->query($sql);
+
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
