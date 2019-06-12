@@ -51,7 +51,7 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
-          if($message == $location)
+/*          if($message == $location)
     {
         
          $sql = "SELECT command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by date desc limit 0,1";
@@ -102,10 +102,8 @@ $COUNTN++;
 
        $query = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('".$uid."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query );
-   
-
         replyMsg($arrayHeader,$arrayPostData);
-}
+}*/
 }
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
