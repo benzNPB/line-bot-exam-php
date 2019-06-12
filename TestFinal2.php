@@ -18,7 +18,7 @@
   $username = 'Benz';
  }
 
-              $currenttime = date("d-M-Y H:i:s")
+              $currenttime = date("d-M-Y H:i:s");
        $query = "INSERT INTO command(iduserlink,username,command,time) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation', '".$currenttime."')";
        mysqli_query($conn,$query );
    
