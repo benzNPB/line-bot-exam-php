@@ -85,7 +85,7 @@ ini_set('display_errors', 1);
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-        $j =3;
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
@@ -131,7 +131,8 @@ $COUNTN++;
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
+        $j =3;
+        $link = "   ";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
@@ -150,6 +151,15 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+    foreach($mybenz[$j]["dis"]<1 && $j<5) {
+    $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
+    $link = $link[$j].",".$link;
+    $arrayPostData['messages'][4]['type'] = "text";
+    $arrayPostData['messages'][4]['text'] = $link;
+    $nlink = $link[$j]
+    $j++;
+  }
+
         replyMsg($arrayHeader,$arrayPostData);
 }
               }else{
