@@ -90,20 +90,29 @@ $COUNTN++;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].','.$mybenz[0]["dis"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].','.$mybenz[1]["dis"];;
         $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].','.$mybenz[2]["dis"];;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+        $arrayPostData['messages'][4]['type'] = "text";
+        $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+
+        //   $j = 3;
+        //   foreach($dis < 1 && $j<5) {
+        // $arrayPostData['messages'][4]['type'] = "text";
+        // $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        //     $j++;
+        //  }
         replyMsg($arrayHeader,$arrayPostData);
 }
 
@@ -130,30 +139,25 @@ $COUNTN++;
         $j = 3;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",".$dis;
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].",".$dis;
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
         $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",".$dis;
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",".;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
 
 
-        //   $j = 3;
-        //   foreach($dis < 1 && $j<5) {
-        // $arrayPostData['messages'][4]['type'] = "text";
-        // $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
-        //     $j++;
-        //  }
+
         replyMsg($arrayHeader,$arrayPostData);
 }
               }else{
