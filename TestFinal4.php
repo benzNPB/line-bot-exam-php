@@ -46,10 +46,16 @@ ini_set('display_errors', 1);
 }
          else if($message == "DiasterInformation")
     {        
-
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "DiasterInformation";
+           $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
+           $xml1 = simplexml_load_file($url);
+           $xml2 = $xml1->channel->item[0]->description;
+           $xml3 = $xml1->channel->item[0]->title;
+           $xml = (explode(" ",$xml2));
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = $xml3;
+        $arrayPostData['messages'][0]['address'] =   $xml[3].",".$xml[6];
+        $arrayPostData['messages'][0]['latitude'] =  $xml[3];
+        $arrayPostData['messages'][0]['longitude'] =  $xml[6];
         replyMsg($arrayHeader,$arrayPostData);
 }
 
