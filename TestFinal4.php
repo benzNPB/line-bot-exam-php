@@ -56,8 +56,8 @@ ini_set('display_errors', 1);
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
         
-        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
-        $result_command = mysqli_query($conn,$sql_command );
+       $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+       $result_command = mysqli_query($conn,$sql_command );
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
 
@@ -67,15 +67,15 @@ ini_set('display_errors', 1);
        $longu = $arrayJson['events'][0]['message']['longitude'];
 
          if($row_command["Command"]=="Evacuation"){
-        $sql = "SELECT no,name,lati,lng FROM contest";
+       $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
 
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                     $deltaLat1 = deg2rad($lati1 - $latu);
-                     $deltaLong1 = deg2rad($lng1 - $longu);
+                    $deltaLat1 = deg2rad($lati1 - $latu);
+                    $deltaLong1 = deg2rad($lng1 - $longu);
                    
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
@@ -151,14 +151,14 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
- //   foreach($mybenz[$j]["dis"]<1) {
-  //  $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
+      for($mybenz[$j]["dis"]<1) {
+      $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
   //  $link = $link[$j].",".$link;
   //  $arrayPostData['messages'][4]['type'] = "text";
   //  $arrayPostData['messages'][4]['text'] = $link;
-   // $nlink = $link[$j]
+   //   $nlink = $link[$j]
  //   $j++;
- // }
+  }
 
         replyMsg($arrayHeader,$arrayPostData);
 }
