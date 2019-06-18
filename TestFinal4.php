@@ -85,7 +85,7 @@ ini_set('display_errors', 1);
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-           $j = 3;
+   
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
@@ -95,18 +95,24 @@ $COUNTN++;
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].','.$mybenz[1]["dis"];
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].','.$mybenz[1]["dis"];;
         $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].','.$mybenz[2]["dis"];
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].','.$mybenz[2]["dis"];;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $arrayPostData['messages'][4]['type'] = "text";
-        $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[3]["lati"].",".$mybenz[3]["lng"].",15z";
 
+        //   $j = 3;
+        //   foreach($dis < 1 && $j<5) {
+        // $arrayPostData['messages'][4]['type'] = "text";
+        // $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        //     $j++;
+        //  }
         replyMsg($arrayHeader,$arrayPostData);
 }
 
@@ -130,7 +136,7 @@ $COUNTN++;
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-
+        $j = 3;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km";
