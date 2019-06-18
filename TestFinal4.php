@@ -107,7 +107,7 @@ $COUNTN++;
         $link[1] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
         $link[2] = "https://www.google.com/maps/@".$mybenz[4]["lati"].",".$mybenz[4]["lng"].",15z";
         $arrayPostData['messages'][4]['type'] = "text";
-        $arrayPostData['messages'][4]['text'] = $link[1] .",".$link[2];
+        $arrayPostData['messages'][4]['text'] = $link[1] ."     ".$link[2];
         replyMsg($arrayHeader,$arrayPostData);
 }
 
