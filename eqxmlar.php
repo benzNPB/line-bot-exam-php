@@ -5,6 +5,6 @@ $xml1 = simplexml_load_file($url);
 $xml2 = $xml1->channel->item[0]->description;
 $xml = (explode(" ",$xml2));
 print_r ($xml);
-print_r ($xml[3],$xml[6]);
+echo $xml3.':'.$xml[3].','.$xml[6];
 
 ?>
