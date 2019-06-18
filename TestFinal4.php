@@ -44,7 +44,7 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
         replyMsg($arrayHeader,$arrayPostData);
 }
-         else if($message == "DiasterInformation")
+         else if($message == "DisasterInformation")
     {        
            $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
            $xml1 = simplexml_load_file($url);
