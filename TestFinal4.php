@@ -85,7 +85,7 @@ ini_set('display_errors', 1);
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
+           $j = 3;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
@@ -136,7 +136,7 @@ $COUNTN++;
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-        $j = 3;
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km";
