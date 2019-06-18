@@ -104,6 +104,8 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+        $arrayPostData['messages'][4]['type'] = "text";
+        $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[3]["lati"].",".$mybenz[3]["lng"].",15z";
         replyMsg($arrayHeader,$arrayPostData);
 }
 
