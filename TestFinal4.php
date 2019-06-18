@@ -151,14 +151,14 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-    foreach($mybenz[$j]["dis"]<1) {
+ //   foreach($mybenz[$j]["dis"]<1) {
   //  $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
   //  $link = $link[$j].",".$link;
   //  $arrayPostData['messages'][4]['type'] = "text";
   //  $arrayPostData['messages'][4]['text'] = $link;
    // $nlink = $link[$j]
  //   $j++;
-  }
+ // }
 
         replyMsg($arrayHeader,$arrayPostData);
 }
