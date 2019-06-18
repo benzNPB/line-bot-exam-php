@@ -104,8 +104,10 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-        $link[1] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        $link[1] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
         $link[2] = "https://www.google.com/maps/@".$mybenz[4]["lati"].",".$mybenz[4]["lng"].",15z";
+
+
         $arrayPostData['messages'][4]['type'] = "text";
         $arrayPostData['messages'][4]['text'] = $link[1] ."     ".$link[2];
         replyMsg($arrayHeader,$arrayPostData);
