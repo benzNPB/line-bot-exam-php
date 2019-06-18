@@ -132,7 +132,7 @@ $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
         $j =3;
-        $nlink = "Next";
+        $nlink = "     ";
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
@@ -151,7 +151,7 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-      if($mybenz[$j]["dis"]<1 && $j < 5) {
+      if($mybenz[$j]["dis"]<2 && $j < 6) {
       $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
       $nlink = $link[$j].",".$nlink;
     $j++;
