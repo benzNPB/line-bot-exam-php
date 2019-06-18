@@ -127,10 +127,10 @@ $COUNTN++;
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
+        $j = 3;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
+        $arrayPostData['messages'][0]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
         $arrayPostData['messages'][1]['type'] = "location";
         $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
@@ -146,12 +146,12 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-          $j = 3;
-          foreach($dis < 1 && $j<5) {
-        $arrayPostData['messages'][4]['type'] = "text";
-        $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
-            $j++;
-         }
+        //   $j = 3;
+        //   foreach($dis < 1 && $j<5) {
+        // $arrayPostData['messages'][4]['type'] = "text";
+        // $arrayPostData['messages'][4]['text'] = "https://www.google.com/maps/@".$mybenz[$j]["lati"].",".$mybenz[$j]["lng"].",15z";
+        //     $j++;
+        //  }
         replyMsg($arrayHeader,$arrayPostData);
 }
               }else{
