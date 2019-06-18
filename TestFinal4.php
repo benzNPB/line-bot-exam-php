@@ -52,7 +52,7 @@ ini_set('display_errors', 1);
            $xml3 = $xml1->channel->item[0]->title;
            $xml = (explode(" ",$xml2));
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = $xml3;
+        $arrayPostData['messages'][0]['title'] = "Test";
         $arrayPostData['messages'][0]['address'] =   $xml[3].",".$xml[6];
         $arrayPostData['messages'][0]['latitude'] =  $xml[3];
         $arrayPostData['messages'][0]['longitude'] =  $xml[6];
