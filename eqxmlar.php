@@ -12,6 +12,12 @@ print_r ($xml3[0]);
    echo '<pre>';
 print_r ($xml2[0]);
 	echo '</pre>';
+   echo '<pre>';
+print_r ($xml2[1]);
+	echo '</pre>';
+   echo '<pre>';
+print_r ($xml);
+	echo '</pre>';
 
 
 ?>
