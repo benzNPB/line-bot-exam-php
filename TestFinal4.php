@@ -47,15 +47,20 @@ ini_set('display_errors', 1);
          else if($message == "DisasterInformation")
     {        
            $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
-           $xml1 = simplexml_load_file($url);
-           $xml2 = $xml1->channel->item[0]->description;
-           $xml3 = $xml1->channel->item[0]->title;
-           $xml = (explode(" ",$xml2));
-           $xmlt = (explode(" ",$xml3));
+           $xmll = simplexml_load_file($url);
+           $xmld = $xmll->channel->item[0]->description;
+           $xmlt = $xmll->channel->item[0]->title;
+           $xmled = (explode(" ",$xmld));
+           $xmlet = (explode(" ",$xmlt));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $xmlt[0]."  ".$xmlt[1]."    ".$xmlt[2]."  ".$xmlt[3]."  ".$xmlt[4]."  ".$xmlt[5]."  ".$xmlt[6]."  ".$xmlt[7];
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = $xmlet[0]."  ".$xmlet[1]."    ".$xmlet[2]."  ".$xmlet[3]."  ".$xmlet[4]."  ".$xmlet[5]."  ".$xmlet[6]."  ".$xmlet[7]
+        $arrayPostData['messages'][0]['address'] = $xmled[2].",".$xmled[3];
+        $arrayPostData['messages'][0]['latitude'] = $xmled[2];
+        $arrayPostData['messages'][0]['longitude'] = $xmled[3];
         replyMsg($arrayHeader,$arrayPostData);
+;
+
 }
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
