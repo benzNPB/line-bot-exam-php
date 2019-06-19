@@ -51,9 +51,10 @@ ini_set('display_errors', 1);
            $xml2 = $xml1->channel->item[0]->description;
            $xml3 = $xml1->channel->item[0]->title;
            $xml = (explode(" ",$xml2));
+           $xmlt = (explode(" ",$xml3));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $xml3[0];
+        $arrayPostData['messages'][0]['text'] = $xmlt;
         replyMsg($arrayHeader,$arrayPostData);
 }
 
