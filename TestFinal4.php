@@ -59,7 +59,7 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['latitude'] = $xmled[2];
         $arrayPostData['messages'][0]['longitude'] = $xmled[3];
         replyMsg($arrayHeader,$arrayPostData);
-;
+
 
 }
 
