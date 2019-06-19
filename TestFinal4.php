@@ -52,11 +52,8 @@ ini_set('display_errors', 1);
            $xml3 = $xml1->channel->item[0]->title;
            $xml = (explode(" ",$xml2));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] =  $xml3[0];
-        $arrayPostData['messages'][0]['address'] =   $xml[3].",".$xml[6];
-        $arrayPostData['messages'][0]['latitude'] =  $xml[3];
-        $arrayPostData['messages'][0]['longitude'] =  $xml[6];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $xml3[0];
         replyMsg($arrayHeader,$arrayPostData);
 }
 
