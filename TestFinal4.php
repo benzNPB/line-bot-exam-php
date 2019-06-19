@@ -54,7 +54,7 @@ ini_set('display_errors', 1);
            $xmlt = (explode(" ",$xml3));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $xmlt[0]."  ".$xmlt[1].",".$xmlt[2]."  ".$xmlt[3]."  ".$xmlt[4]."  ".$xmlt[5]."  ".$xmlt[6]."  ".$xmlt[7];
+        $arrayPostData['messages'][0]['text'] = $xmlt[0]."  ".$xmlt[1]."    ".$xmlt[2]."  ".$xmlt[3]."  ".$xmlt[4]."  ".$xmlt[5]."  ".$xmlt[6]."  ".$xmlt[7];
         replyMsg($arrayHeader,$arrayPostData);
 }
 
