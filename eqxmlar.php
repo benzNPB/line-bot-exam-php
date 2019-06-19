@@ -9,6 +9,9 @@
    echo '<pre>';
 print_r ($xml3[0]);
 	echo '</pre>';
+   echo '<pre>';
+print_r ($xml2);
+	echo '</pre>';
 
 
 ?>
