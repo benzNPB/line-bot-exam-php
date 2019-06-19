@@ -6,7 +6,7 @@ $link = file_get_contents($url);
 //echo file_get_contents($url);
 
 $o = strpos($link,"情報発表日時" );
-$s = strpos($link,"分" );
+$s = strpos($link,"震度" );
 echo substr($link,$o ,$s-$o);
    
 ?>
