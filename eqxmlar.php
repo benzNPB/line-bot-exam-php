@@ -10,7 +10,7 @@
 print_r ($xml3[0]);
 	echo '</pre>';
    echo '<pre>';
-print_r ($xml2);
+print_r ($xml2[0]);
 	echo '</pre>';
 
 
