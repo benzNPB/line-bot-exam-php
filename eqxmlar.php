@@ -7,7 +7,7 @@
            $xml3 = $xml1->channel->item[0]->title;
            $xml = (explode(" ",$xml2));
    echo '<pre>';
-print_r ($xml3);
+print_r ($xml3[0]);
 	echo '</pre>';
 
 
