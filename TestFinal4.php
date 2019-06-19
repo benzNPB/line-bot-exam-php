@@ -59,8 +59,13 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['latitude'] = $xmled[3];
         $arrayPostData['messages'][0]['longitude'] = $xmled[6];
         replyMsg($arrayHeader,$arrayPostData);
-
-
+}
+          if($message == "Userid")
+    {        
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
+        replyMsg($arrayHeader,$arrayPostData);
 }
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
