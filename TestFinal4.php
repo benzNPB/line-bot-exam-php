@@ -54,7 +54,7 @@ ini_set('display_errors', 1);
            $xmlet = (explode(" ",$xmlt));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
-        $arrayPostData['messages'][0]['title'] = "Test";
+        $arrayPostData['messages'][0]['title'] = $xmlet[0]." ".$xmlet[1]."  ".$xmlet[2]." ".$xmlet[3]." ".$xmlet[4]." ".$xmlet[5]." ".$xmlet[6];
         $arrayPostData['messages'][0]['address'] = $xmled[3].",".$xmled[6];
         $arrayPostData['messages'][0]['latitude'] = $xmled[3];
         $arrayPostData['messages'][0]['longitude'] = $xmled[6];
