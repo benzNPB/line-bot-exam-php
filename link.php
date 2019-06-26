@@ -11,6 +11,12 @@ $link = file_get_contents($url);
 //echo substr($link,$o ,$s-$o);
 
 $o = strpos($link,"Information" );
+$s = strpos($link,"）" );
+               echo '<pre>';
+            echo $link;
+               echo '</pre>';
+               echo '<pre>';
+            echo substr($link,$o,$s-$o);
+               echo '</pre>';
 
-  echo substr($link,$o);
 ?>
