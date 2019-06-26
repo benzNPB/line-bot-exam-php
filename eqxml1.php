@@ -1,14 +1,30 @@
 <?php
            $url = "http://www.gdacs.org/xml/rss.xml";
            $xml = simplexml_load_file($url);
-           $xml1 = simplexml_load_string($url);
+
            $xmlt = $xml->channel->item[0]->description;
-           $xmlet = (explode(" ",$xmlt));
-               echo '<pre>';
-echo $xmlt;
-               echo '</pre>';
-               echo '<pre>';
-echo $xml1;
-               echo '</pre>';
+
+
+foreach($xml->channel->children() as $child)
+  {
+
+    ///
+      if($childs->getName()=="item"){
+
+        foreach($childs->children('geo', TRUE) as $items)
+          {
+            echo $items->lat->getName() . ": " . $items->lat."<br>";
+            echo $items->long->getName() . ": " . $items->long."<br>";
+
+          }
+
+    }
+  }
+
+ //          $xmlet = (explode(" ",$xmlt));
+
+//            echo $items->lat->getName() . ": " . $items->lat."<br>";
+  //          echo $items->long->getName() . ": " . $items->long."<br>";
+
 
 ?>
