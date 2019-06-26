@@ -100,10 +100,10 @@ ini_set('display_errors', 1);
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-
+        $titleu = $arrayJson['events'][0]['message']['title'];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['message']['title'];
+        $arrayPostData['messages'][0]['text'] = $titleu.','.$latu;
         replyMsg($arrayHeader,$arrayPostData);
 }
 
