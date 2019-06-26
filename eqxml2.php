@@ -1,9 +1,21 @@
 <?php
-$url = "http://www.earthquake.tmd.go.th/feed/rss_inside.xml";
-$xml = simplexml_load_file($url);
-$o = strpos($xml->channel->item[0]->title,"M" );
-$s = strpos($xml->channel->item[0]->title,"," );
+$url = "http://www.gdacs.org/xml/rss.xml";
+           $xml = simplexml_load_file($url);
+foreach($xml->channel->children() as $childs)
+  	{
+  		if($childs->getName()=="item"){
+  			//echo $childs->title->getName() . ": " . $childs->title."<br>";
 
-echo substr($xml->channel->item[0]->title,$o ,$s-$o);
+  			if(strpos($childs->title,"Panama")>0){
+  				foreach($childs->children('geo', TRUE) as $items)
+			  	{
+			  		echo $items->lat->getName() . ": " . $items->lat."<br>";
+			  		echo $items->long->getName() . ": " . $items->long."<br>";
 
+			  	}
+  			}
+  			
+
+  		}
+  }
 ?>
