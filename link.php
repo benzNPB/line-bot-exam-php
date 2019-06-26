@@ -9,5 +9,8 @@ $link = file_get_contents($url);
 //$o = strpos($link,"情報発表日時" );
 //$s = strpos($link,"震度" );
 //echo substr($link,$o ,$s-$o);
-  echo $link;
+
+$o = strpos($link,"Information" );
+
+  echo substr($link,$o);
 ?>
