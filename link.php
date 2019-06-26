@@ -10,11 +10,11 @@ $link = file_get_contents($url);
 //$s = strpos($link,"震度" );
 //echo substr($link,$o ,$s-$o);
 
-$o = strpos($link,"情報" );
-$s = strpos($link,"）" );
-             echo '<pre>';
+$o = strpos($link,"報" );
+$s = strpos($link,"発表" );
+
           echo $link;
-           echo '</pre>';
+
                echo '<pre>';
             echo substr($link,$o,$s-$o);
                echo '</pre>';
