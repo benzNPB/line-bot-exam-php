@@ -120,7 +120,7 @@ $COUNTN++;
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $link[1] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3]["lng"];
-        $link[2] = "https://www.google.com/maps/@".$mybenz[4]["lati"].",".$mybenz[4]["lng"].",15z";
+        $link[2] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrGQAV&shibucode=S01";
         $arrayPostData['messages'][4]['type'] = "text";
         $arrayPostData['messages'][4]['text'] = $link[1] ."     ".$link[2];
         replyMsg($arrayHeader,$arrayPostData);
