@@ -4,13 +4,13 @@
            $xmlt = $xml->channel->item[0]->description;
 
 
-foreach($xml->channel->item() as $child)
+foreach($xml->channel->children() as $childs)
   {
 
     ///
       if($childs->getName()=="item"){
 
-        foreach($childs->item('geo', TRUE) as $items)
+        foreach($childs->children('geo', TRUE) as $items)
           {
             echo $items->lat->getName() . ": " . $items->lat."<br>";
             echo $items->long->getName() . ": " . $items->long."<br>";
