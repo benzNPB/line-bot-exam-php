@@ -6,7 +6,7 @@ foreach($xml->channel->children() as $childs)
   		if($childs->getName()=="item"){
   			//echo $childs->title->getName() . ": " . $childs->title."<br>";
 
-  			if(strpos($childs->title,"Panama")>0){
+  			if(strpos($childs->title,"Indonesia")>0){
   				foreach($childs->children('geo', TRUE) as $items)
 			  	{
 			  		echo $items->lat->getName() . ": " . $items->lat."<br>";
