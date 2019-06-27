@@ -137,11 +137,17 @@ $COUNTN++;
          for($z=0;$z<count($tokens);$z++) {
         $trimmed =trim($tokens[$z]);  
         $pos = stristr($trimmed, $findme);  
+              if ($pos === false) {}
+             else {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $pos;
+        replyMsg($arrayHeader,$arrayPostData);}
          }
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $address;
+        $arrayPostData['messages'][1]['type'] = "text";
+        $arrayPostData['messages'][1]['text'] = $address;
         replyMsg($arrayHeader,$arrayPostData);
 
         }
@@ -200,23 +206,7 @@ $COUNTN++;
          $arrayPostData['messages'][4]['type'] = "text";
          $arrayPostData['messages'][4]['text'] = "tt";
         replyMsg($arrayHeader,$arrayPostData);
- /*     $titleu = $arrayJson['events'][0]['message']['address'];  
-      $findme="Hiratsuka"; 
-      $tokens= explode(",", $titleu);  
-     for($z=0;$z<count($tokens);$z++) 
-  { 
-    $trimmed =trim($tokens[$z]);  
-    $pos = stristr($trimmed, $findme);  
-    if ($pos == "Hisatsuka-shi") {
-          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
-          replyMsg($arrayHeader,$arrayPostData);
-    }  
 
-}
-
-}*/
               }else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
