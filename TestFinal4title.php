@@ -132,7 +132,7 @@ $COUNTN++;
                         //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
-        $findme="Hiratsuka-shi"; 
+        $findme="Hiratsuka"; 
         $tokens= explode(",", $address);  
          for($z=0;$z<count($tokens);$z++) {
         $trimmed =trim($tokens[$z]);  
