@@ -137,12 +137,15 @@ $COUNTN++;
          for($z=0;$z<count($tokens);$z++) {
         $trimmed =trim($tokens[$z]);  
         $pos = stristr($trimmed, $findme);  
+             if ($pos === false) {}
+    else
          }
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $address.",".$pos;
+        $arrayPostData['messages'][0]['text'] = $address;
         replyMsg($arrayHeader,$arrayPostData);
          }
+
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
