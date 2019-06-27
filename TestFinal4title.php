@@ -139,10 +139,12 @@ $COUNTN++;
         $pos = stristr($trimmed, $findme);  
               if ($pos === false) {}
              else {
+                 if($pos == 'Hiratsuka-shi'){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $pos;
+        $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
         replyMsg($arrayHeader,$arrayPostData);}
+             }
          }
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
