@@ -145,7 +145,7 @@ $COUNTN++;
         $arrayPostData['messages'][0]['text'] = $address;
         replyMsg($arrayHeader,$arrayPostData);
          }
-
+        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
