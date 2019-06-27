@@ -1,5 +1,6 @@
 <?php
     require "dbconnection.php";
+
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
@@ -14,12 +15,14 @@
     $COUNTN=0;       
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
      $result = $conn->query($sql);
    $userid = $arrayJson['events'][0]['source']['userId'];
        if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
         {
           $username = 'Benz';
         }
+
           if($message == "Evacuation Point")
     {        
        $currenttime = date("d-M-Y H:i:s");
@@ -29,7 +32,7 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send nearest evacution point to you";
         replyMsg($arrayHeader,$arrayPostData);
-}
+    }
          else if($message == "People around me")
     {        
         $currenttime = date("d-M-Y H:i:s");
@@ -39,7 +42,17 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
         replyMsg($arrayHeader,$arrayPostData);
-}
+    }
+         else if($message == "DisasterInformationN")
+    {        
+       $currenttime = date("d-M-Y H:i:s");
+       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
+       mysqli_query($conn,$query );
+       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+       $arrayPostData['messages'][0]['type'] = "text";
+       $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send disaster information in your location";
+       replyMsg($arrayHeader,$arrayPostData);
+    }
          else if($message == "DisasterInformation")
     {        
            $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
@@ -55,24 +68,15 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['latitude'] = $xmled[3];
         $arrayPostData['messages'][0]['longitude'] = $xmled[6];
         replyMsg($arrayHeader,$arrayPostData);
-    }
-         else if($message == "DisasterInformationN")
-    {        
-       $currenttime = date("d-M-Y H:i:s");
-       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
-       mysqli_query($conn,$query );
-       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-       $arrayPostData['messages'][0]['type'] = "text";
-       $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send disaster information in your location";
-       replyMsg($arrayHeader,$arrayPostData);
-    }
+}
           if($message == "Userid")
     {        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
         replyMsg($arrayHeader,$arrayPostData);
-    }
+}
+
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
         
@@ -80,13 +84,16 @@ ini_set('display_errors', 1);
        $result_command = mysqli_query($conn,$sql_command );
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
+
         if($result_command){
        $row_command = $result_command->fetch_assoc();
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude'];
+
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
+
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -102,6 +109,7 @@ ini_set('display_errors', 1);
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
@@ -121,15 +129,17 @@ $COUNTN++;
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $link[1] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3]["lng"];
-        $link[2] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"]
+        $link[2] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrGQAV&shibucode=S01";
         $arrayPostData['messages'][4]['type'] = "text";
         $arrayPostData['messages'][4]['text'] = $link[1] ."     ".$link[2];
         replyMsg($arrayHeader,$arrayPostData);
 }
+
               }
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
+
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
@@ -165,57 +175,36 @@ $COUNTN++;
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-
-      $link = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3j]["lng"];
-      $nlink = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"];
-
+      if($mybenz[$j]["dis"]<2 && $j < 6) {
+      $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
+      $nlink = $link[$j].",".$nlink;
+    $j++;
+  }
          $arrayPostData['messages'][4]['type'] = "text";
-         $arrayPostData['messages'][4]['text'] = $link."    ".$nlink;
+         $arrayPostData['messages'][4]['text'] = $nlink;
         replyMsg($arrayHeader,$arrayPostData);
 }
-              }
-              else if($row_command["Command"]=="Location"){
-
-         $titleu = $arrayJson['events'][0]['message']['address'];
-         $findme="Hiratsuka";
-         $tokens= explode(",", $titleu);
-            for($z=0;$z<count($tokens);$z++)
-      {
-         $trimmed =trim($tokens[$z]);
-        $pos = stristr($trimmed, $findme);
-      }
-       if ($pos == "Hiratsuka-shi") 
-      {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtgQAF";
-        replyMsg($arrayHeader,$arrayPostData);
-      }
-       else
-      {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Error";
-        replyMsg($arrayHeader,$arrayPostData);
-      }
-
-}
-              }
-              else{
+              }else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "not found command";
                 replyMsg($arrayHeader,$arrayPostData);
               }
+
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "no command".$sql_command;
               replyMsg($arrayHeader,$arrayPostData);
           }
+
 }
      
+
+
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
+
+
          function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
@@ -243,6 +232,7 @@ $COUNTN++;
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+
  
        function order_array_num ($array, $key, $order = "ASC") 
 { 
