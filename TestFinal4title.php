@@ -84,6 +84,7 @@ ini_set('display_errors', 1);
        $row_command = $result_command->fetch_assoc();
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude'];
+            //////////////////////////////////EVACUATION////////////////////////////////////////
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
@@ -127,6 +128,15 @@ $COUNTN++;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
+            ///////////////////////////////////////////////////////////////////////////////
+                        //////////////////////////////////EVACUATION////////////////////////////////////////
+         if($row_command["Command"]=="Location"){
+        $address = $arrayJson['events'][0]['message']['address'];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $address;
+        replyMsg($arrayHeader,$arrayPostData);
+            ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
