@@ -174,7 +174,7 @@ $COUNTN++;
          $arrayPostData['messages'][4]['text'] = $nlink;
         replyMsg($arrayHeader,$arrayPostData);
 }
-              }
+         //     }
 /* else if($row_command["Command"]=="Location"){
 
       $titleu = $arrayJson['events'][0]['message']['address'];  
