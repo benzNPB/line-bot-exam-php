@@ -129,12 +129,18 @@ $COUNTN++;
 }
               }
             ///////////////////////////////////////////////////////////////////////////////
-                        //////////////////////////////////EVACUATION////////////////////////////////////////
+                        //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
+        $findme="Hiratsuka-shi"; 
+        $tokens= explode(",", $address);  
+         for($z=0;$z<count($tokens);$z++) {
+        $trimmed =trim($tokens[$z]);  
+        $pos = stristr($trimmed, $findme);  
+         }
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $address;
+        $arrayPostData['messages'][0]['text'] = $address.",".$pos;
         replyMsg($arrayHeader,$arrayPostData);
          }
             ///////////////////////////////////////////////////////////////////////////////
