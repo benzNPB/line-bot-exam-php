@@ -174,10 +174,14 @@ $COUNTN++;
          $arrayPostData['messages'][4]['text'] = $nlink;
         replyMsg($arrayHeader,$arrayPostData);
 }
-         //     }
-/* else if($row_command["Command"]=="Location"){
+              }
+ else if($row_command["Command"]=="Location"){
 
-      $titleu = $arrayJson['events'][0]['message']['address'];  
+     
+         $arrayPostData['messages'][4]['type'] = "text";
+         $arrayPostData['messages'][4]['text'] = "tt";
+        replyMsg($arrayHeader,$arrayPostData);
+ /*     $titleu = $arrayJson['events'][0]['message']['address'];  
       $findme="Hiratsuka"; 
       $tokens= explode(",", $titleu);  
      for($z=0;$z<count($tokens);$z++) 
