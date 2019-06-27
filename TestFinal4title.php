@@ -175,52 +175,24 @@ $COUNTN++;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
-              else if($row_command["Command"]=="Location"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
-        $result = $conn->query($sql);
- if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc() ){
-                  $lati1 = $row["lati"];
-                  $lng1 = $row["lng"];
-                     $deltaLat1 = deg2rad($lati1 - $latu);
-                     $deltaLong1 = deg2rad($lng1 - $longu);
-                   
-                    $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
-                    $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
-                    $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
- 
-$COUNTN++;
-          }
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
-        $j =3;
-        $nlink = "     ";
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-      if($mybenz[$j]["dis"]<2 && $j < 6) {
-      $link[$j] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[$j]["lati"]."%2C".$mybenz[$j]["lng"];
-      $nlink = $link[$j].",".$nlink;
-    $j++;
-  }
-         $arrayPostData['messages'][4]['type'] = "text";
-         $arrayPostData['messages'][4]['text'] = $nlink;
-        replyMsg($arrayHeader,$arrayPostData);
+ else if($row_command["Command"]=="Location"){
+
+      $titleu = $arrayJson['events'][0]['message']['address'];  
+      $findme="Hiratsuka"; 
+      $tokens= explode(",", $titleu);  
+     for($z=0;$z<count($tokens);$z++) 
+  { 
+    $trimmed =trim($tokens[$z]);  
+    $pos = stristr($trimmed, $findme);  
+    if ($pos == "Hisatsuka-shi") {
+          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
+          replyMsg($arrayHeader,$arrayPostData);
+    }  
+
+}
+
 }
               }else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
