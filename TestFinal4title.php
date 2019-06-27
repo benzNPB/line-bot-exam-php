@@ -175,7 +175,7 @@ $COUNTN++;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
- else if($row_command["Command"]=="Location"){
+/* else if($row_command["Command"]=="Location"){
 
       $titleu = $arrayJson['events'][0]['message']['address'];  
       $findme="Hiratsuka"; 
@@ -193,7 +193,7 @@ $COUNTN++;
 
 }
 
-}
+}*/
               }else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
