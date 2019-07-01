@@ -138,6 +138,11 @@ $COUNTN++;
         $trimmed =trim($tokens[$z]);  
         $pos = stristr($trimmed, $findme);  
 
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][1]['type'] = "text";
+        $arrayPostData['messages'][1]['text'] = $pos;
+        replyMsg($arrayHeader,$arrayPostData);
+             
                  if ($pos == 'Hiratsuka-shi'){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
@@ -152,10 +157,7 @@ $COUNTN++;
              }
 
 
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][1]['type'] = "text";
-        $arrayPostData['messages'][1]['text'] = $address;
-        replyMsg($arrayHeader,$arrayPostData);
+
 
         }
             ///////////////////////////////////////////////////////////////////////////////
