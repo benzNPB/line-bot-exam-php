@@ -143,6 +143,7 @@ $COUNTN++;
         $arrayPostData['messages'][0]['type'] = "text";	       
         $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
               }
+         }
         }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
