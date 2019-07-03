@@ -133,19 +133,15 @@ $COUNTN++;
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
         $findme="Hiratsuka"; 
-        $tokens= explode(",", $address);  
-         for($z=0;$z<count($tokens);$z++) {
-        $trimmed =trim($tokens[$z]);  
-        $pos = stristr($trimmed, $findme);  
-              if ($pos === false) {}
-             else {
+      // $tokens= explode(",", $address);  
+        $pos = stristr($address, $findme);  
 
                  if($pos == 'Hiratsuka'){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
         replyMsg($arrayHeader,$arrayPostData);}
-             }
+
 
          }
             ///////////////////////////////////////////////////////////////////////////////
