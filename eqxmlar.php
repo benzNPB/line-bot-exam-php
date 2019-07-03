@@ -135,24 +135,18 @@ $COUNTN++;
 
         $tokens = explode(",", $address);  
 
-              if($tokens[2] == ' Hiratsuka-shi'){
-              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-              $arrayPostData['messages'][0]['type'] = "text";
-              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
-              replyMsg($arrayHeader,$arrayPostData);        
-                                                   }
-            else if($tokens[1] == ' Hadano-shi'){
-              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-              $arrayPostData['messages'][0]['type'] = "text";
-              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtgQAF";
-              replyMsg($arrayHeader,$arrayPostData);        
-                                                    }
+                 if($tokens[2] == ' Hiratsuka-shi'){
+                $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
+                replyMsg($arrayHeader,$arrayPostData);        
+         }
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
+                $arrayPostData['messages'][0]['text'] = $pos.",   ,".$spos.",   ,".$tokens[2];
                 replyMsg($arrayHeader,$arrayPostData);    
-   //      }
+         }
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
