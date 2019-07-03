@@ -132,7 +132,6 @@ $COUNTN++;
                         //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
-
         $tokens = explode(",", $address);  
 
                  if($tokens[2] == ' Hiratsuka-shi'){
@@ -144,7 +143,7 @@ $COUNTN++;
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $pos.",   ,".$spos.",   ,".$tokens[2];
+                $arrayPostData['messages'][0]['text'] = $tokens[2];
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
