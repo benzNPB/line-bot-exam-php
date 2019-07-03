@@ -147,7 +147,7 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtgQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[2] == ' Yokosuka-shi'){
+              else if($tokens[1] == ' Yokosuka-shi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtCQAV";
@@ -159,7 +159,7 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtMQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Fujisawa-shi'){
+              else if($tokens[2] == ' Fujisawa-shi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtRQAV";
@@ -219,10 +219,88 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu5QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Atsugi-shi'){
+              else if($tokens[1] == ' Hayama-machi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
-              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtlQAF";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtNQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Samukawa-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuAQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Ōiso-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BswQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Ninomiya-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuFQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Nakai-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bv8QAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Ōi-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuKQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Matsuda-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuPQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Yamakita-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuUQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Kaisei-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrHQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Hakone-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuZQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Manazuru-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu1QAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Yugawara-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BueQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Aikawa-machi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BujQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Kiyokawa-mura'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuoQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
          else {
