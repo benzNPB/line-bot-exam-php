@@ -356,7 +356,7 @@ $COUNTN++;
         $link5 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[7]["lati"]."%2C".$mybenz[7]["lng"];
         $link6 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[8]["lati"]."%2C".$mybenz[8]["lng"];
          $arrayPostData['messages'][4]['type'] = "text";
-         $arrayPostData['messages'][4]['text'] = $link1." ".$link2."  ".$link3." ".$link4."  ".$link5." ".$link6;
+         $arrayPostData['messages'][4]['text'] = <br>$link1</br>." ".$link2."  ".$link3." ".$link4."  ".$link5." ".$link6;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
