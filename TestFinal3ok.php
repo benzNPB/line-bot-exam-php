@@ -56,7 +56,7 @@ ini_set('display_errors', 1);
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
         
-        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+        $sql_command = "SELECT Command FROM command where iduserlink = ".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
         $result_command = mysqli_query($conn,$sql_command );
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
