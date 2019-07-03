@@ -132,13 +132,10 @@ $COUNTN++;
                         //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
-        $findme ="Kanagawa-ken"; 
+
         $tokens = explode(",", $address);  
-        $pos = stristr($tokens, $findme);
-        $spos = stristr($tokens, $findme, true);
 
-
-                 if($spos == 'Hiratsuka-shi'){
+                 if($tokens[2] == 'Hiratsuka-shi'){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
