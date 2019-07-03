@@ -52,7 +52,9 @@ ini_set('display_errors', 1);
     }
          else if($message == "DisasterInformation")
     {        
-
+        $currenttime = date("d-M-Y H:i:s");
+        $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
+        mysqli_query($conn,$query );
         $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
         $xmll = simplexml_load_file($url);
         $xmld = $xmll->channel->item[0]->description;
@@ -68,7 +70,7 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][1]['latitude'] = $xmled[3];
         $arrayPostData['messages'][1]['longitude'] = $xmled[6];
         $arrayPostData['messages'][2]['type'] = "text";
-        $arrayPostData['messages'][2]['text'] = "If you want to know the latest disaster in your location please send your location to bot";
+        $arrayPostData['messages'][2]['text'] = "If you want to know the latest disaster information in your location please send your location to bot";
         replyMsg($arrayHeader,$arrayPostData);
 }
           if($message == "Userid")
