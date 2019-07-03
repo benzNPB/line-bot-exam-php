@@ -145,7 +145,7 @@ $COUNTN++;
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $pos.",".$address;
+                $arrayPostData['messages'][0]['text'] = $pos;
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
