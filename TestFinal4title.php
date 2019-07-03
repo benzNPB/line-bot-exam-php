@@ -189,6 +189,42 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtlQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
+              else if($tokens[1] == ' Yamato-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtqQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Isehara-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrRQAV";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Zama-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtvQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Minamiashigara-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu0QAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Ayase-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu5QAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
+              else if($tokens[1] == ' Atsugi-shi'){
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtlQAF";
+              replyMsg($arrayHeader,$arrayPostData);        
+                                                  }
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
