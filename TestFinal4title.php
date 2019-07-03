@@ -134,7 +134,8 @@ $COUNTN++;
         $address = $arrayJson['events'][0]['message']['address'];
         $findme="Hiratsuka"; 
       // $tokens= explode(",", $address);  
-        $pos = stristr($address, $findme);  
+        $pos = stristr($address, $findme);
+        $spos = strpos($address, $findme);
 
                  if($pos == 'Hiratsuka-shi'){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -145,7 +146,7 @@ $COUNTN++;
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $pos;
+                $arrayPostData['messages'][0]['text'] = $pos."abc".$spos;
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
