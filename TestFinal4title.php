@@ -132,7 +132,7 @@ $COUNTN++;
                         //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
-        $findme="Kanagawa-ken"; 
+        $findme=",Kanagawa-ken"; 
       // $tokens= explode(",", $address);  
         $pos = stristr($address, $findme);
         $spos = stristr($address,$findme, true);
