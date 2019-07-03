@@ -178,7 +178,7 @@ $COUNTN++;
               }else{
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = "not found command".$latu.",".$longu.$sql_command;
+                $arrayPostData['messages'][0]['text'] = "not found command".$latu.",".$longu.",".$sql_command;
                 replyMsg($arrayHeader,$arrayPostData);
               }
 
