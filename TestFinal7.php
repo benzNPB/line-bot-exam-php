@@ -55,43 +55,12 @@ ini_set('display_errors', 1);
         $currenttime = date("d-M-Y H:i:s");
         $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
         mysqli_query($conn,$query );
-/*        $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
+        $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
         $xmll = simplexml_load_file($url);
         $xmld = $xmll->channel->item[0]->description;
         $xmlt = $xmll->channel->item[0]->title;
         $xmled = (explode(" ",$xmld));
-        $xmlet = (explode(" ",$xmlt));*/
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "This is latest an Disaster point";
-
-          $url = "http://www.gdacs.org/xml/rss.xml";
-          $xml = simplexml_load_file($url);
-    foreach($xml->channel->children() as $childs)
-    {
-      if($childs->getName()=="item"){
-        //echo $childs->title->getName() . ": " . $childs->title."<br>";
-        if(strpos($childs->title,"Japan")>0){
-          foreach($childs->children('geo', TRUE) as $items)
-          {
-
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $childs->$title;
-        $arrayPostData['messages'][1]['address'] = $items->lat.",".$items->long;
-        $arrayPostData['messages'][1]['latitude'] = $items->lat;
-        $arrayPostData['messages'][1]['longitude'] = $items->long;
-
-          }
-        }
-        
-      }
-
-        $arrayPostData['messages'][2]['type'] = "text";
-        $arrayPostData['messages'][2]['text'] = "If you want to know the latest disaster information in your location please send your location to bot";
-        replyMsg($arrayHeader,$arrayPostData);
-  }
-
-
+        $xmlet = (explode(" ",$xmlt));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "This is latest an earthquake point";
