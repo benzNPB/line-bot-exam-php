@@ -60,6 +60,8 @@ ini_set('display_errors', 1);
         $xmled = (explode(" ",$xmld));
         $xmlet = (explode(" ",$xmlt));
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
         $arrayPostData['messages'][1]['type'] = "location";
         $arrayPostData['messages'][1]['title'] = $xmlet[0]." ".$xmlet[1]."  ".$xmlet[2]." ".$xmlet[3]." ".$xmlet[4]." ".$xmlet[5]." ".$xmlet[6];
         $arrayPostData['messages'][1]['address'] = $xmled[3].",".$xmled[6];
