@@ -350,13 +350,13 @@ $COUNTN++;
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[5]["lati"]."%2C".$mybenz[5]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[6]["lati"]."%2C".$mybenz[6]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[7]["lati"]."%2C".$mybenz[7]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[8]["lati"]."%2C".$mybenz[8]["lng"];
+        $link2 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"];
+        $link3 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[5]["lati"]."%2C".$mybenz[5]["lng"];
+        $link4 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[6]["lati"]."%2C".$mybenz[6]["lng"];
+        $link5 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[7]["lati"]."%2C".$mybenz[7]["lng"];
+        $link6 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[8]["lati"]."%2C".$mybenz[8]["lng"];
          $arrayPostData['messages'][4]['type'] = "text";
-         $arrayPostData['messages'][4]['text'] = $link1;
+         $arrayPostData['messages'][4]['text'] = $link1." ".$link2."  ".$link3." ".$link4."  ".$link5." ".$link6;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
