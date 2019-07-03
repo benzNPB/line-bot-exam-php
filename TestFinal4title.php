@@ -132,10 +132,11 @@ $COUNTN++;
                         //////////////////////////////////EVACUATION LOCATION////////////////////////////////////////
          if($row_command["Command"]=="Location"){
         $address = $arrayJson['events'][0]['message']['address'];
-        $findme="J"; 
+        $findme="Kanagawa-ken"; 
       // $tokens= explode(",", $address);  
         $pos = stristr($address, $findme);
-        $spos = strpos($address, $findme);
+        $spos = stristr($address,$findme, true);
+
 
                  if($spos == 'Hiratsuka-shi'){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -146,7 +147,7 @@ $COUNTN++;
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $pos."abc".$spos;
+                $arrayPostData['messages'][0]['text'] = $pos.",   ,".$spos;
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
