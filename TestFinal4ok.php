@@ -70,7 +70,8 @@ ini_set('display_errors', 1);
 
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
        if($message == $location){
-        
+       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+       $longu = $arrayJson['events'][0]['message']['longitude'];
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
        $result_command = mysqli_query($conn,$sql_command );
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
@@ -78,8 +79,7 @@ ini_set('display_errors', 1);
 
         if($result_command){
        $row_command = $result_command->fetch_assoc();
-       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-       $longu = $arrayJson['events'][0]['message']['longitude'];
+
 
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
