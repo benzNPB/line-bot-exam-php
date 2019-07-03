@@ -69,8 +69,7 @@ ini_set('display_errors', 1);
  //       $arrayPostData['messages'][1]['address'] = $xmled[3].",".$xmled[6];
  //      $arrayPostData['messages'][1]['latitude'] = $xmled[3];
  //       $arrayPostData['messages'][1]['longitude'] = $xmled[6];
-        $arrayPostData['messages'][2]['type'] = "text";
-        $arrayPostData['messages'][2]['text'] = "If you want to know the latest disaster in your location please send your location to bot";
+        $arrayPostData['messages'][2]['text'] = "If you want to know the latest disaster in your location please send your location";
         replyMsg($arrayHeader,$arrayPostData);
 }
           if($message == "Userid")
