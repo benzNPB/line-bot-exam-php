@@ -137,7 +137,7 @@ $COUNTN++;
         $pos = stristr($address, $findme);
         $spos = strpos($address, $findme);
 
-                 if($pos == 'Hiratsuka-shi'){
+                 if($spos == 'Hiratsuka-shi'){
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
