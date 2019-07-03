@@ -73,17 +73,17 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
         replyMsg($arrayHeader,$arrayPostData);
 }
-//////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
-       if($message == $location){
-        
+////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
+          if($message == $location){
+       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
+       $longu = $arrayJson['events'][0]['message']['longitude']; 
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
        $result_command = mysqli_query($conn,$sql_command );
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
-        if($result_command){
+           if($result_command){
        $row_command = $result_command->fetch_assoc();
-       $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
-       $longu = $arrayJson['events'][0]['message']['longitude'];
+
             //////////////////////////////////EVACUATION////////////////////////////////////////
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
@@ -152,7 +152,7 @@ $COUNTN++;
                 $arrayPostData['messages'][0]['type'] = "text";
                 $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
                 replyMsg($arrayHeader,$arrayPostData);    
-   //      }
+         }
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
