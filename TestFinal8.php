@@ -494,8 +494,6 @@ $COUNTN++;
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $row["userid"]."_______".$userid;
         $arrayPostData['messages'][1]['type'] = "text";
         $arrayPostData['messages'][1]['text'] = "text";
         replyMsg($arrayHeader,$arrayPostData);
