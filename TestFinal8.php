@@ -487,7 +487,7 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE iduserlink !== $userid ";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE iduserlink != "U434d98c2ea737a9af2b3401a2c0abcbb" ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
