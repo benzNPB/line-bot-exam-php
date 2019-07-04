@@ -496,11 +496,8 @@ $COUNTN++;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $row["userid"]."_______".$userid;
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = "Test";
-        $arrayPostData['messages'][1]['address'] =   $lati1.",".$lng1;
-        $arrayPostData['messages'][1]['latitude'] =  $lati1;
-        $arrayPostData['messages'][1]['longitude'] =  $lng1;
+        $arrayPostData['messages'][1]['type'] = "text";
+        $arrayPostData['messages'][1]['text'] = "text";
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
