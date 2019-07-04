@@ -493,25 +493,14 @@ $COUNTN++;
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                     $deltaLat1 = deg2rad($lati1 - $latu);
-                     $deltaLong1 = deg2rad($lng1 - $longu);
-                   
-                    $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
-                    $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
-                    $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
- 
-$COUNTN++;
-          }
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $arrayPostData['messages'][1]['type'] = "location";
         $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+        $arrayPostData['messages'][1]['address'] =   $lati1.",".$lng1;
+        $arrayPostData['messages'][1]['latitude'] =  $lati1;
+        $arrayPostData['messages'][1]['longitude'] =  $lng1;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
