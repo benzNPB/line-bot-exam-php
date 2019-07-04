@@ -493,10 +493,10 @@ $COUNTN++;
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][1]['type'] = "text";
-        $arrayPostData['messages'][1]['text'] = "text";
-        replyMsg($arrayHeader,$arrayPostData);
+              $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+              $arrayPostData['messages'][0]['type'] = "text";
+              $arrayPostData['messages'][0]['text'] = "test".$userid;
+              replyMsg($arrayHeader,$arrayPostData);   
 }
               }
  else if($row_command["Command"]=="Location"){
