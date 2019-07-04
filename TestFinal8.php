@@ -487,13 +487,14 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE $row["iduserlink"] != $arrayJson['events'][0]['source']['userId']";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-
+                  $userid = $row["iduserlink"];
+                  if($userid != $arrayJson['events'][0]['source']['userId']){
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -534,7 +535,7 @@ $COUNTN++;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
-
+}
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
