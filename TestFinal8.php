@@ -487,7 +487,7 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE iduserlink != $userid ";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
@@ -495,9 +495,9 @@ $COUNTN++;
                   $lng1 = $row["lng"];
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
+        $arrayPostData['messages'][0]['text'] = $row["userid"]."_______".$userid;
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"];
+        $arrayPostData['messages'][1]['title'] = "Test";
         $arrayPostData['messages'][1]['address'] =   $lati1.",".$lng1;
         $arrayPostData['messages'][1]['latitude'] =  $lati1;
         $arrayPostData['messages'][1]['longitude'] =  $lng1;
