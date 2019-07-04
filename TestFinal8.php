@@ -487,14 +487,12 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE iduserlink != $userid ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-
-                  if($userid != $arrayJson['events'][0]['source']['userId']){
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -505,7 +503,7 @@ $COUNTN++;
  
 $COUNTN++;
           }
-        $mybenz = order_array_num ($benz1, "dis", "ASC");
+  $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
@@ -535,7 +533,19 @@ $COUNTN++;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
-}
+ else if($row_command["Command"]=="Location"){
+
+     
+         $arrayPostData['messages'][4]['type'] = "text";
+         $arrayPostData['messages'][4]['text'] = "tt";
+        replyMsg($arrayHeader,$arrayPostData);
+
+              }else{
+                $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+                $arrayPostData['messages'][0]['type'] = "text";
+                $arrayPostData['messages'][0]['text'] = "not found command";
+                replyMsg($arrayHeader,$arrayPostData);
+              }
           }else{
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
