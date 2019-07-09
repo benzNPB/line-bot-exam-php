@@ -503,14 +503,12 @@ $COUNTN++;
  
 $COUNTN++;
           }
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
-if ($mybenz["iduserlink"] != $userid)
-{
-          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $mybenz = order_array_num ($benz1, "dis", "ASC");
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["iduserlink"];
+        $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
@@ -533,7 +531,7 @@ if ($mybenz["iduserlink"] != $userid)
          $arrayPostData['messages'][4]['type'] = "text";
          $arrayPostData['messages'][4]['text'] = "4)  ".$link1."  5)".$link2."  6)".$link3."  7)".$link4."  8)".$link5."  9)".$link6;
         replyMsg($arrayHeader,$arrayPostData);
-}
+
 
 }
               }
