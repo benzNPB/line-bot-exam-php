@@ -487,14 +487,10 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-            if($row["iduserkink"] != $arrayJson['events'][0]['source']['userId'])
-            {
-
-
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
@@ -503,14 +499,14 @@ $COUNTN++;
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
-                    $COUNTN++;
-  }
-
+                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis, 'iduser' => $row["iduserlink"]);
+ 
+$COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+if ($mybenz["iduserlink"] != $userid)
+{
+          $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $arrayPostData['messages'][1]['type'] = "location";
@@ -537,6 +533,8 @@ $COUNTN++;
          $arrayPostData['messages'][4]['type'] = "text";
          $arrayPostData['messages'][4]['text'] = "4)  ".$link1."  5)".$link2."  6)".$link3."  7)".$link4."  8)".$link5."  9)".$link6;
         replyMsg($arrayHeader,$arrayPostData);
+}
+
 }
               }
  else if($row_command["Command"]=="Location"){
