@@ -31,6 +31,7 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
+    $userid = "U434d98c2ea737a9af2b3401a2c0abcbb"
 $locate = array();
 $latu = 35.362052; //1st 7-11
 $longu = 139.275546;
@@ -55,21 +56,12 @@ $COUNTN++;
           }
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-      //  echo '<pre>';
-    // print_r($mybenz);
-  //  echo '</pre>';
-     // $x = 0;
-   //while($mybenz[$x]["dis"] < 1 && $x < 5){
-    // echo '<pre>';
-    // print_r($mybenz[$x]["dis"]);
-    //echo '</pre>';
-     // $x++;
-  // }
+
      print_r($mybenz);
      $mybenznum = count($mybenz);
 ///////////////////////////////
-$contend = 4;
-        if(floatval($mybenz[$x]["dis"]) < 1){
+$contend = 20000;
+        if(floatval($mybenz[$x]["iduserlink"]) !=  $userid ){
            $contend = $contend-1;
                echo '<pre>';
             echo $mybenz[$x]["name"];
