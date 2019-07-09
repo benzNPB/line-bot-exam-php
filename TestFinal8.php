@@ -45,10 +45,7 @@ ini_set('display_errors', 1);
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
-       if ($userid == $arrayJson['events'][0]['source']['userId'])      
-       $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];
-       $arrayPostData['messages'][1]['type'] = "text";
-       $arrayPostData['messages'][1]['text'] = "yes";           
+         
        replyMsg($arrayHeader,$arrayPostData);
     }
          else if($message == "DisasterInformation")
