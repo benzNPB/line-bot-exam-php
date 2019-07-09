@@ -487,10 +487,14 @@ $COUNTN++;
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user WHERE iduserlink == $userid";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
+            if($row["iduserkink"] != $arrayJson['events'][0]['source']['userId'])
+            {
+
+
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
@@ -500,8 +504,9 @@ $COUNTN++;
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
- 
-$COUNTN++;
+                    $COUNTN++;
+  }
+
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
 
