@@ -54,7 +54,7 @@ $longu = 139.275546;
 $COUNTN++;
           }
 
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
+  $mybenz = order_array_num ($benz1, "dis", "ASC") where  $row["iduserlink"] != "U434d98c2ea737a9af2b3401a2c0abcbb"  ;
       //  echo '<pre>';
     // print_r($mybenz);
   //  echo '</pre>';
