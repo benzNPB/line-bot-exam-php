@@ -159,8 +159,12 @@ $COUNTN++;
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
         $sql = "SELECT name,lati,lng,iduserlink FROM user where $userid != $row["iduserlink"]";
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $row["iduserlink"];
+        replyMsg($arrayHeader,$arrayPostData);
         $result = $conn->query($sql);
- if ($result->num_rows > 0) {
+/* if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
@@ -186,7 +190,7 @@ $COUNTN++;
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 
-}
+}*/
               }
  else if($row_command["Command"]=="Location"){
 
