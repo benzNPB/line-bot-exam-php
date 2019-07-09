@@ -158,16 +158,20 @@ $COUNTN++;
 
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user where $userid != $row["iduserlink"]";
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $row["iduserlink"];
-        replyMsg($arrayHeader,$arrayPostData);
+        $sql = "SELECT iduserlink FROM user ";
         $result = $conn->query($sql);
-/* if ($result->num_rows > 0) {
+ if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-                  $lati1 = $row["lati"];
-                  $lng1 = $row["lng"];
+                  $iduser = $row["iduserlink"];
+        $sql1 = "SELECT name,lati,lng FROM user WHERE $iduser != $userid";
+        $result1 = $conn1->query($sql1);
+ if ($result1->num_rows > 0) {
+          while($row1 = $result->fetch_assoc() ){
+
+
+
+                  $lati1 = $row1["lati"];
+                  $lng1 = $row1["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -177,7 +181,23 @@ $COUNTN++;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
  
 $COUNTN++;
+
+
+
+
+                                              }
+                            }
+
+
           }
+
+
+
+
+
+
+
+
   $mybenz = order_array_num ($benz1, "dis", "ASC");
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -190,7 +210,7 @@ $COUNTN++;
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 
-}*/
+}
               }
  else if($row_command["Command"]=="Location"){
 
