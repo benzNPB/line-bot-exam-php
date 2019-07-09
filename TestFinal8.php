@@ -166,10 +166,21 @@ $COUNTN++;
                   if($userid != $iduser) 
                   {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][3]['type'] = "text";
-        $arrayPostData['messages'][3]['text'] = $iduser;
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $iduser;
         replyMsg($arrayHeader,$arrayPostData);
 
+                  }
+                  else
+                  {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = $iduser;
+        $arrayPostData['messages'][1]['type'] = "text";
+        $arrayPostData['messages'][1]['text'] = $iduser;
+        $arrayPostData['messages'][2]['type'] = "text";
+        $arrayPostData['messages'][2]['text'] = $iduser;
+        replyMsg($arrayHeader,$arrayPostData);
                   }
 
 
@@ -178,22 +189,6 @@ $COUNTN++;
 
 
 
-
-
-
-
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
-
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $iduser;
-        $arrayPostData['messages'][1]['type'] = "text";
-        $arrayPostData['messages'][1]['text'] = $iduser;
-        $arrayPostData['messages'][2]['type'] = "text";
-        $arrayPostData['messages'][2]['text'] = $iduser;
-
-
-        replyMsg($arrayHeader,$arrayPostData);
 
 }
               }
