@@ -158,13 +158,12 @@ $COUNTN++;
 
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user where $userid != $row["iduserlink"]";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $iduser = $row["iduserlink"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -176,7 +175,7 @@ $COUNTN++;
 $COUNTN++;
           }
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-  if($iduser != $userid){
+
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
@@ -185,25 +184,7 @@ $COUNTN++;
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
-  }
-  else
-  {
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Erroe";
-        replyMsg($arrayHeader,$arrayPostData);
-  }
 
 }
               }
