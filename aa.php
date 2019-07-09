@@ -72,15 +72,12 @@ $contend = 4;
  for ($x = 0; $x < $mybenznum; $x++) { 
     if($contend<=0){
     }else{
-        if(floatval($mybenz[$x]["dis"]) < 1){
+        if(floatval($mybenz[$x]["useridlink"]) != "U434d98c2ea737a9af2b3401a2c0abcbb"){
            $contend = $contend-1;
                echo '<pre>';
       echo $mybenz[$x]["name"];
                echo '</pre>';
-           if($mybenz["iduserlink"] == "Test")
-                 echo '<pre>';
-      echo $mybenz[$x]["name"];
-               echo '</pre>';
+
         }
     }
  }
