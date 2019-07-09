@@ -69,16 +69,12 @@ $COUNTN++;
      $mybenznum = count($mybenz);
 ///////////////////////////////
 $contend = 4;
- for ($x = 0; $x < $mybenznum; $x++) { 
-    if($contend<=0){
-    }else{
-        if($mybenz["useridlink"] != "U434d98c2ea737a9af2b3401a2c0abcbb"){
+        if(floatval($mybenz[$x]["dis"]) < 1){
            $contend = $contend-1;
                echo '<pre>';
-      echo $mybenz[$x]["name"];
-               echo '</pre>';
-
-        }
+            echo $mybenz[$x]["name"];
+             echo '</pre>';
+           
     }
  }
       
