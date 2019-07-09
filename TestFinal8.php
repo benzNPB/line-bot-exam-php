@@ -158,11 +158,20 @@ $COUNTN++;
 
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT iduserlink FROM user ";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $iduser = $row["iduserlink"];
+                  if($userid != $iduser) 
+                  {
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][3]['type'] = "text";
+        $arrayPostData['messages'][3]['text'] = $iduser;
+        replyMsg($arrayHeader,$arrayPostData);
+
+                  }
+
 
           }
 
