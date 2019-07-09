@@ -60,7 +60,7 @@ $COUNTN++;
      print_r($mybenz);
      $mybenznum = count($mybenz);
 ///////////////////////////////
-$contend = 200;
+$contend = 20;
         if(floatval($mybenz[$x]["iduserlink"]) !=  $userid ){
            $contend = $contend-1;
                echo '<pre>';
