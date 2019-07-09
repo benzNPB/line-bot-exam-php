@@ -40,14 +40,15 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
         replyMsg($arrayHeader,$arrayPostData);
     }
-         else if($message == "DisasterInformationN")
+         else if($message == "Test")
     {        
-       $currenttime = date("d-M-Y H:i:s");
-       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
-       mysqli_query($conn,$query );
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
-       $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send disaster information in your location";
+       $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
+       if ($userid == $arrayJson['events'][0]['source']['userId'])      
+       $arrayPostData['replyToken'] = $arrayJson['events'][1]['replyToken'];
+       $arrayPostData['messages'][1]['type'] = "text";
+       $arrayPostData['messages'][1]['text'] = "yes";           
        replyMsg($arrayHeader,$arrayPostData);
     }
          else if($message == "DisasterInformation")
