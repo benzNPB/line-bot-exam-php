@@ -178,7 +178,7 @@ $COUNTN++;
   $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $iduser;
+        $arrayPostData['messages'][0]['text'] = $iduser.",,,".$userid;
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
