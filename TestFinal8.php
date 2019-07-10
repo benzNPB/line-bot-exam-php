@@ -490,12 +490,12 @@ $COUNTN++;
         $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
-   while($row = $result->fetch_assoc() ){
+          while($row = $result->fetch_assoc() ){
                   $iduser = $row["iduserlink"];
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
 
-             if($arrayJson['events'][0]['source']['userId'] == $iduser)
+             if($iduser == $arrayJson['events'][0]['source']['userId'])
              {
              }
              else
@@ -507,12 +507,14 @@ $COUNTN++;
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+
 $COUNTN++;
           }
 
-}
+             }
 
-        $mybenz = order_array_num ($benz1, "dis", "ASC");
+             
+  $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
@@ -540,7 +542,9 @@ $COUNTN++;
          $arrayPostData['messages'][4]['type'] = "text";
          $arrayPostData['messages'][4]['text'] = "4)  ".$link1."  5)".$link2."  6)".$link3."  7)".$link4."  8)".$link5."  9)".$link6;
         replyMsg($arrayHeader,$arrayPostData);
-        
+
+
+}
               }
  else if($row_command["Command"]=="Location"){
 
