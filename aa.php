@@ -58,15 +58,15 @@ $longu = 139.267804;
 $COUNTN++;
           }
 
+
+             }
+
+             
   $mybenz = order_array_num ($benz1, "dis", "ASC");
    
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
-             }
-
-             
-
       
      
 }
