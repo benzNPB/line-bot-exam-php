@@ -41,6 +41,7 @@ $longu = 139.267804;
           
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
+                  $userid = $row["iduserlink"];
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
