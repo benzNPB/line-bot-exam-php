@@ -47,6 +47,9 @@ $longu = 139.267804;
                   $userid = "U434d98c2ea737a9af2b3401a2c0abcbb";
              if($userid == $iduser)
              {
+             }
+             else ()
+             {
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -57,7 +60,6 @@ $longu = 139.267804;
 
 $COUNTN++;
           }
-
 
              }
 
