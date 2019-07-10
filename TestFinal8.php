@@ -523,24 +523,6 @@ $COUNTN++;
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"];
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"];
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-        $link1 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3]["lng"];
-        $link2 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"];
-        $link3 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[5]["lati"]."%2C".$mybenz[5]["lng"];
-        $link4 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[6]["lati"]."%2C".$mybenz[6]["lng"];
-        $link5 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[7]["lati"]."%2C".$mybenz[7]["lng"];
-        $link6 = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[8]["lati"]."%2C".$mybenz[8]["lng"];
-         $arrayPostData['messages'][4]['type'] = "text";
-         $arrayPostData['messages'][4]['text'] = "4)  ".$link1."  5)".$link2."  6)".$link3."  7)".$link4."  8)".$link5."  9)".$link6;
         replyMsg($arrayHeader,$arrayPostData);
 
 
