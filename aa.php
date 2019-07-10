@@ -67,7 +67,7 @@ $COUNTN++;
              
           }
 
-             
+ }    
              
           }
 
@@ -77,7 +77,7 @@ $COUNTN++;
      print_r($mybenz);
     echo '</pre>';
       
-          } 
+          
 }
    
 ?>
