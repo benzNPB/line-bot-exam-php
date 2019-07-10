@@ -12,39 +12,6 @@
     $R = 6371;
     $benz1 = array();     
     $COUNTN=0;   
-use LINE\LINEBot;
-use LINE\LINEBot\HTTPClient;
-use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-//use LINE\LINEBot\Event;
-//use LINE\LINEBot\Event\BaseEvent;
-//use LINE\LINEBot\Event\MessageEvent;
-use LINE\LINEBot\MessageBuilder;
-use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
-use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
-use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
-use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
-use LINE\LINEBot\MessageBuilder\AudioMessageBuilder;
-use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
-use LINE\LINEBot\ImagemapActionBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\AreaBuilder;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapMessageActionBuilder ;
-use LINE\LINEBot\ImagemapActionBuilder\ImagemapUriActionBuilder;
-use LINE\LINEBot\MessageBuilder\Imagemap\BaseSizeBuilder;
-use LINE\LINEBot\MessageBuilder\ImagemapMessageBuilder;
-use LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
-use LINE\LINEBot\TemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\DatetimePickerTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
-use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
-use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
      $result = $conn->query($sql);
@@ -74,49 +41,7 @@ ini_set('display_errors', 1);
         replyMsg($arrayHeader,$arrayPostData);
     }
          else if($message == "Test")
-    {   
-                                     $actionBuilder = array(
-                            new MessageTemplateActionBuilder(
-                                'Message Template',// ข้อความแสดงในปุ่ม
-                                'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-                            ),
-                            new UriTemplateActionBuilder(
-                                'Uri Template', // ข้อความแสดงในปุ่ม
-                                'https://www.ninenik.com'
-                            ),
-                            new PostbackTemplateActionBuilder(
-                                'Postback', // ข้อความแสดงในปุ่ม
-                                http_build_query(array(
-                                    'action'=>'buy',
-                                    'item'=>100
-                                )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
-                                'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-                            ),      
-                        );
-                        $replyData = new TemplateMessageBuilder('Carousel',
-                            new CarouselTemplateBuilder(
-                                array(
-                                    new CarouselColumnTemplateBuilder(
-                                        'Title Carousel',
-                                        'Description Carousel',
-                                        'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                                        $actionBuilder
-                                    ),
-                                    new CarouselColumnTemplateBuilder(
-                                        'Title Carousel',
-                                        'Description Carousel',
-                                        'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                                        $actionBuilder
-                                    ),
-                                    new CarouselColumnTemplateBuilder(
-                                        'Title Carousel',
-                                        'Description Carousel',
-                                        'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                                        $actionBuilder
-                                    ),                                          
-                                )
-                            )
-                        );
+    {
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
