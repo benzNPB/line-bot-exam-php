@@ -38,12 +38,19 @@ $longu = 139.267804;
         $COUNTN=0;       
         $sql = "SELECT lati,lng,iduserlink FROM user";
         $result = $conn->query($sql);
-          
+ 
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-                  $userid = $row["iduserlink"];
+                  $iduser = $row["iduserlink"];
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
+                  $userid = "U434d98c2ea737a9af2b3401a2c0abcbb";
+             if($userid == $iduser)
+             {
+                
+             }
+             else()
+             {
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -60,6 +67,9 @@ $COUNTN++;
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
+             }
+             
+
       
      
 }
