@@ -49,7 +49,7 @@ $longu = 139.267804;
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                    $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 
 $COUNTN++;
           }
