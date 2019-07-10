@@ -42,8 +42,17 @@ $longu = 139.267804;
           
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-                  $lati1 = $row["lati"] WHERE $userid == $row["iduserlink"];
-                  $lng1 = $row["lng"] WHERE $userid == $row["iduserlink"];
+           $iduser = $row["iduserlink"] 
+             
+        $sql = "SELECT lati,lng,iduserlink FROM user WHERE $userid == $iduser";
+        $result = $conn->query($sql);
+          
+ if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc() ){
+             
+             
+                  $lati1 = $row["lati"];
+                  $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
@@ -53,6 +62,13 @@ $longu = 139.267804;
                     $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 
 $COUNTN++;
+             
+             
+             
+          }
+
+             
+             
           }
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
@@ -61,7 +77,7 @@ $COUNTN++;
      print_r($mybenz);
     echo '</pre>';
       
-     
+          } 
 }
    
 ?>
