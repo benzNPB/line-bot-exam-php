@@ -61,8 +61,6 @@ $COUNTN++;
      $mybenznum = count($mybenz);
 ///////////////////////////////
 
-           
-    }
  
       
      
