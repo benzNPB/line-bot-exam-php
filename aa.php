@@ -37,13 +37,13 @@ $latu = 35.3642192; //1st 7-11
 $longu = 139.267804;
 
         $COUNTN=0;       
-        $sql = "SELECT lati,lng,iduserlink FROM user WHERE $userid == $row["iduserlink"]";
+        $sql = "SELECT lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-                  $lati1 = $row["lati"];
-                  $lng1 = $row["lng"];
+                  $lati1 = $row["lati"] WHERE $userid == $row["iduserlink"];
+                  $lng1 = $row["lng"] WHERE $userid == $row["iduserlink"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
                    
