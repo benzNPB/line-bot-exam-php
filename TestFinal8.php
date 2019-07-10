@@ -519,7 +519,7 @@ $COUNTN++;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[1]["name"];
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["iduser"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
