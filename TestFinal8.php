@@ -523,6 +523,11 @@ $COUNTN++;
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+        $arrayPostData['messages'][2]['type'] = "location";
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["iduser"];
+        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[0]["lng"];
+        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
+        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 
 
