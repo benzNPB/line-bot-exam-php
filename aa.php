@@ -31,22 +31,16 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
-$userid = "U434d98c2ea737a9af2b3401a2c0abcbb"
 $locate = array();
-$latu = 35.3642192; //1st 7-11
+$latu = 35.364219; //1st 7-11
 $longu = 139.267804;
 
         $COUNTN=0;       
-        $sql = "SELECT lati,lng,iduserlink FROM user ";
+        $sql = "SELECT lati,lng,iduserlink FROM user";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
-           $iduser = $row["iduserlink"] ;
-             
-
-             
-             
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
@@ -58,11 +52,6 @@ $longu = 139.267804;
                     $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 
 $COUNTN++;
-             
-             
-             
-
-             
           }
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
@@ -71,7 +60,7 @@ $COUNTN++;
      print_r($mybenz);
     echo '</pre>';
       
-          
+     
 }
    
 ?>
