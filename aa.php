@@ -31,12 +31,13 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
+$userid = "U434d98c2ea737a9af2b3401a2c0abcbb"
 $locate = array();
 $latu = 35.3642192; //1st 7-11
 $longu = 139.267804;
 
         $COUNTN=0;       
-        $sql = "SELECT lati,lng,iduserlink FROM user";
+        $sql = "SELECT lati,lng,iduserlink FROM user WHERE $userid == $row["iduserlink"]";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
