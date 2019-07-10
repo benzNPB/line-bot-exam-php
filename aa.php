@@ -31,13 +31,12 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
-    $userid = "U434d98c2ea737a9af2b3401a2c0abcbb"
 $locate = array();
-$latu = 35.362052; //1st 7-11
-$longu = 139.275546;
+$latu = 35.364219; //1st 7-11
+$longu = 139.267804;
 
         $COUNTN=0;       
-        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
+        $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
@@ -50,18 +49,16 @@ $longu = 139.275546;
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis, 'iduserlink' => $row["iduserlink"]);
+                    $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 
 $COUNTN++;
           }
 
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-
+   
+    echo '<pre>';
      print_r($mybenz);
-     $mybenznum = count($mybenz);
-///////////////////////////////
-
- 
+    echo '</pre>';
       
      
 }
