@@ -48,7 +48,7 @@ $longu = 139.267804;
              if($userid == $iduser)
              {
              }
-             else ()
+             else
              {
                      $deltaLat1 = deg2rad($lati1 - $latu);
                      $deltaLong1 = deg2rad($lng1 - $longu);
