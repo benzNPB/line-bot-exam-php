@@ -494,8 +494,8 @@ $COUNTN++;
                   $iduser = $row["iduserlink"];
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $userid = "U434d98c2ea737a9af2b3401a2c0abcbb";
-             if($userid == $iduser)
+
+             if($arrayJson['events'][0]['source']['userId'] == $iduser)
              {
              }
              else
@@ -509,6 +509,9 @@ $COUNTN++;
                     $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 $COUNTN++;
           }
+
+}
+
         $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
@@ -537,9 +540,7 @@ $COUNTN++;
          $arrayPostData['messages'][4]['type'] = "text";
          $arrayPostData['messages'][4]['text'] = "4)  ".$link1."  5)".$link2."  6)".$link3."  7)".$link4."  8)".$link5."  9)".$link6;
         replyMsg($arrayHeader,$arrayPostData);
-
-
-}
+        
               }
  else if($row_command["Command"]=="Location"){
 
