@@ -44,11 +44,7 @@ $longu = 139.267804;
           while($row = $result->fetch_assoc() ){
            $iduser = $row["iduserlink"] 
              
-        $sql = "SELECT lati,lng,iduserlink FROM user WHERE $userid == $iduser";
-        $result = $conn->query($sql);
-          
- if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc() ){
+
              
              
                   $lati1 = $row["lati"];
@@ -65,9 +61,7 @@ $COUNTN++;
              
              
              
-          }
 
- }    
              
           }
 
