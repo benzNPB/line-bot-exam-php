@@ -20,10 +20,6 @@ ini_set('display_errors', 1);
         {
           $username = 'Benz';
         }
-       else if($userid = "Ub54fbd6e0789e68223beb4c6a77db743")
-        {
-          $username = 'Prach';
-        }
           if($message == "Evacuation Point")
     {        
        $currenttime = date("d-M-Y H:i:s");
@@ -47,17 +43,17 @@ ini_set('display_errors', 1);
          else if($message == "Test")
     {   
              $columns = array();
-			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-			for($i=0;$i<5;$i++) {
-				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
-				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
-				$columns[] = $column;
-			}
-			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+      $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
+      for($i=0;$i<5;$i++) {
+        $actions = array(
+          new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+          new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
+        );
+        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+        $columns[] = $column;
+      }
+      $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+      $outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
@@ -104,43 +100,27 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][4]['text'] = "If you want to know the latest disaster information in your location please send your location to bot";
         replyMsg($arrayHeader,$arrayPostData);
 }
-         else if($message == "Userid")
+          if($message == "Userid")
     {        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
         replyMsg($arrayHeader,$arrayPostData);
 }
-         else if($message == "I'm Safe")
-    {        
-        $currenttime = date("d-M-Y H:i:s");
-       $query_user = "INSERT INTO user(name,iduserlink,userstatus) VALUES ('".$username."','".$arrayJson['events'][0]['source']['userId']."' ,'Safe')";
-       mysqli_query($conn,$query_user );
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Thank you for your information";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-         else if($message == "I need help")
-    {        
-        $currenttime = date("d-M-Y H:i:s");
-       $query_user = "INSERT INTO user(name,iduserlink,userstatus) VALUES ('".$username."','".$arrayJson['events'][0]['source']['userId']."' ,'Help')";
-       mysqli_query($conn,$query_user );
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Hang on, someone will go to help you";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
 ////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
           if($message == $location){
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude']; 
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
        $result_command = mysqli_query($conn,$sql_command );
-       $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ( '".$username."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+       $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
        mysqli_query($conn,$query_user );
            if($result_command){
        $row_command = $result_command->fetch_assoc();
+        if($iduser == $arrayJson['events'][0]['source']['userId'])
+             {
+           
+
 
             //////////////////////////////////EVACUATION////////////////////////////////////////
          if($row_command["Command"]=="Evacuation"){
@@ -515,20 +495,19 @@ $COUNTN++;
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
             //    $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
-		$arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
+    $arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
             ///////////////////////////////////////////////////////////////////////////////
               else if($row_command["Command"]=="People"){
-        $sql = "SELECT name,lati,lng,iduserlink,userstatus FROM user ";
+        $sql = "SELECT name,lati,lng,iduserlink FROM user ";
         $result = $conn->query($sql);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $iduser = $row["iduserlink"];
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-		  $userstatus = $row["userstatus"];
 
              if($iduser == $arrayJson['events'][0]['source']['userId'])
              {
@@ -541,7 +520,7 @@ $COUNTN++;
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-                    $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis , 'userstatus' => $row["userstatus"]);
+                    $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
 
 $COUNTN++;
           }
@@ -554,28 +533,28 @@ $COUNTN++;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["iduser"].",".$userstatus;
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["iduser"];
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["iduser"].",".$userstatus;
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["iduser"];
+        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["iduser"].",".$userstatus;
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["iduser"];
+        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $arrayPostData['messages'][4]['type'] = "location";
-        $arrayPostData['messages'][4]['title'] = $mybenz[3]["iduser"].",".$userstatus;
-        $arrayPostData['messages'][4]['address'] =   $mybenz[3]["lati"].",".$mybenz[3]["lng"];
+        $arrayPostData['messages'][4]['title'] = $mybenz[3]["iduser"];
+        $arrayPostData['messages'][4]['address'] =   $mybenz[3]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][4]['latitude'] =  $mybenz[3]["lati"];
         $arrayPostData['messages'][4]['longitude'] =  $mybenz[3]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 
-
+}
 }
               }
  else if($row_command["Command"]=="Location"){
