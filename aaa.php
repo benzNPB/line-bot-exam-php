@@ -36,7 +36,7 @@ $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
 
         $COUNTN=0;       
-        $sql = "SELECT lati,lng,iduserlink,name,datime FROM user";
+        $sql = "SELECT lati,lng,iduserlink,name,datime,userstatus FROM user";
         $result = $conn->query($sql);
  
  if ($result->num_rows > 0) {
@@ -56,7 +56,7 @@ $longu = 139.267804;
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
-                    $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'name' => $row["name"],'datime' => $row["datime"], 'dis' => $dis);
+                    $benz1[] = array('iduser' => $row["iduserlink"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'name' => $row["name"],'datime' => $row["datime"],'userstatus' => $row["userstatus"], 'dis' => $dis);
 
 $COUNTN++;
           }
