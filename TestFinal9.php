@@ -20,6 +20,14 @@ ini_set('display_errors', 1);
         {
           $username = 'Benz';
         }
+       else if($userid = "Ub54fbd6e0789e68223beb4c6a77db743")
+        {
+          $username = 'Prach';
+        }
+       else
+        {
+          $username = 'Testusername';
+        }
           if($message == "Evacuation Point")
     {        
        $currenttime = date("d-M-Y H:i:s");
@@ -49,7 +57,7 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
+        $arrayPostData['messages'][0]['text'] = "Thank you for your information";
         replyMsg($arrayHeader,$arrayPostData);
     }
          else if($message == "I need help")
@@ -59,7 +67,7 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
+        $arrayPostData['messages'][0]['text'] = "Please wait we will send staff for find you";
         replyMsg($arrayHeader,$arrayPostData);
     }
 /////////////////////////////
@@ -158,7 +166,13 @@ ini_set('display_errors', 1);
        $longu = $arrayJson['events'][0]['message']['longitude']; 
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
        $result_command = mysqli_query($conn,$sql_command );
-       $query_user = "INSERT INTO user(name,lati,lng,iduserlink) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."' )";
+       $sql_status = "SELECT Status FROM userstatus where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+       $result_status = mysqli_query($conn,$sql_status );
+              if($result_status){
+                  $row_status = $result_status->fetch_assoc();
+                  $status = $row_status["Status"];
+              }
+       $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
        mysqli_query($conn,$query_user );
            if($result_command){
        $row_command = $result_command->fetch_assoc();
