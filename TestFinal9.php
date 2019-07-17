@@ -147,7 +147,7 @@ ini_set('display_errors', 1);
        $result_status = mysqli_query($conn,$sql_status );
        $row_status = $result_status->fetch_assoc();
        $status = $row_status["Status"];
-       $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
+       $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ( '".$username."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
        mysqli_query($conn,$query_user );
            if($result_command){
 
