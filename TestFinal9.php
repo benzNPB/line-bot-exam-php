@@ -67,7 +67,7 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Please wait we will send staff for find you";
+        $arrayPostData['messages'][0]['text'] = "Please send your location, we will send staff to help you";
         replyMsg($arrayHeader,$arrayPostData);
     }
 /////////////////////////////
