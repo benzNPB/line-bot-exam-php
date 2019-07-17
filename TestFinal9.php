@@ -134,7 +134,7 @@ ini_set('display_errors', 1);
     {        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
+        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].","$username;
         replyMsg($arrayHeader,$arrayPostData);
 }
 ////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
