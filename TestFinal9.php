@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
      $result = $conn->query($sql);
      $userid = $arrayJson['events'][0]['source']['userId'];
-       if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
+       if($userid = "U434d98c2ea737a9af2b3401a2c0abcab")
         {
           $username = 'Benz';
         }
@@ -134,7 +134,7 @@ ini_set('display_errors', 1);
     {        
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].","$username;
+        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",".$username;
         replyMsg($arrayHeader,$arrayPostData);
 }
 ////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
