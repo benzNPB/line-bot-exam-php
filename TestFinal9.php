@@ -171,7 +171,7 @@ ini_set('display_errors', 1);
               if($result_status){
                   $row_status = $result_status->fetch_assoc();
                   $status = $row_status["Status"];
-              }
+             
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
        mysqli_query($conn,$query_user );
            if($result_command){
@@ -612,7 +612,7 @@ $COUNTN++;
         $arrayPostData['messages'][4]['latitude'] =  $mybenz[3]["lati"];
         $arrayPostData['messages'][4]['longitude'] =  $mybenz[3]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
-
+ }
 }
 }
               }
