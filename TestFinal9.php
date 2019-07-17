@@ -15,7 +15,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
      $result = $conn->query($sql);
-   $userid = $arrayJson['events'][0]['source']['userId'];
+     $userid = $arrayJson['events'][0]['source']['userId'];
        if($userid = "U434d98c2ea737a9af2b3401a2c0abcbb")
         {
           $username = 'Benz';
@@ -48,69 +48,24 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = "please send your location to bot and bot will send people's location around you";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
-/////////////////////////////
-         else if($message == "I'm Safe")
-    {        
-        $currenttime = date("d-M-Y H:i:s");
-       $query = "INSERT INTO userstatus(iduserlink,username,Status,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Safe','".$currenttime."')";
-       mysqli_query($conn,$query );
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Thank you for your information";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-         else if($message == "I need help")
-    {        
-        $currenttime = date("d-M-Y H:i:s");
-       $query = "INSERT INTO userstatus(iduserlink,username,Status,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Help','".$currenttime."')";
-       mysqli_query($conn,$query );
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Please wait we will send staff for find you";
-        replyMsg($arrayHeader,$arrayPostData);
-    }
-/////////////////////////////
          else if($message == "Test")
     {   
-            $actionBuilder = array(
-        new MessageTemplateActionBuilder(
-            'Message Template',// ข้อความแสดงในปุ่ม
-            'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),
-        new UriTemplateActionBuilder(
-            'Uri Template', // ข้อความแสดงในปุ่ม
-            'https://www.ninenik.com'
-        ),
-        new DatetimePickerTemplateActionBuilder(
-            'Datetime Picker', // ข้อความแสดงในปุ่ม
-            http_build_query(array(
-                'action'=>'reservation',
-                'person'=>5
-            )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
-            'datetime', // date | time | datetime รูปแบบข้อมูลที่จะส่ง ในที่นี้ใช้ datatime
-            substr_replace(date("Y-m-d H:i"),'T',10,1), // วันที่ เวลา ค่าเริ่มต้นที่ถูกเลือก
-            substr_replace(date("Y-m-d H:i",strtotime("+5 day")),'T',10,1), //วันที่ เวลา มากสุดที่เลือกได้
-            substr_replace(date("Y-m-d H:i"),'T',10,1) //วันที่ เวลา น้อยสุดที่เลือกได้
-        ),      
-        new PostbackTemplateActionBuilder(
-            'Postback', // ข้อความแสดงในปุ่ม
-            http_build_query(array(
-                'action'=>'buy',
-                'item'=>100
-            )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
-            'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),      
-    );
-    $imageUrl = 'https://www.mywebsite.com/imgsrc/photos/w/simpleflower';
-    $replyData = new TemplateMessageBuilder('Button Template',
-        new ButtonTemplateBuilder(
-                'button template builder', // กำหนดหัวเรื่อง
-                'Please select', // กำหนดรายละเอียด
-                $imageUrl, // กำหนด url รุปภาพ
-                $actionBuilder  // กำหนด action object
-        )
-    );              
+             $columns = array();
+			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
+			for($i=0;$i<5;$i++) {
+				$actions = array(
+					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
+				);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+				$columns[] = $column;
+			}
+			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+       $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+       $arrayPostData['messages'][0]['type'] = "text";
+       $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
+       replyMsg($arrayHeader,$arrayPostData);
     }
          else if($message == "DisasterInformation")
     {        
@@ -168,19 +123,13 @@ ini_set('display_errors', 1);
        $result_command = mysqli_query($conn,$sql_command );
        $sql_status = "SELECT Status FROM userstatus where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
        $result_status = mysqli_query($conn,$sql_status );
-              if($result_status){
-                  $row_status = $result_status->fetch_assoc();
-                  $status = $row_status["Status"];
-             
+       $row_status = $result_status->fetch_assoc();
+       $status = $row_status["Status"];
        $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ('benz', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
        mysqli_query($conn,$query_user );
-              }
            if($result_command){
-       $row_command = $result_command->fetch_assoc();
-        if($iduser == $arrayJson['events'][0]['source']['userId'])
-             {
-           
 
+       $row_command = $result_command->fetch_assoc();
 
             //////////////////////////////////EVACUATION////////////////////////////////////////
          if($row_command["Command"]=="Evacuation"){
@@ -555,7 +504,7 @@ $COUNTN++;
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
             //    $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
-    $arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
+		$arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
@@ -613,8 +562,8 @@ $COUNTN++;
         $arrayPostData['messages'][4]['latitude'] =  $mybenz[3]["lati"];
         $arrayPostData['messages'][4]['longitude'] =  $mybenz[3]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
- 
-}
+
+
 }
               }
  else if($row_command["Command"]=="Location"){
