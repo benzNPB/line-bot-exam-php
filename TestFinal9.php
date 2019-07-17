@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set('asia/tokyo');
     require "dbconnection.php";
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
@@ -29,7 +30,7 @@ ini_set('display_errors', 1);
           $username = 'Testusername';
         }
           if($message == "Evacuation Point")
-    {        
+    {   
        $currenttime = date("d-M-Y H:i:s");
        $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation', '".$currenttime."')";
        mysqli_query($conn,$query );
