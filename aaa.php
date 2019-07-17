@@ -35,7 +35,7 @@ $locate = array();
 $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
         $COUNTN=0;       
-        $sql = "SELECT name,lati,lng,iduserlink,time,userstatus FROM user";
+        $sql = "SELECT name,lati,lng,iduserlink,userstatus FROM user";
         $result = $conn->query($sql);
  
  if ($result->num_rows > 0) {
