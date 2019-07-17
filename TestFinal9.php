@@ -16,11 +16,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
      $result = $conn->query($sql);
      $userid = $arrayJson['events'][0]['source']['userId'];
-       if($userid = "U434d98c2ea737a9af2b3401a2c0abcaaaaab")
+       if($arrayJson['events'][0]['source']['userId'] = "U434d98c2ea737a9af2b3401a2c0abcaaaaab")
         {
           $username = 'Ben';
         }
-       else if($userid = "Ub54fbd6e0789e68223beb4c6a77db743")
+       else if($arrayJson['events'][0]['source']['userId'] = "Ub54fbd6e0789e68223beb4c6a77db743")
         {
           $username = 'Prach';
         }
