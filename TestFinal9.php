@@ -140,6 +140,7 @@ ini_set('display_errors', 1);
 }
 ////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
           if($message == $location){
+       $currenttime = date("d-M-Y H:i:s");
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude']; 
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
@@ -148,7 +149,7 @@ ini_set('display_errors', 1);
        $result_status = mysqli_query($conn,$sql_status );
        $row_status = $result_status->fetch_assoc();
        $status = $row_status["Status"];
-       $query_user = "INSERT INTO user(name,lati,lng,iduserlink,userstatus) VALUES ( '".$username."', '".$latu."', '".$longu."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
+       $query_user = "INSERT INTO user(name,lati,lng,datime,iduserlink,userstatus) VALUES ( '".$username."', '".$latu."', '".$longu."', '".$currenttime."','".$arrayJson['events'][0]['source']['userId']."', '".$status."' )";
        mysqli_query($conn,$query_user );
            if($result_command){
 
