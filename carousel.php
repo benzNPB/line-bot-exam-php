@@ -27,7 +27,7 @@
         $arrayPostData['messages'][0]['type'] = "carousel";
 
         $columns  =  [];  // Add array of 5 carousel type columns 
-        foreach  ( $lists  as  $list )  { 
+   /*     foreach  ( $lists  as  $list )  { 
                    // Create a button to give to carousel 
         $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
         // Create carousel column 
@@ -38,7 +38,7 @@
         $carousel  =  new  CarouselTemplateBuilder ( $columns ); 
            // Make a message by adding a carousel 
         $carousel_message  =  new TemplateMessageBuilder ( "Message Title" ,  $ carousel );
-        $arrayPostData['messages'][0]['columns'] = $carousel_message;
+        $arrayPostData['messages'][0]['columns'] = $carousel_message;*/
         replyMsg($arrayHeader,$arrayPostData);   
     }
 
