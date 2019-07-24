@@ -38,7 +38,7 @@ use LINE\LINEBot\Event\FollowEvent;
                 
       if($message == $location)
     {
-      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "location";
         $arrayPostData['messages'][0]['title'] = "your location";
         $arrayPostData['messages'][0]['address'] =  $arrayJson['events'][0]['message']['latitude'].",".$arrayJson['events'][0]['message']['longitude'];
@@ -48,49 +48,22 @@ use LINE\LINEBot\Event\FollowEvent;
     }
    else if($message == $text)
     {
- $actionBuilder = array(
-        new MessageTemplateActionBuilder(
-            'Message Template',// ข้อความแสดงในปุ่ม
-            'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),
- /*       new UriTemplateActionBuilder(
-            'Uri Template', // ข้อความแสดงในปุ่ม
-            'https://www.ninenik.com'
-        ),
-        new PostbackTemplateActionBuilder(
-            'Postback', // ข้อความแสดงในปุ่ม
-            http_build_query(array(
-                'action'=>'buy',
- 
-                'item'=>100
-            )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
-            'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),      */
-    );
- /*   $replyData = new TemplateMessageBuilder('Carousel',
-        new CarouselTemplateBuilder(
-            array(
-                new CarouselColumnTemplateBuilder(
-                    'Title Carousel',
-                    'Description Carousel',
-                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                    $actionBuilder
-                ),
-                new CarouselColumnTemplateBuilder(
-                    'Title Carousel',
-                    'Description Carousel',
-                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                    $actionBuilder
-                ),
-                new CarouselColumnTemplateBuilder(
-                    'Title Carousel',
-                    'Description Carousel',
-                    'https://www.mywebsite.com/imgsrc/photos/f/sampleimage/700',
-                    $actionBuilder
-                ),                                          
-            )
-        )
-    );*/
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "carousel";
+        $columns  =  [];  // Add array of 5 carousel type columns 
+          foreach  ( $lists  as  $list )  { 
+        // Create a button to give to carousel 
+        $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
+        // Create carousel column 
+        $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "" ,  [ $action ]); 
+        $columns []  =  $column ; 
+    } 
+       // Create a carousel by combining the array of columns
+        $carousel  =  new  CarouselTemplateBuilder ( $columns ); 
+       // Make a message by adding a carousel 
+       $carousel_message  =  new  TemplateMessageBuilder ( "Message Title" ,  $carousel );
+       $arrayPostData['messages'][0]['columns'] = $carousel_message;
+        replyMsg($arrayHeader,$arrayPostData); 
     }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
