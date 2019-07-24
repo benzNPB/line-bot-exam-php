@@ -70,7 +70,7 @@
         )
     );
     break;  
-          $arrayPostData['messages'][0]['columns'] = $actionBuilder;
+          $arrayPostData['messages'][0]['columns'] = $$replyData;
         replyMsg($arrayHeader,$arrayPostData);   
     }
 
