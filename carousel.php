@@ -1,4 +1,30 @@
 <?php
+    use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot;
+use \LINE\LINEBot\Constant\HTTPHeader;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\MessageBuilder\MultiMessageBuilder;
+use LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
+use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
+use LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
+ 
+use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+ 
+use LINE\LINEBot\Event\MessageEvent;
+use LINE\LINEBot\Event\MessageEvent\AudioMessage;
+use LINE\LINEBot\Event\MessageEvent\ImageMessage;
+use LINE\LINEBot\Event\MessageEvent\LocationMessage;
+use LINE\LINEBot\Event\MessageEvent\StickerMessage;
+use LINE\LINEBot\Event\MessageEvent\TextMessage;
+use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
+use LINE\LINEBot\Event\MessageEvent\VideoMessage;
+ 
+use LINE\LINEBot\Event\UnfollowEvent;
+use LINE\LINEBot\Event\FollowEvent;
     require "dbconnection.php";
     $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvKfdC2yo896ykJVwW8Xne9++3BjCqj9xsNEdeENjtWVda5UTFIw149B2ygMnCp/4Fcn/nAV1YYOX1YLNxEJkiHwwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     $content = file_get_contents('php://input');
@@ -29,9 +55,9 @@
         $columns  =  [];  // Add array of 5 carousel type columns 
         foreach  ( $lists  as  $list )  { 
                    // Create a button to give to carousel 
-      /*  $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
+       $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
         // Create carousel column 
-        $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "https://static.wixstatic.com/media/b46608_bd800c813dad44f69c121da3af790314.jpg/v1/fill/w_555,h_370,al_c,q_80,usm_0.66_1.00_0.01/b46608_bd800c813dad44f69c121da3af790314.jpg" ,  [ $action ]); 
+       /*  $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "https://static.wixstatic.com/media/b46608_bd800c813dad44f69c121da3af790314.jpg/v1/fill/w_555,h_370,al_c,q_80,usm_0.66_1.00_0.01/b46608_bd800c813dad44f69c121da3af790314.jpg" ,  [ $action ]); 
         $columns []  =  $column ; */
                                        } 
            // Create a carousel by combining the array of columns
