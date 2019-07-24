@@ -1,5 +1,5 @@
 <?php
-    use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
 use \LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
@@ -37,6 +37,16 @@ use LINE\LINEBot\Event\FollowEvent;
     $message = $arrayJson['events'][0]['message']['text'];
                 
       if($message == $location)
+    {
+      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "location";
+        $arrayPostData['messages'][0]['title'] = "your location";
+        $arrayPostData['messages'][0]['address'] =  $arrayJson['events'][0]['message']['latitude'].",".$arrayJson['events'][0]['message']['longitude'];
+        $arrayPostData['messages'][0]['latitude'] = $arrayJson['events'][0]['message']['latitude'];
+        $arrayPostData['messages'][0]['longitude'] = $arrayJson['events'][0]['message']['longitude'];
+        replyMsg($arrayHeader,$arrayPostData);          
+    }
+   else if($message == $text)
     {
  $actionBuilder = array(
         new MessageTemplateActionBuilder(
@@ -82,12 +92,6 @@ use LINE\LINEBot\Event\FollowEvent;
         )
     );
     }
-
-
-
-
-
-
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
@@ -115,7 +119,6 @@ use LINE\LINEBot\Event\FollowEvent;
       $result = curl_exec($ch);
       curl_close ($ch);
    }
-
  
         
    exit;
