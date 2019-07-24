@@ -59,9 +59,9 @@ use LINE\LINEBot\Event\FollowEvent;
         $columns[] = $column ; 
     } 
        // Create a carousel by combining the array of columns
-        $carousel = new CarouselTemplateBuilder ($columns); 
+     /*   $carousel = new CarouselTemplateBuilder ($columns); 
        // Make a message by adding a carousel 
-    /*    $carousel_message = new TemplateMessageBuilder ( "Message Title" ,  $carousel );
+        $carousel_message = new TemplateMessageBuilder ( "Message Title" ,  $carousel );
         $arrayPostData['messages'][0]['columns'] = $carousel_message;*/
         replyMsg($arrayHeader,$arrayPostData); 
     }
