@@ -62,7 +62,7 @@ use LINE\LINEBot\Event\FollowEvent;
         $carousel  =  new  CarouselTemplateBuilder ( $columns ); 
        // Make a message by adding a carousel 
        $carousel_message  =  new  TemplateMessageBuilder ( "Message Title" ,  $carousel );
-       $arrayPostData['messages'][0]['columns'] = $carousel_message;
+       /*$arrayPostData['messages'][0]['columns'] = $carousel_message;*/
         replyMsg($arrayHeader,$arrayPostData); 
     }
       function replyMsg($arrayHeader,$arrayPostData){
