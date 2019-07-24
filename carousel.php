@@ -67,7 +67,7 @@ use LINE\LINEBot\Event\FollowEvent;
             'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
         ),      
     );
-    $replyData = new TemplateMessageBuilder('Carousel',
+ /*   $replyData = new TemplateMessageBuilder('Carousel',
         new CarouselTemplateBuilder(
             array(
                 new CarouselColumnTemplateBuilder(
@@ -90,7 +90,7 @@ use LINE\LINEBot\Event\FollowEvent;
                 ),                                          
             )
         )
-    );
+    );*/
     }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
