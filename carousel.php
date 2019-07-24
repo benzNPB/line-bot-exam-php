@@ -51,7 +51,7 @@ use LINE\LINEBot\Event\FollowEvent;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
         //////////////////////////////////////////////////////
-                        $actionBuilder = array(
+        /*                $actionBuilder = array(
                             new MessageTemplateActionBuilder(
                                 'Message Template',// ข้อความแสดงในปุ่ม
                                 'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
@@ -92,7 +92,7 @@ use LINE\LINEBot\Event\FollowEvent;
                                     ),                                          
                                 )
                             )
-                        );
+                        );*/
         /////////////////////////////////////////////////////
         $arrayPostData['messages'][0]['columns'] = $replyData;
           pushMsg($arrayHeader,$arrayPostData);
