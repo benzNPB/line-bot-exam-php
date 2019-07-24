@@ -50,12 +50,12 @@ use LINE\LINEBot\Event\FollowEvent;
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
-        $columns  =  [];  // Add array of 5 carousel type columns 
+        $columns = [];  // Add array of 5 carousel type columns 
           foreach  ( $lists  as  $list )  { 
         // Create a button to give to carousel 
-       /* $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
+       $action = new UriTemplateActionBuilder ( "Click and try " ,  "https://www.ninenik.com/content.php?arti_id=836"  ); 
         // Create carousel column 
-        $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "" ,  [ $action ]); 
+        /* $column = new CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "" ,  [ $action ]); 
         $columns []  =  $column ; */
     } 
        // Create a carousel by combining the array of columns
