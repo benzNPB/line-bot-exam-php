@@ -94,7 +94,7 @@ use LINE\LINEBot\Event\FollowEvent;
                             )
                         );
         /////////////////////////////////////////////////////
-        $arrayPostData['messages'][0]['columns'] = $actionBuilder;
+        $arrayPostData['messages'][0]['columns'] = $replyData;
           pushMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
