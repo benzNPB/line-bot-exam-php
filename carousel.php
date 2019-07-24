@@ -57,7 +57,7 @@ use LINE\LINEBot\Event\FollowEvent;
                    // Create a button to give to carousel 
        $action  =  new  UriTemplateActionBuilder ( "Click and try " ,  / * Summary URL * /  ); 
         // Create carousel column 
-         $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "https://static.wixstatic.com/media/b46608_bd800c813dad44f69c121da3af790314.jpg/v1/fill/w_555,h_370,al_c,q_80,usm_0.66_1.00_0.01/b46608_bd800c813dad44f69c121da3af790314.jpg" ,  [ $action ]); 
+     /*    $column  =  new  CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "https://static.wixstatic.com/media/b46608_bd800c813dad44f69c121da3af790314.jpg/v1/fill/w_555,h_370,al_c,q_80,usm_0.66_1.00_0.01/b46608_bd800c813dad44f69c121da3af790314.jpg" ,  [ $action ]); 
         $columns []  =  $column ; */
                                        } 
            // Create a carousel by combining the array of columns
