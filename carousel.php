@@ -51,18 +51,18 @@ use LINE\LINEBot\Event\FollowEvent;
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
         $columns = [];  // Add array of 5 carousel type columns 
-          foreach  ( $lists  as  $list )  { 
+          foreach  ($lists  as  $list)  { 
         // Create a button to give to carousel 
        $action = new UriTemplateActionBuilder ( "Click and try " ,  "https://www.ninenik.com/content.php?arti_id=836"  ); 
         // Create carousel column 
-        /* $column = new CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "" ,  [ $action ]); 
-        $columns []  =  $column ; */
+         $column = new CarouselColumnTemplateBuilder ( "Title (up to 40 characters)" ,  "Additional sentence" , "" ,  [ $action ]); 
+        $columns[] = $column ; 
     } 
        // Create a carousel by combining the array of columns
-      /*  $carousel  =  new  CarouselTemplateBuilder ( $columns ); 
+        $carousel  =  new CarouselTemplateBuilder ( $columns ); 
        // Make a message by adding a carousel 
-        $carousel_message  =  new  TemplateMessageBuilder ( "Message Title" ,  $carousel );
-        $arrayPostData['messages'][0]['columns'] = $carousel_message;*/
+        $carousel_message = new TemplateMessageBuilder ( "Message Title" ,  $carousel );
+        $arrayPostData['messages'][0]['columns'] = $carousel_message;
         replyMsg($arrayHeader,$arrayPostData); 
     }
       function replyMsg($arrayHeader,$arrayPostData){
