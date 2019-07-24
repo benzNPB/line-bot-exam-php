@@ -25,7 +25,7 @@
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
-        $arrayPostData['messages'][0]['columns'] = $actionBuilder;
+
    $actionBuilder = array(
         new MessageTemplateActionBuilder(
             'Message Template',// ข้อความแสดงในปุ่ม
@@ -70,7 +70,8 @@
         )
     );
     break;  
-
+          $arrayPostData['messages'][0]['columns'] = $actionBuilder;
+        replyMsg($arrayHeader,$arrayPostData);   
     }
 
 
