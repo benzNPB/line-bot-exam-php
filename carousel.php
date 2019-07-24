@@ -53,7 +53,7 @@ use LINE\LINEBot\Event\FollowEvent;
             'Message Template',// ข้อความแสดงในปุ่ม
             'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
         ),
-        new UriTemplateActionBuilder(
+ /*       new UriTemplateActionBuilder(
             'Uri Template', // ข้อความแสดงในปุ่ม
             'https://www.ninenik.com'
         ),
@@ -65,7 +65,7 @@ use LINE\LINEBot\Event\FollowEvent;
                 'item'=>100
             )), // ข้อมูลที่จะส่งไปใน webhook ผ่าน postback event
             'Postback Text'  // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
-        ),      
+        ),      */
     );
  /*   $replyData = new TemplateMessageBuilder('Carousel',
         new CarouselTemplateBuilder(
