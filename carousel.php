@@ -21,12 +21,12 @@
         replyMsg($arrayHeader,$arrayPostData);          
     }
 
-/*   else if($message == $text)
+   else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
 
-   $actionBuilder = array(
+/*   $actionBuilder = array(
         new MessageTemplateActionBuilder(
             'Message Template',// ข้อความแสดงในปุ่ม
             'This is Text' // ข้อความที่จะแสดงฝั่งผู้ใช้ เมื่อคลิกเลือก
@@ -70,9 +70,9 @@
         )
     );
     break;  
-          $arrayPostData['messages'][0]['columns'] = $replyData;
+          $arrayPostData['messages'][0]['columns'] = $replyData;*/
         replyMsg($arrayHeader,$arrayPostData);   
-    }*/
+    }
 
 
 
