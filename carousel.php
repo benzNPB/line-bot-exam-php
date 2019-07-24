@@ -21,7 +21,7 @@
         replyMsg($arrayHeader,$arrayPostData);          
     }
 
-   else if($message == $text)
+/*   else if($message == $text)
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
@@ -72,7 +72,7 @@
     break;  
           $arrayPostData['messages'][0]['columns'] = $replyData;
         replyMsg($arrayHeader,$arrayPostData);   
-    }
+    }*/
 
 
 
