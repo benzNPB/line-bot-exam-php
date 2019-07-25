@@ -74,7 +74,7 @@ $COUNTN++;
 $d = 0;
     for($d<3){
     echo '<pre>';
-     print_r($mybenz[$d]["dis"]);
+     print_r($mybenz[0]["dis"]);
     echo '</pre>';
        $d++;
     }
