@@ -559,11 +559,11 @@ $COUNTN++;
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
         $d = 0;
         while($d<3){
-        $arrayPostData['messages'][$d+1]['type'] = "location";
-        $arrayPostData['messages'][$d+1]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
-        $arrayPostData['messages'][$d+1]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
-        $arrayPostData['messages'][$d+1]['latitude'] =  $mybenz[$d]["lati"];
-        $arrayPostData['messages'][$d+1]['longitude'] =  $mybenz[$d]["lng"];
+        $arrayPostData['messages'][1]['type'] = "location";
+        $arrayPostData['messages'][1]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
+        $arrayPostData['messages'][1]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
+        $arrayPostData['messages'][1]['latitude'] =  $mybenz[$d]["lati"];
+        $arrayPostData['messages'][1]['longitude'] =  $mybenz[$d]["lng"];
         }
 
         pushMsg($arrayHeader,$arrayPostData);
