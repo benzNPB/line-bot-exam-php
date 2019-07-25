@@ -71,6 +71,10 @@ $COUNTN++;
      print_r($mybenz);
     echo '</pre>';
 
+$d = 0;
+        echo '<pre>';
+     print_r($mybenz[$d]["dis"]);
+    echo '</pre>';
 
 
       
