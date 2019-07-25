@@ -50,11 +50,19 @@ use LINE\LINEBot\Event\FollowEvent;
     {
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "carousel";
-        $benz2 = array();
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = $message.":".$text;
-        $benz2[] = array('text' => $arrayPostData['messages'][0]['text'] , 'test' => "Test");
-        $arrayPostData['messages'][0]['columns'] = $benz2;
+$columns = []; // カルーセル型カラムを5つ追加する配列
+foreach ($lists as $list) {
+    // カルーセルに付与するボタンを作る
+    $action = new UriTemplateActionBuilder("クリックしてね", "https://qiita.com/yositosi/items/87a0ee54ab88b934b1cb" );
+    // カルーセルのカラムを作成する
+    $column = new CarouselColumnTemplateBuilder("タイトル(40文字以内)", "追加文","https://ichef.bbci.co.uk/news/976/media/images/83351000/jpg/_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg", [$action]);
+    $columns[] = $column;
+}
+// カラムの配列を組み合わせてカルーセルを作成する
+$carousel = new CarouselTemplateBuilder($columns);
+// カルーセルを追加してメッセージを作る
+$carousel_message = new TemplateMessageBuilder("メッセージのタイトル", $carousel);
+        $arrayPostData['messages'][0]['columns'] = $carousel_message;
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
