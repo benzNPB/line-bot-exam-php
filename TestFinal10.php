@@ -74,17 +74,17 @@ ini_set('display_errors', 1);
          else if($message == "Test")
     {   
              $columns = array();
-			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-			for($i=0;$i<5;$i++) {
-				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
-				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
-				$columns[] = $column;
-			}
-			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+      $img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
+      for($i=0;$i<5;$i++) {
+        $actions = array(
+          new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+          new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
+        );
+        $column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+        $columns[] = $column;
+      }
+      $carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+      $outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
        $arrayPostData['messages'][0]['type'] = "text";
        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'].",,,,,,".$userid;
@@ -524,7 +524,7 @@ $COUNTN++;
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
             //    $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
-		$arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
+    $arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
@@ -554,20 +554,19 @@ $COUNTN++;
              }
              
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-  $d = 0;
-  if ($mybenz[$d]["dis"] < 1 && $d<3){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[$d]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[$d]["lng"];
-  $d++; 
+        $d = 0;
+        while($d<3){
+        $arrayPostData['messages'][$d+1]['type'] = "location";
+        $arrayPostData['messages'][$d+1]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
+        $arrayPostData['messages'][$d+1]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
+        $arrayPostData['messages'][$d+1]['latitude'] =  $mybenz[$d]["lati"];
+        $arrayPostData['messages'][$d+1]['longitude'] =  $mybenz[$d]["lng"];
+        }
 
-  }
-        pushMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader,$arrayPostData);
 }
               }
  else if($row_command["Command"]=="Location"){
