@@ -59,7 +59,7 @@ foreach ($lists as $list) {
     $columns[] = $column;
 }
 // カラムの配列を組み合わせてカルーセルを作成する
-$carousel = new CarouselTemplateBuilder($columns);
+$carousel = CarouselTemplateBuilder($columns);
 // カルーセルを追加してメッセージを作る
 /*$carousel_message = new TemplateMessageBuilder("メッセージのタイトル", $carousel);*/
         $arrayPostData['messages'][0]['columns'] = $column;
