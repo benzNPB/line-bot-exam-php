@@ -65,15 +65,14 @@ $COUNTN++;
 
              
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-     $d = 0;
-  for ($d<3){
-    echo '<pre>';
-     print($d);
-    echo '</pre>';
-     $d++;
-  }
 
+
+    echo '<pre>';
      print_r($mybenz);
+    echo '</pre>';
+
+
+
       
      
 }
