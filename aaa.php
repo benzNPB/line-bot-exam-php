@@ -66,11 +66,11 @@ $COUNTN++;
              
   $mybenz = order_array_num ($benz1, "dis", "ASC");
      $d = 0;
-  if ($d<3){
+  for ($d<3){
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
-     $d++;
+     $d+1;
   }
      print($d);
 
