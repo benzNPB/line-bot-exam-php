@@ -76,6 +76,7 @@ $d = 0;
     echo '<pre>';
      print_r($mybenz[0]["dis"]);
     echo '</pre>';
+       $d++;
     }
 
 
