@@ -70,7 +70,7 @@ $COUNTN++;
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
-     $d++
+     $d++;
   }
 
 
