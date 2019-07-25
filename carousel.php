@@ -54,7 +54,7 @@ use LINE\LINEBot\Event\FollowEvent;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $message.":".$text;
         $benz2[] = array('text' => $arrayPostData['messages'][0]['text'] , 'test' => "Test");
-        $arrayPostData['messages'][0]['columns'] = $benz2;
+        $arrayPostData['messages'][0]['columns'] = $benz2[];
         replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
