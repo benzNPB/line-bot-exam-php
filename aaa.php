@@ -72,7 +72,7 @@ $COUNTN++;
     echo '</pre>';
      $d++;
   }
-
+     print($d);
 
       
      
