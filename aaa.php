@@ -65,10 +65,13 @@ $COUNTN++;
 
              
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-   
+     $d = 0;
+  if ($mybenz[$d]["dis"] < 1 && $d<3){
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
+  $d++; 
+
       
      
 }
