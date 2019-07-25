@@ -566,7 +566,7 @@ $COUNTN++;
         $arrayPostData['messages'][$d+1]['longitude'] =  $mybenz[$d]["lng"];
         }
 
-        replyMsg($arrayHeader,$arrayPostData);
+        pushMsg($arrayHeader,$arrayPostData);
 }
               }
  else if($row_command["Command"]=="Location"){
