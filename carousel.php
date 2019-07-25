@@ -55,7 +55,7 @@ use LINE\LINEBot\Event\FollowEvent;
         $arrayPostData['messages'][0]['text'] = $message.":".$text;
         $benz2[] = array('text' => $arrayPostData['messages'][0]['text'] , 'test' => "Test");
         $arrayPostData['messages'][0]['columns'] = $benz2;
-          pushMsg($arrayHeader,$arrayPostData);
+        replyMsg($arrayHeader,$arrayPostData);
     }
       function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
