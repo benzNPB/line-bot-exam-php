@@ -68,12 +68,12 @@ $COUNTN++;
      $d = 0;
   for ($d<3){
     echo '<pre>';
-     print_r($mybenz);
+     print($d);
     echo '</pre>';
      $d++;
   }
-     print($d);
 
+     print_r($mybenz);
       
      
 }
