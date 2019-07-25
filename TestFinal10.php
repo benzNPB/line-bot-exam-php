@@ -555,15 +555,16 @@ $COUNTN++;
              
   $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is people around you in 1 km.";
+        $arrayPostData['messages'][4]['type'] = "text";
+        $arrayPostData['messages'][4]['text'] = "Here is people around you in 1 km.";
         $d = 0;
         while($d<3){
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
-        $arrayPostData['messages'][1]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[$d]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[$d]["lng"];
+        $arrayPostData['messages'][$d]['type'] = "location";
+        $arrayPostData['messages'][$d]['title'] = $mybenz[$d]["name"].",".$mybenz[$d]["datime"].",".$mybenz[$d]["userstatus"];
+        $arrayPostData['messages'][$d]['address'] =   $mybenz[$d]["lati"].",".$mybenz[$d]["lng"];
+        $arrayPostData['messages'][$d]['latitude'] =  $mybenz[$d]["lati"];
+        $arrayPostData['messages'][$d]['longitude'] =  $mybenz[$d]["lng"];
+            $d++;
         }
 
         pushMsg($arrayHeader,$arrayPostData);
