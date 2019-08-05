@@ -212,313 +212,313 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                  }
-              else if($tokens[1] == ' Hadano-shi'){
+              else if($tokens[1] == ' Hadano-shi' || $tokens[2] == ' Hadano'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtgQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Yokosuka-shi'){
+              else if($tokens[1] == ' Yokosuka-shi'|| $tokens[2] == ' Yokosuka'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtCQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kamakura-shi'){
+              else if($tokens[1] == ' Kamakura-shi'|| $tokens[2] == ' Kamakura'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtMQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[2] == ' Fujisawa-shi'){
+              else if($tokens[2] == ' Fujisawa-shi'|| $tokens[2] == ' Fujisawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtRQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Odawara-shi'){
+              else if($tokens[1] == ' Odawara-shi'|| $tokens[2] == ' Odawara'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsAQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Zushi-shi'){
+              else if($tokens[1] == ' Zushi-shi'|| $tokens[2] == ' Zushi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtbQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Miura-shi'){
+              else if($tokens[1] == ' Miura-shi'|| $tokens[2] == ' Miura'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bt8QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Atsugi-shi'){
+              else if($tokens[1] == ' Atsugi-shi'|| $tokens[2] == ' Atsugi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtlQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Yamato-shi'){
+              else if($tokens[1] == ' Yamato-shi'|| $tokens[2] == ' Yamato'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtqQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Isehara-shi'){
+              else if($tokens[1] == ' Isehara-shi'|| $tokens[2] == ' Isehara'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrRQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Zama-shi'){
+              else if($tokens[1] == ' Zama-shi'|| $tokens[2] == ' Zama'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtvQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Minamiashigara-shi'){
+              else if($tokens[1] == ' Minamiashigara-shi'|| $tokens[2] == ' Minamiashigara'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu0QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Ayase-shi'){
+              else if($tokens[1] == ' Ayase-shi'|| $tokens[2] == ' Ayase'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu5QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Hayama-machi'){
+              else if($tokens[1] == ' Hayama-machi'|| $tokens[2] == ' Hayama'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtNQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Samukawa-machi'){
+              else if($tokens[1] == ' Samukawa-machi'|| $tokens[2] == ' Samukawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuAQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Ōiso-machi'){
+              else if($tokens[1] == ' Ōiso-machi'|| $tokens[2] == ' Ōiso'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BswQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Ninomiya-machi'){
+              else if($tokens[1] == ' Ninomiya-machi'|| $tokens[2] == ' Ninomiya'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuFQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Nakai-machi'){
+              else if($tokens[1] == ' Nakai-machi'|| $tokens[2] == ' Nakai'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bv8QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Ōi-machi'){
+              else if($tokens[1] == ' Ōi-machi'|| $tokens[2] == ' Ōi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuKQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Matsuda-machi'){
+              else if($tokens[1] == ' Matsuda-machi'|| $tokens[2] == ' Matsuda'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuPQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Yamakita-machi'){
+              else if($tokens[1] == ' Yamakita-machi'|| $tokens[2] == ' Yamakita'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuUQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kaisei-machi'){
+              else if($tokens[1] == ' Kaisei-machi'|| $tokens[2] == ' Kaisei'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrHQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Hakone-machi'){
+              else if($tokens[1] == ' Hakone-machi'|| $tokens[2] == ' Hakone'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuZQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Manazuru-machi'){
+              else if($tokens[1] == ' Manazuru-machi'|| $tokens[2] == ' Manazuru'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bu1QAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Yugawara-machi'){
+              else if($tokens[1] == ' Yugawara-machi'|| $tokens[2] == ' Yugawara'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BueQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Aikawa-machi'){
+              else if($tokens[1] == ' Aikawa-machi'|| $tokens[2] == ' Aikawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BujQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kiyokawa-mura'){
+              else if($tokens[1] == ' Kiyokawa-mura'|| $tokens[2] == ' Kiyokawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BuoQAF";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Tsurumi-ku'){
+              else if($tokens[1] == ' Tsurumi-ku'|| $tokens[2] == ' Tsurumi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Br1QAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kanagawa-ku'){
+              else if($tokens[1] == ' Kanagawa-ku'|| $tokens[2] == ' Kanagawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Br6QAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Nishi-ku'){
+              else if($tokens[1] == ' Nishi-ku'|| $tokens[2] == ' Nishi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrBQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Naka-ku'){
+              else if($tokens[1] == ' Naka-ku'|| $tokens[2] == ' Naka'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Br2QAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Minami-ku'){
+              else if($tokens[1] == ' Minami-ku'|| $tokens[2] == ' Minami'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrGQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Hodogaya-ku'){
+              else if($tokens[1] == ' Hodogaya-ku'|| $tokens[2] == ' Hodogaya'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrLQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Isogo-ku'){
+              else if($tokens[1] == ' Isogo-ku'|| $tokens[2] == ' Isogo'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrQQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kanazawa-ku'){
+              else if($tokens[1] == ' Kanazawa-ku'|| $tokens[2] == ' Kanazawa'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrVQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kohoku-ku'){
+              else if($tokens[1] == ' Kohoku-ku'|| $tokens[2] == ' Kohoku'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BraQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Totsuka-ku'){
+              else if($tokens[1] == ' Totsuka-ku'|| $tokens[2] == ' Totsuka'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BqTQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Konan-ku'){
+              else if($tokens[1] == ' Konan-ku'|| $tokens[2] == ' Konan'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrfQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Asahi-ku'){
+              else if($tokens[1] == ' Asahi-ku'|| $tokens[2] == ' Asahi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrkQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Midori-ku'){
+              else if($tokens[1] == ' Midori-ku'|| $tokens[2] == ' Midori'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrpQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Seya-ku'){
+              else if($tokens[1] == ' Seya-ku'|| $tokens[2] == ' Seya'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BruQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Sakae-ku'){
+              else if($tokens[1] == ' Sakae-ku'|| $tokens[2] == ' Sakae'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BrzQAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Izumi-ku'){
+              else if($tokens[1] == ' Izumi-ku'|| $tokens[2] == ' Izumi'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bs4QAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Aoba-ku'){
+              else if($tokens[1] == ' Aoba-ku'|| $tokens[2] == ' Aoba'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5Bs9QAF&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Tsuzuki-ku'){
+              else if($tokens[1] == ' Tsuzuki-ku'|| $tokens[2] == ' Tsuzuki'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsEQAV&shibucode=S01";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Kawasaki-ku'){
+              else if($tokens[1] == ' Kawasaki-ku'|| $tokens[2] == ' Kawasaki'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsJQAV&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Saiwai-ku'){
+              else if($tokens[1] == ' Saiwai-ku'|| $tokens[2] == ' Saiwai'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsOQAV&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Nakahara-ku'){
+              else if($tokens[1] == ' Nakahara-ku'|| $tokens[2] == ' Nakahara'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsTQAV&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Takatsu-ku'){
+              else if($tokens[1] == ' Takatsu-ku'|| $tokens[2] == ' Takatsu'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsYQAV&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Tama-ku'){
+              else if($tokens[1] == ' Tama-ku'|| $tokens[2] == ' Tama'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsdQAF&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Miyamae-ku'){
+              else if($tokens[1] == ' Miyamae-ku'|| $tokens[2] == ' Miyamae'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsiQAF&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Aso-ku'){
+              else if($tokens[1] == ' Aso-ku'|| $tokens[2] == ' Aso'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsnQAF&shibucode=S02";
