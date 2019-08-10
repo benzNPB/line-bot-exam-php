@@ -31,7 +31,7 @@ ini_set('display_errors', 1);
         }
           if($message == "Evacuation Point")
     {   
-       $currenttime = date("d-M-Y H:i:s");
+       $currenttime = date("Y-M-d H:i:s");
        $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Evacuation', '".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -41,7 +41,7 @@ ini_set('display_errors', 1);
     }
          else if($message == "People around me")
     {        
-        $currenttime = date("d-M-Y H:i:s");
+        $currenttime = date("Y-M-d H:i:s");
        $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'People','".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -52,7 +52,7 @@ ini_set('display_errors', 1);
 /////////////////////////////
          else if($message == "I'm Safe")
     {        
-        $currenttime = date("d-M-Y H:i:s");
+        $currenttime = date("Y-M-d H:i:s");
        $query = "INSERT INTO userstatus(iduserlink,username,Status,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Safe','".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -62,7 +62,7 @@ ini_set('display_errors', 1);
     }
          else if($message == "I need help")
     {        
-        $currenttime = date("d-M-Y H:i:s");
+        $currenttime = date("Y-M-d H:i:s");
        $query = "INSERT INTO userstatus(iduserlink,username,Status,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Help','".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -92,7 +92,7 @@ ini_set('display_errors', 1);
     }
          else if($message == "DisasterInformation")
     {        
-        $currenttime = date("d-M-Y H:i:s");
+        $currenttime = date("Y-M-d H:i:s");
         $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'Location','".$currenttime."')";
         mysqli_query($conn,$query );
         $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
