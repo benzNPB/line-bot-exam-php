@@ -140,7 +140,7 @@ ini_set('display_errors', 1);
 }
 ////// ////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
           if($message == $location){
-       $currenttime = date("d-M-Y H:i:s");
+       $currenttime = date("Y-M-d H:i:s");
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude']; 
        $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
