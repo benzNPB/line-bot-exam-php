@@ -518,7 +518,7 @@ $COUNTN++;
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsiQAF&shibucode=S02";
               replyMsg($arrayHeader,$arrayPostData);        
                                                   }
-              else if($tokens[1] == ' Aso-ku'|| $tokens[2] == ' Aso' || $tokens[2] == ' Aso-ku'|| $tokens[1] == ' Aso')){
+              else if($tokens[1] == ' Aso-ku'|| $tokens[2] == ' Aso' || $tokens[2] == ' Aso-ku'|| $tokens[1] == ' Aso'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BsnQAF&shibucode=S02";
