@@ -206,13 +206,13 @@ $COUNTN++;
 
         $tokens = explode(",", $address);  
 
-              if($tokens[2] == ' Hiratsuka-shi' || $tokens[2] == ' Hiratsuka'){
+              if($tokens[2] == ' Hiratsuka-shi' || $tokens[2] == ' Hiratsuka' || $tokens[1] == ' Hiratsuka-shi' || $tokens[1] == ' Hiratsuka'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtHQAV";
               replyMsg($arrayHeader,$arrayPostData);        
                                                  }
-              else if($tokens[1] == ' Hadano-shi' || $tokens[2] == ' Hadano'){
+              else if($tokens[1] == ' Hadano-shi' || $tokens[2] == ' Hadano' || $tokens[2] == ' Hadano-shi' || $tokens[1] == ' Hadano'){
               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
               $arrayPostData['messages'][0]['type'] = "text";
               $arrayPostData['messages'][0]['text'] = "https://www.bousai.pref.kanagawa.jp/K_PUB_VF_DetailCity?cityid=a017F00000G5BtgQAF";
