@@ -173,8 +173,6 @@ ini_set('display_errors', 1);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
- 
-$COUNTN++;
                     $deltaLat1d = deg2rad($lati1 - $latid);
                     $deltaLong1d = deg2rad($lng1 - $lngd);
                   
@@ -184,6 +182,8 @@ $COUNTN++;
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
  
 $COUNTN++;
+
+ 
           }
 
   $mybenz = order_array_num ($benz2, "dis", "ASC");
@@ -191,24 +191,25 @@ $COUNTN++;
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
         $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",dis = ".$mybenz[0]["dis"]."m";
+        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",approximately distance = ".$mybenz[0]["dis"]."km";
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
         $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
         $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
         $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].",dis = ".$mybenz[1]["dis"]."m";
+        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].",approximately distance = ".$mybenz[1]["dis"]."km";
         $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
         $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
         $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
         $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",dis = ".$mybenz[2]["dis"]."m";
+        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",approximately distance = ".$mybenz[2]["dis"]."km";
         $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-        $link[1] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[3]["lati"]."%2C".$mybenz[3]["lng"];
-        $link[2] = "https://www.google.com/search?hl=th&ei=mI0IXf2aHPmVr7wP5-CroAo&q=".$mybenz[4]["lati"]."%2C".$mybenz[4]["lng"];
-        $arrayPostData['messages'][4]['type'] = "text";
-        $arrayPostData['messages'][4]['text'] = $link[1] ."     ".$link[2];
+        $arrayPostData['messages'][4]['type'] = "location";
+        $arrayPostData['messages'][4]['title'] = $mybenz[3]["name"].",approximately distance = ".$mybenz[3]["dis"]."km";
+        $arrayPostData['messages'][4]['address'] =   $mybenz[3]["lati"].",".$mybenz[3]["lng"];
+        $arrayPostData['messages'][4]['latitude'] =  $mybenz[3]["lati"];
+        $arrayPostData['messages'][4]['longitude'] =  $mybenz[3]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
