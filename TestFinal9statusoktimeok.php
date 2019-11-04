@@ -143,9 +143,9 @@ ini_set('display_errors', 1);
        $currenttime = date("Y-m-d H:i:s");
        $latu = $arrayJson['events'][0]['message']['latitude'];//users location 
        $longu = $arrayJson['events'][0]['message']['longitude']; 
-       $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+       $sql_command = "SELECT Command FROM command where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by Number desc limit 0,1";
        $result_command = mysqli_query($conn,$sql_command );
-       $sql_status = "SELECT Status FROM userstatus where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by datime desc limit 0,1";
+       $sql_status = "SELECT Status FROM userstatus where iduserlink = '".$arrayJson['events'][0]['source']['userId']."' order by Number desc limit 0,1";
        $result_status = mysqli_query($conn,$sql_status );
        $row_status = $result_status->fetch_assoc();
        $status = $row_status["Status"];
