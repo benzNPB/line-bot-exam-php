@@ -186,7 +186,7 @@ $COUNTN++;
 $COUNTN++;
           }
 
-  $mybenz = order_array_num ($benz1, "dis", "ASC");
+  $mybenz = order_array_num ($benz2, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
