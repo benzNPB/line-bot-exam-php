@@ -12,6 +12,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
     $R = 6371;
     $benz1 = array();     
+    $benz2 = array();     
     $COUNTN=0;   
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -159,22 +160,32 @@ ini_set('display_errors', 1);
          if($row_command["Command"]=="Evacuation"){
        $sql = "SELECT no,name,lati,lng FROM contest";
        $result = $conn->query($sql);
-       $sql_disa = "SELECT idlocation,place name,lat,lng FROM location_skyp";
-       $result_disa = $conn->query($sql_disa);
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
+                  $latid = "35.364341"; ////////////////////////// Disaster's location
+                  $lngd = "139.274426";  ////////////////////////// Disaster's location
                     $deltaLat1 = deg2rad($lati1 - $latu);
                     $deltaLong1 = deg2rad($lng1 - $longu);
-                   
+                  
                     $a1 = sin($deltaLat1/2) * sin($deltaLat1/2) + cos(deg2rad($lati1)) * cos(deg2rad($latu)) * sin($deltaLong1/2) * sin($deltaLong1/2);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
  
 $COUNTN++;
+                    $deltaLat1d = deg2rad($lati1 - $latid);
+                    $deltaLong1d = deg2rad($lng1 - $lngd);
+                  
+                    $a1d = sin($deltaLat1d/2) * sin($deltaLat1d/2) + cos(deg2rad($lati1)) * cos(deg2rad($latid)) * sin($deltaLong1d/2) * sin($deltaLong1d/2);
+                    $c1d = 2 * atan2(sqrt($a1d), sqrt(1-$a1d));
+                    $disd = $R * $c1d;
+                    $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+ 
+$COUNTN++;
           }
+
   $mybenz = order_array_num ($benz1, "dis", "ASC");
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
