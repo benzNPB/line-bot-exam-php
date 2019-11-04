@@ -206,10 +206,10 @@ $COUNTN++;
         $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
         $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
         $arrayPostData['messages'][4]['type'] = "location";
-        $arrayPostData['messages'][4]['title'] = $mybenz[3]["name"].",approximately distance = ".$mybenz[3]["dis"]."km";
-        $arrayPostData['messages'][4]['address'] =   $mybenz[3]["lati"].",".$mybenz[3]["lng"];
-        $arrayPostData['messages'][4]['latitude'] =  $mybenz[3]["lati"];
-        $arrayPostData['messages'][4]['longitude'] =  $mybenz[3]["lng"];
+        $arrayPostData['messages'][4]['title'] = $mybenz[4]["name"].",approximately distance = ".$mybenz[4]["dis"]."km";
+        $arrayPostData['messages'][4]['address'] =   $mybenz[4]["lati"].",".$mybenz[4]["lng"];
+        $arrayPostData['messages'][4]['latitude'] =  $mybenz[4]["lati"];
+        $arrayPostData['messages'][4]['longitude'] =  $mybenz[4]["lng"];
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
