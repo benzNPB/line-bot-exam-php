@@ -62,7 +62,9 @@ $lngd = 139.274426;  ////////////////////////// Disaster's location
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
                     }
 
-
+                    if($benz1[][name] != $benz2[][name] ){
+                    $benz3[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                    }
                     // $benz1[$COUNTN][0] = $row["name"];
                     //$benz1[$COUNTN][1] = $row["lati"];
                    // $benz1[$COUNTN][2] = $row["lng"];
@@ -79,6 +81,7 @@ $COUNTN++;
     //print_r(order_array_num ($benz1, "dis", "ASC"));
 	$mybenz = order_array_num ($benz1, "dis", "ASC");
   $mybenz1 = order_array_num ($benz2, "dis", "ASC");
+  $mybenz2 = order_array_num ($benz3, "dis", "ASC");
 	 /////////////////////////// use
 	 
 	 	echo '<pre>';
@@ -88,6 +91,13 @@ $COUNTN++;
 	   echo '<pre>';
      print_r($mybenz1);
     echo '</pre>';	  
+
+    if(){
+    echo '<pre>';
+     print_r($mybenz2);
+    echo '</pre>';
+
+    }
 		 
 }
    
