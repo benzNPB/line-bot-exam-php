@@ -90,15 +90,14 @@ $COUNTN++;
      print_r($mybenz1);
     echo '</pre>';	  
 
-      if($benz1[][name] != $benz2[][name] ){
-     echo '<pre>';
+                    if($benz1[][name] != $benz2[][name] ){
+    echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
                     }
 
 
-    }
-		 
+
 }
    
 ?>
