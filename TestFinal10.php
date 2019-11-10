@@ -164,8 +164,8 @@ ini_set('display_errors', 1);
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $latid = "135.364341"; ////////////////////////// Disaster's location
-                  $lngd = "39.274426";  ////////////////////////// Disaster's location
+                  $latid = "35.000000"; ////////////////////////// Disaster's location364341
+                  $lngd = "139.274426";  ////////////////////////// Disaster's location
                     $deltaLat1 = deg2rad($lati1 - $latu);
                     $deltaLong1 = deg2rad($lng1 - $longu);
                   
@@ -173,6 +173,7 @@ ini_set('display_errors', 1);
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                    
                     $deltaLat1d = deg2rad($lati1 - $latid);
                     $deltaLong1d = deg2rad($lng1 - $lngd);
                   
