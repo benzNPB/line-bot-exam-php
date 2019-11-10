@@ -62,9 +62,7 @@ $lngd = 139.274426;  ////////////////////////// Disaster's location
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
                     }
 
-                    if($benz1[][name] != $benz2[][name] ){
-                    $benz3[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
-                    }
+
                     // $benz1[$COUNTN][0] = $row["name"];
                     //$benz1[$COUNTN][1] = $row["lati"];
                    // $benz1[$COUNTN][2] = $row["lng"];
@@ -92,10 +90,12 @@ $COUNTN++;
      print_r($mybenz1);
     echo '</pre>';	  
 
-    if(){
-    echo '<pre>';
-     print_r($mybenz2);
+      if($benz1[][name] != $benz2[][name] ){
+     echo '<pre>';
+     print_r($mybenz);
     echo '</pre>';
+                    }
+
 
     }
 		 
