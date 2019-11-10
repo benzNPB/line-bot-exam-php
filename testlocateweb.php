@@ -79,7 +79,7 @@ $COUNTN++;
     //print_r(order_array_num ($benz1, "dis", "ASC"));
 	$mybenz = order_array_num ($benz1, "dis", "ASC");
   $mybenz1 = order_array_num ($benz2, "dis", "ASC");
-  $mybenz2 = order_array_num ($benz3, "dis", "ASC");
+
 	 /////////////////////////// use
 	 
 	 	echo '<pre>';
@@ -90,7 +90,19 @@ $COUNTN++;
      print_r($mybenz1);
     echo '</pre>';	  
 
+for (int x = 0; x < 5; x++) {
+    for (int y = 0; y < 5; y++) {
 
+                    if($mybenz[x]->$mybenz[name]=$mybenz[y]->$mybenz[name]){
+                    $benz3[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);                    
+                    }// do something with array[x][y]
+
+
+    }  
+}
+     echo '<pre>';
+     print_r($mybenz3);
+    echo '</pre>';   
 
 }
    
