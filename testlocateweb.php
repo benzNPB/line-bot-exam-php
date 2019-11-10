@@ -58,7 +58,10 @@ $lngd = 139.274426;  ////////////////////////// Disaster's location
                     $a1d = sin($deltaLat1d/2) * sin($deltaLat1d/2) + cos(deg2rad($lati1)) * cos(deg2rad($latid)) * sin($deltaLong1d/2) * sin($deltaLong1d/2);
                     $c1d = 2 * atan2(sqrt($a1d), sqrt(1-$a1d));
                     $disd = $R * $c1d;
+                    if($disd < 50){
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
+                    }
+
 
                     // $benz1[$COUNTN][0] = $row["name"];
                     //$benz1[$COUNTN][1] = $row["lati"];
@@ -81,6 +84,7 @@ $COUNTN++;
 	 	echo '<pre>';
 		 print_r($mybenz);
 	 	echo '</pre>';
+
 	   echo '<pre>';
      print_r($mybenz1);
     echo '</pre>';	  
