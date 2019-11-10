@@ -90,16 +90,6 @@ $COUNTN++;
      print_r($mybenz1);
     echo '</pre>';	  
 
-for (int x = 0; x < 5; x++) {
-    for (int y = 0; y < 5; y++) {
-
-                    if($mybenz[x]->$mybenz[name]=$mybenz[y]->$mybenz[name]){
-
-                    }// do something with array[x][y]
-
-
-    }  
-}
 
 
 }
