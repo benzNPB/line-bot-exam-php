@@ -91,7 +91,7 @@ $COUNTN++;
     echo '</pre>';	  
 
     echo '<pre>';
-     print_r($mybenz[0]);
+     print_r($mybenz[0]->$benz1[name]);
     echo '</pre>';
 
 }
