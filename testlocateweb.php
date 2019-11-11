@@ -34,8 +34,8 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
 $locate = array();
 $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
-$latid = 35.000000; ////////////////////////// Disaster's location364341
-$lngd = 139.274426;  ////////////////////////// Disaster's location
+$latid = 35.38335641; ////////////////////////// Disaster's location364341
+$lngd = 139.4997592;  ////////////////////////// Disaster's location
         $COUNTN=0;       
         $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
         $result = $conn->query($sql);
@@ -58,7 +58,7 @@ $lngd = 139.274426;  ////////////////////////// Disaster's location
                     $a1d = sin($deltaLat1d/2) * sin($deltaLat1d/2) + cos(deg2rad($lati1)) * cos(deg2rad($latid)) * sin($deltaLong1d/2) * sin($deltaLong1d/2);
                     $c1d = 2 * atan2(sqrt($a1d), sqrt(1-$a1d));
                     $disd = $R * $c1d;
-                    if($disd < 50){
+                    if($disd < 10){
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
                     }
 
@@ -91,7 +91,11 @@ $COUNTN++;
     echo '</pre>';	  
 
     echo '<pre>';
-     print_r($mybenz[0][name]);
+     print_r($mybenz[0]['name']);
+    echo '</pre>';
+
+    echo '<pre>';
+     print_r($mybenz1[0]['name']);
     echo '</pre>';
 
 }
