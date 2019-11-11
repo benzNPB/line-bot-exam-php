@@ -31,6 +31,8 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
+    $benz2 = array();
+    $kotae = array();
 $locate = array();
 $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
@@ -51,6 +53,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
+                    $kotae = $row["name"]
 
                     $deltaLat1d = deg2rad($lati1 - $latid);
                     $deltaLong1d = deg2rad($lng1 - $lngd);
