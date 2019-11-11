@@ -37,7 +37,7 @@ $longu = 139.267804;
 $latid = 35.38335641; ////////////////////////// Disaster's location364341
 $lngd = 139.4997592;  ////////////////////////// Disaster's location
         $COUNTN=0;       
-        $sql = "SELECT no,name,lati,lng FROM contest order by no desc limit 0,5";
+       $sql = "SELECT no,name,lati,lng FROM contest order by time desc limit 0,5";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
