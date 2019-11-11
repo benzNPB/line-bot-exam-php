@@ -102,6 +102,8 @@ $COUNTN++;
     $n=0;
 for ($m = 0; $m < 4; $m++) {
     for ($n = 0; $n < 4; $n++) {
+          $m=0;
+    $n=0;
 if($mybenz1[m]['name'] != $mybenz1[n]['name']){
   $mybenz2 = $mybenz;
 
