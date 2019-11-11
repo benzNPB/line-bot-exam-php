@@ -53,7 +53,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
                     $c1 = 2 * atan2(sqrt($a1), sqrt(1-$a1));
                     $dis = $R * $c1;
                     $benz1[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $dis);
-                    $kotae = $row["name"];
+                    $kotae[] = $row["name"];
 
                     $deltaLat1d = deg2rad($lati1 - $latid);
                     $deltaLong1d = deg2rad($lng1 - $lngd);
