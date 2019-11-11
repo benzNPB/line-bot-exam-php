@@ -31,6 +31,8 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
+    $m;
+    $n;
 $locate = array();
 $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
