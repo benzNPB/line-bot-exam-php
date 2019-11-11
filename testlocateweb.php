@@ -90,7 +90,9 @@ $COUNTN++;
      print_r($mybenz1);
     echo '</pre>';	  
 
-
+    echo '<pre>';
+     print_r($mybenz[0]);
+    echo '</pre>';
 
 }
    
