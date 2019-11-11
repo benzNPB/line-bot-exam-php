@@ -60,6 +60,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
                     $disd = $R * $c1d;
                     if($disd < 10){
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
+                    $benz3[] = 'name' => $row["name"];
                     }
 
 
@@ -98,7 +99,7 @@ $COUNTN++;
      print_r($mybenz1[0]['name']);
     echo '</pre>';
          echo '<pre>';
-     print_r($benz2);
+     print_r($benz3);
     echo '</pre>'; 
 ///////////////
  $mybenz = array_diff($mybenz,$benz2);
