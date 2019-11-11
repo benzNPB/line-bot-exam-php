@@ -105,7 +105,7 @@ $COUNTN++;
      print_r($kotae);
     echo '</pre>'; 
 ///////////////
- $mybenz = array_diff($mybenz,$kotae);
+ $mybenz = array_diff($mybenz,$mybenz1);
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
