@@ -31,8 +31,7 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $arrayHeader = array();
     $R = 6371;
     $benz1 = array();
-    $m;
-    $n;
+
 $locate = array();
 $latu = 35.364219; //1st 7-11
 $longu = 139.267804;
@@ -99,7 +98,8 @@ $COUNTN++;
     echo '<pre>';
      print_r($mybenz1[0]['name']);
     echo '</pre>';
-
+    $m=0;
+    $n=0;
 for ($m = 0; $m < 4; $m++) {
     for ($n = 0; $n < 4; $n++) {
 if($mybenz1[m]['name'] != $mybenz1[n]['name']){
