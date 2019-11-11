@@ -43,6 +43,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
           
  if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc() ){
+
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
                      $deltaLat1 = deg2rad($lati1 - $latu);
@@ -69,6 +70,13 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
                    // $benz1[$COUNTN][2] = $row["lng"];
                      //$benz1[$COUNTN][3] = $dis;
 $COUNTN++;
+            //////////////////////////////////////
+              if()
+              {
+
+                $COUNTN++;
+              }
+
           }
    // foreach ($benz1 as $key => $row) {
       // $dis[$key]  = $row['dis']; 
@@ -80,7 +88,8 @@ $COUNTN++;
     //print_r(order_array_num ($benz1, "dis", "ASC"));
 	$mybenz = order_array_num ($benz1, "dis", "ASC");
   $mybenz1 = order_array_num ($benz2, "dis", "ASC");
-
+  $arr = array_diff($mybenz1,$mybenz);
+  print_r($arr);
 	 /////////////////////////// use
 	 
 	 	echo '<pre>';
@@ -98,18 +107,12 @@ $COUNTN++;
     echo '<pre>';
      print_r($mybenz1[0]['name']);
     echo '</pre>';
-    $m=0;
-    $n=0;
-for ($m = 0; $m < 4; $m++) {
-    for ($n = 0; $n < 4; $n++) {
 
-if($mybenz1[$m]['name'] != $mybenz1[$n]['name']){
-  $mybenz2 = $mybenz;
+  $mybenz = array_diff($mybenz,$mybenz1);
+    echo '<pre>';
+     print_r($mybenz);
+    echo '</pre>';
 
-}
-
-}
-}
 }
    
 ?>
