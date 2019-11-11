@@ -98,7 +98,7 @@ $COUNTN++;
      print_r($mybenz1[0]['name']);
     echo '</pre>';
 ///////////////
- $mybenz = array_diff($mybenz,$benz2);
+ $mybenz = array_diff($mybenz,$benz2[name]);
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
