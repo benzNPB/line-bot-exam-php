@@ -98,7 +98,7 @@ $COUNTN++;
      print_r($mybenz1[0]['name']);
     echo '</pre>';
 ///////////////
- $mybenz = array_diff($mybenz,array("Hadano shiritsu One Junior high school", "Hadano shiritsu One elementary school"));
+ $mybenz = array_diff($mybenz,$benz2);
     echo '<pre>';
      print_r($mybenz);
     echo '</pre>';
