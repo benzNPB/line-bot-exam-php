@@ -102,9 +102,7 @@ for ($m = 0; $m < 4; $m++) {
     for ($n = 0; $n < 4; $n++) {
 if($mybenz1[m]['name'] != $mybenz1[n]['name']){
   $mybenz2 = $mybenz;
-    echo '<pre>';
-     print_r($mybenz2);
-    echo '</pre>';
+
 }
 
 }
