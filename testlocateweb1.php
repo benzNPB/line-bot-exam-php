@@ -117,6 +117,7 @@ $longu = 139.2746883;
                if($mybenz[$i]['name']==$mybenz1[$j]['name']){
                   unset($mybenz[$i]);
                   $mybenz = array_values($mybenz);
+                  $i--;
                }
             
 
