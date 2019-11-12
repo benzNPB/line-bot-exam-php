@@ -186,6 +186,7 @@ $COUNTN++;
           }
        $mybenz = order_array_num ($benz1, "dis", "ASC");
   $mybenz1 = order_array_num ($benz2, "dis", "ASC");
+     $mynum = count($mybenz);
      for($i=0;$i<count($mybenz);$i++)
    {
       for($j=0;$j<count($mybenz1);$j++)
@@ -201,13 +202,13 @@ $COUNTN++;
          }
       
    }
-
+$mynum2 = count($mybenz);
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
      
      
          if(count($mybenz1)>=1){
              $arrayPostData['messages'][0]['type'] = "text";
-             $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+             $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point".$mynum.":".$mynum2;
              
                 $arrayPostData['messages'][1]['type'] = "location";
                 $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",approximately distance = ".$mybenz[0]["dis"]."km";
