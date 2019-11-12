@@ -115,7 +115,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
          {
          
                if($mybenz[$i]['name']==$mybenz1[$j]['name']){
-                  echo $mybenz[$i]['name'];
+                  unset($mybenz[$i]);
                }
             
 
@@ -123,7 +123,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
          }
       
    }
-    
+    $mybenz = array_values($mybenz);
     print_r($mybenz);
 ////////////
 }
