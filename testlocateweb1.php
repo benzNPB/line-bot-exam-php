@@ -94,29 +94,26 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
      print_r($mybenz1);
     echo '</pre>';    
 
-    echo '<pre>';
-     print_r($mybenz[0]['name']);
-    echo '</pre>';
+    //echo '<pre>';
+     //print_r($mybenz[0]['name']);
+   // echo '</pre>';
 
-    echo '<pre>';
-     print_r($mybenz1[0]['name']);
-    echo '</pre>';
-         echo '<pre>';
-     print_r($kotae);
-    echo '</pre>'; 
+   // echo '<pre>';
+    // print_r($mybenz1[0]['name']);
+    //echo '</pre>';
+         //echo '<pre>';
+    // print_r($kotae);
+    //echo '</pre>'; 
 ///////////////
 // $mybenz = array_diff($mybenz,$mybenz1);
-    echo '<pre>';
+   // echo '<pre>';
     // print_r($mybenz);
     
-    $array1 = [0 => "a", 1 => "b", 2 => "c"];
-    $array2 = [0 => "a", 2 => "c"];
-    $array3 = array_diff($array1, $array2);
-    print_r($array3);
-    echo '</pre>';
-    echo '///////////////////////////////////';
-    $mybenzx = array_diff($mybenz, $mybenz1);
-    print_r($mybenzx);
+   for($i=0;$i<=count($mybenz);$i++)
+   {
+      echo $mybenz[$i]['name'];
+      
+   }
 ////////////
 }
    
