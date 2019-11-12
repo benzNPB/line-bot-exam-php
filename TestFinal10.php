@@ -186,14 +186,14 @@ $COUNTN++;
           }
        $mybenz = order_array_num ($benz1, "dis", "ASC");
   $mybenz1 = order_array_num ($benz2, "dis", "ASC");
-     $mystr = "";
      for($i=0;$i<count($mybenz);$i++)
    {
       for($j=0;$j<count($mybenz1);$j++)
          {
          
                if($mybenz[$i]['name']==$mybenz1[$j]['name']){
-                  $mystr .= "X";
+                  unset($mybenz[$i]);
+                  $mybenz = array_values($mybenz);
                }
             
 
@@ -203,28 +203,45 @@ $COUNTN++;
    }
 
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point".$mystr;
-        $arrayPostData['messages'][1]['type'] = "location";
-        $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",approximately distance = ".$mybenz[0]["dis"]."km";
-        $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
-        $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
-        $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
-        $arrayPostData['messages'][2]['type'] = "location";
-        $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].",approximately distance = ".$mybenz[1]["dis"]."km";
-        $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
-        $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
-        $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
-        $arrayPostData['messages'][3]['type'] = "location";
-        $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",approximately distance = ".$mybenz[2]["dis"]."km";
-        $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
-        $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
-        $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
-        $arrayPostData['messages'][4]['type'] = "location";
-        $arrayPostData['messages'][4]['title'] = $mybenz[4]["name"].",approximately distance = ".$mybenz[4]["dis"]."km";
-        $arrayPostData['messages'][4]['address'] =   $mybenz[4]["lati"].",".$mybenz[4]["lng"];
-        $arrayPostData['messages'][4]['latitude'] =  $mybenz[4]["lati"];
-        $arrayPostData['messages'][4]['longitude'] =  $mybenz[4]["lng"];
+     
+     
+         if(count($mybenz1)>=1){
+             $arrayPostData['messages'][0]['type'] = "text";
+             $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+             
+                $arrayPostData['messages'][1]['type'] = "location";
+                $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",approximately distance = ".$mybenz[0]["dis"]."km";
+                $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
+                $arrayPostData['messages'][1]['latitude'] =  $mybenz[0]["lati"];
+                $arrayPostData['messages'][1]['longitude'] =  $mybenz[0]["lng"];
+             
+                if(count($mybenz1)>=2){
+                    $arrayPostData['messages'][2]['type'] = "location";
+                    $arrayPostData['messages'][2]['title'] = $mybenz[1]["name"].",approximately distance = ".$mybenz[1]["dis"]."km";
+                    $arrayPostData['messages'][2]['address'] =   $mybenz[1]["lati"].",".$mybenz[1]["lng"];
+                    $arrayPostData['messages'][2]['latitude'] =  $mybenz[1]["lati"];
+                    $arrayPostData['messages'][2]['longitude'] =  $mybenz[1]["lng"];
+                }
+                 if(count($mybenz1)>=3){
+                     $arrayPostData['messages'][3]['type'] = "location";
+                    $arrayPostData['messages'][3]['title'] = $mybenz[2]["name"].",approximately distance = ".$mybenz[2]["dis"]."km";
+                    $arrayPostData['messages'][3]['address'] =   $mybenz[2]["lati"].",".$mybenz[2]["lng"];
+                    $arrayPostData['messages'][3]['latitude'] =  $mybenz[2]["lati"];
+                    $arrayPostData['messages'][3]['longitude'] =  $mybenz[2]["lng"];
+                 }
+             
+             if(count($mybenz1)>=4){
+                    $arrayPostData['messages'][4]['type'] = "location";
+                        $arrayPostData['messages'][4]['title'] = $mybenz[4]["name"].",approximately distance = ".$mybenz[4]["dis"]."km";
+                        $arrayPostData['messages'][4]['address'] =   $mybenz[4]["lati"].",".$mybenz[4]["lng"];
+                        $arrayPostData['messages'][4]['latitude'] =  $mybenz[4]["lati"];
+                        $arrayPostData['messages'][4]['longitude'] =  $mybenz[4]["lng"];
+                 }
+         }else{
+             $arrayPostData['messages'][0]['type'] = "text";
+             $arrayPostData['messages'][0]['text'] = "System not found nearest Evacuation point";
+         }
+
         replyMsg($arrayHeader,$arrayPostData);
 }
               }
