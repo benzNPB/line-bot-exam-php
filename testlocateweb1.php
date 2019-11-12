@@ -111,7 +111,16 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
     
    for($i=0;$i<count($mybenz);$i++)
    {
-      echo $mybenz[$i]['name'];
+      for($j=0;$j<count($mybenz1);$j++)
+         {
+         
+               if($mybenz[$i]['name']==$mybenz1[$j]['name']){
+                  echo $mybenz[$i]['name'];
+               }
+            
+
+
+         }
       
    }
 ////////////
