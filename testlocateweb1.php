@@ -115,11 +115,8 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
     print_r($array3);
     echo '</pre>';
     echo '///////////////////////////////////';
-    print_r($mybenz);
- echo '///////////////////////////////////';
-    print_r($mybenz1);
-    echo '///////////////////////////////////';
-    print_r($mybenz2);
+    $mybenzx = array_diff($mybenz, $mybenz1);
+    print_r($mybenzx);
 ////////////
 }
    
