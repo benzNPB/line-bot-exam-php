@@ -109,7 +109,7 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
    // echo '<pre>';
     // print_r($mybenz);
     
-   for($i=0;$i<=count($mybenz);$i++)
+   for($i=0;$i<count($mybenz);$i++)
    {
       echo $mybenz[$i]['name'];
       
