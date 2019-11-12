@@ -158,8 +158,9 @@ ini_set('display_errors', 1);
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $latid = "35.000000"; ////////////////////////// Disaster's location364341
-                  $lngd = "139.274426";  ////////////////////////// Disaster's location
+                  $latid = 35.36784636; ////////////////////////// Disaster's location364341
+                    $lngd = 139.2686967;  ////////////////////////// Disaster's location
+              
                     $deltaLat1 = deg2rad($lati1 - $latu);
                     $deltaLong1 = deg2rad($lng1 - $longu);
                   
@@ -174,17 +175,36 @@ ini_set('display_errors', 1);
                     $a1d = sin($deltaLat1d/2) * sin($deltaLat1d/2) + cos(deg2rad($lati1)) * cos(deg2rad($latid)) * sin($deltaLong1d/2) * sin($deltaLong1d/2);
                     $c1d = 2 * atan2(sqrt($a1d), sqrt(1-$a1d));
                     $disd = $R * $c1d;
+                    if($disd < 10){
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
+                    $kotae[] = $row["name"];
+                    }
  
 $COUNTN++;
 
  
           }
 
-  $mybenz = order_array_num ($benz2, "dis", "ASC");
+  $mybenz = order_array_num ($benz1, "dis", "ASC");
+  $mybenz1 = order_array_num ($benz2, "dis", "ASC");
+     $mystr = "";
+     for($i=0;$i<count($mybenz);$i++)
+   {
+      for($j=0;$j<count($mybenz1);$j++)
+         {
+         
+               if($mybenz[$i]['name']==$mybenz1[$j]['name']){
+                  $mystr .= $mybenz[$i]['name'];
+               }
+            
+
+
+         }
+      
+   }
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point";
+        $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point".$mystr;
         $arrayPostData['messages'][1]['type'] = "location";
         $arrayPostData['messages'][1]['title'] = $mybenz[0]["name"].",approximately distance = ".$mybenz[0]["dis"]."km";
         $arrayPostData['messages'][1]['address'] =   $mybenz[0]["lati"].",".$mybenz[0]["lng"];
