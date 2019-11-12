@@ -184,24 +184,8 @@ $COUNTN++;
 
  
           }
-
   $mybenz = order_array_num ($benz1, "dis", "ASC");
-  $mybenz1 = order_array_num ($benz2, "dis", "ASC");
-     $mystr = "";
-     for($i=0;$i<count($mybenz);$i++)
-   {
-      for($j=0;$j<count($mybenz1);$j++)
-         {
-         
-               if($mybenz[$i]['name']==$mybenz1[$j]['name']){
-                  $mystr .= $mybenz[$i]['name'];
-               }
-            
 
-
-         }
-      
-   }
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "Here is your nearest Evacuation point".$mystr;
