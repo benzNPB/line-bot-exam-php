@@ -105,9 +105,14 @@ $lngd = 139.2686967;  ////////////////////////// Disaster's location
      print_r($kotae);
     echo '</pre>'; 
 ///////////////
- $mybenz = array_diff($mybenz,$mybenz1);
+// $mybenz = array_diff($mybenz,$mybenz1);
     echo '<pre>';
-     print_r($mybenz);
+    // print_r($mybenz);
+    
+    $array1 = [0 => "a", 1 => "b", 2 => "c"];
+    $array2 = [0 => "a", 2 => "c"];
+    $array3 = array_diff($array1, $array2);
+    print_r($array3);
     echo '</pre>';
 
 ////////////
