@@ -158,8 +158,8 @@ ini_set('display_errors', 1);
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $latid = 35.36784636; ////////////////////////// Disaster's location364341
-                    $lngd = 139.2686967;  ////////////////////////// Disaster's location
+                  $latid = 35.3665457; ////////////////////////// Disaster's location364341
+                    $lngd = 139.268777;  ////////////////////////// Disaster's location
               
                     $deltaLat1 = deg2rad($lati1 - $latu);
                     $deltaLong1 = deg2rad($lng1 - $longu);
