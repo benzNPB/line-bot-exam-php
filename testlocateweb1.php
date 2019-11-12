@@ -34,12 +34,12 @@ $accessToken = "yQw5mqImEwMHcau8Hb9CXnPQaTlz11cUCGhUZL64yG1GyAyMJddLMqfjiLwlZgvK
     $benz2 = array();
     $kotae = array();
 $locate = array();
-$latu = 35.364219; //1st 7-11
-$longu = 139.267804;
-$latid = 35.36784636; ////////////////////////// Disaster's location364341
-$lngd = 139.2686967;  ////////////////////////// Disaster's location
+$latu = 35.3659516; //1st 7-11
+$longu = 139.2746883;
+ $latid = 35.3665457; ////////////////////////// Disaster's location364341
+ $lngd = 139.268777;  ////////////////////////// Disaster's location
         $COUNTN=0;       
-       $sql = "SELECT no,name,lati,lng FROM contest order by time desc limit 0,5";
+       $sql = "SELECT no,name,lati,lng FROM contest order by time desc";
         $result = $conn->query($sql);
           
  if ($result->num_rows > 0) {
