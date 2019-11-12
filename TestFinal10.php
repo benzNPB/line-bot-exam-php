@@ -193,7 +193,7 @@ $COUNTN++;
          {
          
                if($mybenz[$i]['name']==$mybenz1[$j]['name']){
-                  
+                  $mystr .= "X";
                }
             
 
