@@ -175,7 +175,7 @@ ini_set('display_errors', 1);
                     $a1d = sin($deltaLat1d/2) * sin($deltaLat1d/2) + cos(deg2rad($lati1)) * cos(deg2rad($latid)) * sin($deltaLong1d/2) * sin($deltaLong1d/2);
                     $c1d = 2 * atan2(sqrt($a1d), sqrt(1-$a1d));
                     $disd = $R * $c1d;
-                    if($disd < 3){
+                    if($disd < 1){
                     $benz2[] = array('name' => $row["name"] , 'lati' => $row["lati"] , 'lng' => $row["lng"] , 'dis' => $disd);
                     $kotae[] = $row["name"];
                     }
