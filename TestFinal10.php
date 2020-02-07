@@ -158,8 +158,12 @@ ini_set('display_errors', 1);
           while($row = $result->fetch_assoc() ){
                   $lati1 = $row["lati"];
                   $lng1 = $row["lng"];
-                  $latid = 35.3665457; ////////////////////////// Disaster's location364341
-                    $lngd = 139.268777;  ////////////////////////// Disaster's location
+              //    $url = "http://geofon.gfz-potsdam.de/eqinfo/list.php?fmt=rss";
+               //   $xmll = simplexml_load_file($url);
+               //   $xmld = $xmll->channel->item[0]->description;
+             //     $xmled = (explode(" ",$xmld));
+                  $latid = 35.3665457; ////////////////////////// Disaster's location364341 ///$xmled[3];
+                  $lngd = 139.268777;  ////////////////////////// Disaster's location           ///$xmled[6];
               
                     $deltaLat1 = deg2rad($lati1 - $latu);
                     $deltaLong1 = deg2rad($lng1 - $longu);
