@@ -614,7 +614,7 @@ $COUNTN++;
 
        for($i=0;$i<count($mybenz);$i++)
                {
-                   if($mybenz[$i]['dis']>=1){
+                   if($mybenz[$i]['dis']>=1;){
                   unset($mybenz[$i]);
                   break;
                }
