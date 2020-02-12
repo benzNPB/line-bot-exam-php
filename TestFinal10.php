@@ -577,8 +577,8 @@ $COUNTN++;
          else {
                 $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
                 $arrayPostData['messages'][0]['type'] = "text";
-                $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
-  //  $arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
+           //     $arrayPostData['messages'][0]['text'] = $tokens[0].",   ,".$tokens[1].",   ,".$tokens[2];
+                $arrayPostData['messages'][0]['text'] = "Sorry your location is out of area. Now our bot is cover only Kanagawa Pref.";
                 replyMsg($arrayHeader,$arrayPostData);    
          }
        }
