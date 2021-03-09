@@ -10,7 +10,7 @@
     $text = $arrayJson['events'][0]['message']['text'];
     $location = $arrayJson['events'][0]['message']['location'];
     $message = $arrayJson['events'][0]['message']['text'];
-    $R = 6371;
+
     $benz1 = array();     
     $benz2 = array();     
     $COUNTN=0;   
@@ -61,7 +61,15 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = "please type check car";
         replyMsg($arrayHeader,$arrayPostData);
     }    
-      
+        else if($row_command["Command"]=="add"){
+        $query = "INSERT INTO locktech(brand,year,gear,num) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'sell','".$currenttime."')";
+       mysqli_query($conn,$query );
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = ".$message.";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
 
      
 //////////////////////////////////////////////////////////////////////////////location//////////////////////////////////////////////////////////////////
