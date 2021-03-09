@@ -36,7 +36,9 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "ตัวอย่าง ";
+        $arrayPostData['messages'][0]['text'] = "ตัวอย่าง";
+        $arrayPostData['messages'][1]['type'] = "text";
+        $arrayPostData['messages'][1]['text'] = $arrayJson['events'][0]['message']['text'];
         replyMsg($arrayHeader,$arrayPostData);
     }
 
