@@ -36,7 +36,7 @@ ini_set('display_errors', 1);
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please type add car";
+        $arrayPostData['messages'][0]['text'] = "ตัวอย่าง ";
         replyMsg($arrayHeader,$arrayPostData);
     }
 
@@ -50,6 +50,17 @@ ini_set('display_errors', 1);
         $arrayPostData['messages'][0]['text'] = "please type sell car";
         replyMsg($arrayHeader,$arrayPostData);
     }
+
+         else if($message == "Check")
+    {        
+        $currenttime = date("Y-m-d H:i:s");
+       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'check','".$currenttime."')";
+       mysqli_query($conn,$query );
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "please type check car";
+        replyMsg($arrayHeader,$arrayPostData);
+    }    
       
 
      
