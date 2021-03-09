@@ -29,14 +29,25 @@ ini_set('display_errors', 1);
         }
 
 /////////////////////////////
-         if($message == "add")
+         if($message == "Add")
     {        
        $currenttime = date("Y-m-d H:i:s");
        $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'add', '".$currenttime."')";
        mysqli_query($conn,$query );
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['text'] = "please type ";
+        $arrayPostData['messages'][0]['text'] = "please type add car";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
+         else if($message == "Sell")
+    {        
+        $currenttime = date("Y-m-d H:i:s");
+       $query = "INSERT INTO command(iduserlink,username,Command,datime) VALUES ('".$arrayJson['events'][0]['source']['userId']."' , '".$username."', 'sell','".$currenttime."')";
+       mysqli_query($conn,$query );
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "please type sell car";
         replyMsg($arrayHeader,$arrayPostData);
     }
       
